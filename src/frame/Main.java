@@ -1,16 +1,19 @@
+package frame;
+
 
 public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setSize(1000,600);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backgraund = new javax.swing.JPanel();
+        background = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
@@ -18,14 +21,14 @@ public class Main extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backgraund.setBackground(new java.awt.Color(255, 255, 255));
-        backgraund.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tittle.setBackground(new java.awt.Color(0, 0, 0));
         tittle.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         tittle.setForeground(new java.awt.Color(0, 0, 0));
         tittle.setText("Automoviles Del Caribe SA");
-        backgraund.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
+        background.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
 
         jButton4.setText("Iniciar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -33,15 +36,19 @@ public class Main extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        backgraund.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, -1, -1));
+        background.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
 
-        getContentPane().add(backgraund, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 812, 627));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 627));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Options window = new Options();
+        window.setVisible(true);
+        
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -83,7 +90,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel backgraund;
+    private javax.swing.JPanel background;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
