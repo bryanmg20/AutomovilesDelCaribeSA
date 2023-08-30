@@ -73,6 +73,7 @@ public class Main extends javax.swing.JFrame {
             public void run() {
                 new Main().setVisible(true);
                 //Hola bryan, gracias por lo de hoy
+                //de nada pa
             }
         });
     }
