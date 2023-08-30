@@ -72,6 +72,7 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
+                //Hola bryan, gracias por lo de hoy
             }
         });
     }
