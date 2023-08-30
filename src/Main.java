@@ -3,6 +3,7 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -10,35 +11,38 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         backgraund = new javax.swing.JPanel();
+        tittle = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backgraund.setBackground(new java.awt.Color(255, 255, 255));
+        backgraund.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout backgraundLayout = new javax.swing.GroupLayout(backgraund);
-        backgraund.setLayout(backgraundLayout);
-        backgraundLayout.setHorizontalGroup(
-            backgraundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        backgraundLayout.setVerticalGroup(
-            backgraundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        tittle.setBackground(new java.awt.Color(0, 0, 0));
+        tittle.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
+        tittle.setForeground(new java.awt.Color(0, 0, 0));
+        tittle.setText("Automoviles Del Caribe SA");
+        backgraund.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgraund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgraund, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jButton4.setText("Iniciar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        backgraund.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, -1, -1));
+
+        getContentPane().add(backgraund, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 812, 627));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +84,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgraund;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }
