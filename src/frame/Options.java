@@ -4,6 +4,7 @@ import class_.Button_design;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import static frame.employee.*;
+import java.awt.Cursor;
 import java.security.Principal;
 import javax.swing.JFrame;
 
@@ -13,9 +14,15 @@ public class Options extends javax.swing.JFrame {
 
     public Options() {
         initComponents();
+        //centrar el jframe
         this.setLocationRelativeTo(null);
+        //llamamos la clase Button_desing
         controller = new Button_design(this);
+        //forzar el tamaño del jframe
         this.setSize(1000, 600);
+        
+        //tipo de cursor
+        button_employee.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     @SuppressWarnings("unchecked")
@@ -67,6 +74,7 @@ public class Options extends javax.swing.JFrame {
         menu.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 71, 170, 2));
 
         panel_employe.setBackground(new java.awt.Color(23, 93, 163));
+        panel_employe.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         panel_employe.setLayout(new java.awt.BorderLayout());
 
         button_employee.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
@@ -75,7 +83,6 @@ public class Options extends javax.swing.JFrame {
         button_employee.setBorderPainted(false);
         button_employee.setContentAreaFilled(false);
         button_employee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_employee.setDefaultCapable(false);
         button_employee.setFocusPainted(false);
         button_employee.setRequestFocusEnabled(false);
         button_employee.addActionListener(new java.awt.event.ActionListener() {
