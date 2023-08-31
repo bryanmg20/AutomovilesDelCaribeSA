@@ -1,16 +1,21 @@
 package frame;
 
-
+import class_.Button_design;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import static frame.employee.*;
+import java.security.Principal;
 import javax.swing.JFrame;
+
 public class Options extends javax.swing.JFrame {
+
+    public Button_design controller;
 
     public Options() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(1000,600);
+        controller = new Button_design(this);
+        this.setSize(1000, 600);
     }
 
     @SuppressWarnings("unchecked")
@@ -19,14 +24,17 @@ public class Options extends javax.swing.JFrame {
 
         backgound = new javax.swing.JPanel();
         menu = new javax.swing.JPanel();
-        employee = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        tittle = new javax.swing.JLabel();
+        line = new javax.swing.JPanel();
+        panel_employe = new javax.swing.JPanel();
+        button_employee = new javax.swing.JButton();
+        panel_sale = new javax.swing.JPanel();
+        button_sale = new javax.swing.JButton();
+        panel_graphique = new javax.swing.JPanel();
+        button_graphique = new javax.swing.JButton();
         sub_panel = new javax.swing.JPanel();
         content = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -38,34 +46,88 @@ public class Options extends javax.swing.JFrame {
         menu.setBackground(new java.awt.Color(11, 61, 138));
         menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        employee.setText("Empleado");
-        employee.addActionListener(new java.awt.event.ActionListener() {
+        tittle.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        tittle.setForeground(new java.awt.Color(255, 255, 255));
+        tittle.setText("Menú");
+        menu.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+
+        line.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout lineLayout = new javax.swing.GroupLayout(line);
+        line.setLayout(lineLayout);
+        lineLayout.setHorizontalGroup(
+            lineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        lineLayout.setVerticalGroup(
+            lineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+
+        menu.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 71, 170, 2));
+
+        panel_employe.setBackground(new java.awt.Color(23, 93, 163));
+        panel_employe.setLayout(new java.awt.BorderLayout());
+
+        button_employee.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        button_employee.setForeground(new java.awt.Color(255, 255, 255));
+        button_employee.setText("Empleados");
+        button_employee.setBorderPainted(false);
+        button_employee.setContentAreaFilled(false);
+        button_employee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_employee.setDefaultCapable(false);
+        button_employee.setFocusPainted(false);
+        button_employee.setRequestFocusEnabled(false);
+        button_employee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employeeActionPerformed(evt);
+                button_employeeActionPerformed(evt);
             }
         });
-        menu.add(employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 250, 40));
+        panel_employe.add(button_employee, java.awt.BorderLayout.CENTER);
 
-        jButton2.setText("Ventas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        menu.add(panel_employe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 250, 40));
+
+        panel_sale.setBackground(new java.awt.Color(23, 93, 163));
+        panel_sale.setLayout(new java.awt.BorderLayout());
+
+        button_sale.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        button_sale.setForeground(new java.awt.Color(255, 255, 255));
+        button_sale.setText("Ventas");
+        button_sale.setBorderPainted(false);
+        button_sale.setContentAreaFilled(false);
+        button_sale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_sale.setDefaultCapable(false);
+        button_sale.setFocusPainted(false);
+        button_sale.setRequestFocusEnabled(false);
+        button_sale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                button_saleActionPerformed(evt);
             }
         });
-        menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 250, 40));
+        panel_sale.add(button_sale, java.awt.BorderLayout.CENTER);
 
-        jButton3.setText("Graficas");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        menu.add(panel_sale, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 250, 40));
+
+        panel_graphique.setBackground(new java.awt.Color(23, 93, 163));
+        panel_graphique.setLayout(new java.awt.BorderLayout());
+
+        button_graphique.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        button_graphique.setForeground(new java.awt.Color(255, 255, 255));
+        button_graphique.setText("Graficas");
+        button_graphique.setBorderPainted(false);
+        button_graphique.setContentAreaFilled(false);
+        button_graphique.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_graphique.setDefaultCapable(false);
+        button_graphique.setFocusPainted(false);
+        button_graphique.setRequestFocusEnabled(false);
+        button_graphique.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                button_graphiqueActionPerformed(evt);
             }
         });
-        menu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 40));
+        panel_graphique.add(button_graphique, java.awt.BorderLayout.CENTER);
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Menú");
-        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        menu.add(panel_graphique, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 250, 40));
 
         backgound.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 600));
 
@@ -104,26 +166,26 @@ public class Options extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        sales window = new sales();
-        showPanel(window.get_panel(),window);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Graphiques window = new Graphiques();
-        showPanel(window.get_panel(),window);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeActionPerformed
+    private void button_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_employeeActionPerformed
         employee window = new employee();
-        showPanel(window.get_panel(),window);
-    }//GEN-LAST:event_employeeActionPerformed
-    
-    private void showPanel(JPanel panel, JFrame frame){
+        showPanel(window.get_panel(), window);
+    }//GEN-LAST:event_button_employeeActionPerformed
+
+    private void button_saleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saleActionPerformed
+        sales window = new sales();
+        showPanel(window.get_panel(), window);
+    }//GEN-LAST:event_button_saleActionPerformed
+
+    private void button_graphiqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_graphiqueActionPerformed
+        Graphiques window = new Graphiques();
+        showPanel(window.get_panel(), window);
+    }//GEN-LAST:event_button_graphiqueActionPerformed
+
+    private void showPanel(JPanel panel, JFrame frame) {
         frame.setSize(750, 420);
         frame.setLocation(0, 0);
         content.removeAll();
-        
+
         try {
             content.add(panel, BorderLayout.CENTER);
         } catch (Exception e) {
@@ -132,6 +194,7 @@ public class Options extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -165,12 +228,17 @@ public class Options extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgound;
+    public javax.swing.JButton button_employee;
+    public javax.swing.JButton button_graphique;
+    public javax.swing.JButton button_sale;
     public static javax.swing.JPanel content;
-    private javax.swing.JButton employee;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel line;
     private javax.swing.JPanel menu;
+    public javax.swing.JPanel panel_employe;
+    public javax.swing.JPanel panel_graphique;
+    public javax.swing.JPanel panel_sale;
     private javax.swing.JPanel sub_panel;
+    private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
+
 }
