@@ -32,15 +32,16 @@ public class Options extends javax.swing.JFrame {
         menu = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
         line = new javax.swing.JPanel();
-        panel_add_employe = new javax.swing.JPanel();
+        panel_add_employee = new javax.swing.JPanel();
         button_add_employee = new javax.swing.JButton();
-        panel_eliminated_employee = new javax.swing.JPanel();
+        panel_eliminate_employee = new javax.swing.JPanel();
         button_eliminate_employee = new javax.swing.JButton();
         panel_add_sale = new javax.swing.JPanel();
         button_add_sale = new javax.swing.JButton();
-        panel_see = new javax.swing.JPanel();
+        panel_eliminate_sale = new javax.swing.JPanel();
         button_eliminate_sale = new javax.swing.JButton();
         sub_panel = new javax.swing.JPanel();
+        sub_tittle = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -74,9 +75,9 @@ public class Options extends javax.swing.JFrame {
 
         menu.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 71, 170, 2));
 
-        panel_add_employe.setBackground(new java.awt.Color(23, 93, 163));
-        panel_add_employe.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-        panel_add_employe.setLayout(new java.awt.BorderLayout());
+        panel_add_employee.setBackground(new java.awt.Color(23, 93, 163));
+        panel_add_employee.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        panel_add_employee.setLayout(new java.awt.BorderLayout());
 
         button_add_employee.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         button_add_employee.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,12 +92,12 @@ public class Options extends javax.swing.JFrame {
                 button_add_employeeActionPerformed(evt);
             }
         });
-        panel_add_employe.add(button_add_employee, java.awt.BorderLayout.CENTER);
+        panel_add_employee.add(button_add_employee, java.awt.BorderLayout.CENTER);
 
-        menu.add(panel_add_employe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 250, 40));
+        menu.add(panel_add_employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 250, 40));
 
-        panel_eliminated_employee.setBackground(new java.awt.Color(23, 93, 163));
-        panel_eliminated_employee.setLayout(new java.awt.BorderLayout());
+        panel_eliminate_employee.setBackground(new java.awt.Color(23, 93, 163));
+        panel_eliminate_employee.setLayout(new java.awt.BorderLayout());
 
         button_eliminate_employee.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         button_eliminate_employee.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,9 +113,9 @@ public class Options extends javax.swing.JFrame {
                 button_eliminate_employeeActionPerformed(evt);
             }
         });
-        panel_eliminated_employee.add(button_eliminate_employee, java.awt.BorderLayout.CENTER);
+        panel_eliminate_employee.add(button_eliminate_employee, java.awt.BorderLayout.CENTER);
 
-        menu.add(panel_eliminated_employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 250, 40));
+        menu.add(panel_eliminate_employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 250, 40));
 
         panel_add_sale.setBackground(new java.awt.Color(23, 93, 163));
         panel_add_sale.setLayout(new java.awt.BorderLayout());
@@ -137,8 +138,8 @@ public class Options extends javax.swing.JFrame {
 
         menu.add(panel_add_sale, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 250, 40));
 
-        panel_see.setBackground(new java.awt.Color(23, 93, 163));
-        panel_see.setLayout(new java.awt.BorderLayout());
+        panel_eliminate_sale.setBackground(new java.awt.Color(23, 93, 163));
+        panel_eliminate_sale.setLayout(new java.awt.BorderLayout());
 
         button_eliminate_sale.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         button_eliminate_sale.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,24 +155,18 @@ public class Options extends javax.swing.JFrame {
                 button_eliminate_saleActionPerformed(evt);
             }
         });
-        panel_see.add(button_eliminate_sale, java.awt.BorderLayout.CENTER);
+        panel_eliminate_sale.add(button_eliminate_sale, java.awt.BorderLayout.CENTER);
 
-        menu.add(panel_see, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, 40));
+        menu.add(panel_eliminate_sale, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, 40));
 
         backgound.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 600));
 
         sub_panel.setBackground(new java.awt.Color(33, 122, 204));
+        sub_panel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 45));
 
-        javax.swing.GroupLayout sub_panelLayout = new javax.swing.GroupLayout(sub_panel);
-        sub_panel.setLayout(sub_panelLayout);
-        sub_panelLayout.setHorizontalGroup(
-            sub_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
-        );
-        sub_panelLayout.setVerticalGroup(
-            sub_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
+        sub_tittle.setFont(new java.awt.Font("SansSerif", 2, 48)); // NOI18N
+        sub_tittle.setForeground(new java.awt.Color(255, 255, 255));
+        sub_panel.add(sub_tittle);
 
         backgound.add(sub_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 750, 150));
 
@@ -198,21 +193,25 @@ public class Options extends javax.swing.JFrame {
     private void button_add_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_employeeActionPerformed
         add_employee window = new add_employee();
         showPanel(window.get_panel(), window);
+        sub_tittle.setText("/Agregar Empleado");
     }//GEN-LAST:event_button_add_employeeActionPerformed
 
     private void button_eliminate_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_eliminate_employeeActionPerformed
         eliminate_employee window = new eliminate_employee();
         showPanel(window.get_panel(), window);
+        sub_tittle.setText("/Eliminar Empleado");
     }//GEN-LAST:event_button_eliminate_employeeActionPerformed
 
     private void button_add_saleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_saleActionPerformed
         add_sale window = new add_sale();
         showPanel(window.get_panel(), window);
+        sub_tittle.setText("/Agregar Venta");
     }//GEN-LAST:event_button_add_saleActionPerformed
 
     private void button_eliminate_saleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_eliminate_saleActionPerformed
         eliminate_sale window = new eliminate_sale();
         showPanel(window.get_panel(), window);
+        sub_tittle.setText("/Eliminar Venta");
     }//GEN-LAST:event_button_eliminate_saleActionPerformed
 
     public static void showPanel(JPanel panel, JFrame frame) {
@@ -269,11 +268,12 @@ public class Options extends javax.swing.JFrame {
     public static javax.swing.JPanel content;
     private javax.swing.JPanel line;
     private javax.swing.JPanel menu;
-    public javax.swing.JPanel panel_add_employe;
+    public javax.swing.JPanel panel_add_employee;
     public javax.swing.JPanel panel_add_sale;
-    public javax.swing.JPanel panel_eliminated_employee;
-    public javax.swing.JPanel panel_see;
+    public javax.swing.JPanel panel_eliminate_employee;
+    public javax.swing.JPanel panel_eliminate_sale;
     private javax.swing.JPanel sub_panel;
+    private javax.swing.JLabel sub_tittle;
     private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 
