@@ -184,9 +184,9 @@ public class Options extends javax.swing.JFrame {
         sub_panel.setBackground(new java.awt.Color(33, 122, 204));
         sub_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sub_tittle.setFont(new java.awt.Font("SansSerif", 2, 24)); // NOI18N
+        sub_tittle.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         sub_tittle.setForeground(new java.awt.Color(255, 255, 255));
-        sub_panel.add(sub_tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        sub_panel.add(sub_tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         menu_employee.setBackground(new java.awt.Color(33, 122, 204));
         menu_employee.setLayout(new java.awt.GridLayout(1, 0));
@@ -327,7 +327,7 @@ public class Options extends javax.swing.JFrame {
         menu_employee.setVisible(true);
         menu_sale.setVisible(false);
         //
-        sub_tittle.setText("Agregar/Eliminar Empleados.");
+        sub_tittle.setText("/Administración de Empleados.");
     }//GEN-LAST:event_button_employeeActionPerformed
 
     private void button_saleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saleActionPerformed
@@ -342,7 +342,7 @@ public class Options extends javax.swing.JFrame {
         menu_employee.setVisible(false);
         menu_sale.setVisible(true);
 
-        sub_tittle.setText("/Eliminar Empleado");
+        sub_tittle.setText("/Administración de ventas");
     }//GEN-LAST:event_button_saleActionPerformed
 
     private void button_graphiqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_graphiqueActionPerformed
@@ -350,7 +350,7 @@ public class Options extends javax.swing.JFrame {
         showPanel(window.get_panel(), content);
         menu_employee.setVisible(false);
         menu_sale.setVisible(false);
-        sub_tittle.setText("/Grafica");
+        sub_tittle.setText("/Relación entre los tipos de autos, la cantidad vendida y el valor total. ");
     }//GEN-LAST:event_button_graphiqueActionPerformed
 
     private void button_seeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_seeActionPerformed
@@ -358,7 +358,7 @@ public class Options extends javax.swing.JFrame {
         showPanel(window.get_panel(), content);
         menu_employee.setVisible(false);
         menu_sale.setVisible(false);
-        sub_tittle.setText("/Ver Archivos");
+        sub_tittle.setText("/Visualizar archivo de empleados y de ventas");
     }//GEN-LAST:event_button_seeActionPerformed
 
     private void button_add_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_employeeActionPerformed
