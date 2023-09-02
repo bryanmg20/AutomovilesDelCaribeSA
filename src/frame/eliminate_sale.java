@@ -4,6 +4,7 @@
  */
 package frame;
 
+import static class_.File_sub.eliminarRegistro;
 import javax.swing.JPanel;
 
 /**
@@ -30,28 +31,44 @@ public class eliminate_sale extends javax.swing.JFrame {
 
         panel_eliminate_sale = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        eliminar_v = new javax.swing.JTextField();
+        eliminate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_eliminate_sale.setBackground(new java.awt.Color(255, 255, 255));
         panel_eliminate_sale.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("eliminar venta");
-        panel_eliminate_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
+        jLabel1.setText("Codigo del vehiculo");
+        panel_eliminate_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        panel_eliminate_sale.add(eliminar_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 110, -1));
+
+        eliminate.setText("Eliminar Venta");
+        eliminate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminateActionPerformed(evt);
+            }
+        });
+        panel_eliminate_sale.add(eliminate, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void eliminateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminateActionPerformed
+        String palabra = eliminar_v.getText();
+        eliminarRegistro(palabra, "Ventas.txt");
+    }//GEN-LAST:event_eliminateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +106,8 @@ public class eliminate_sale extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField eliminar_v;
+    private javax.swing.JButton eliminate;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel panel_eliminate_sale;
     // End of variables declaration//GEN-END:variables

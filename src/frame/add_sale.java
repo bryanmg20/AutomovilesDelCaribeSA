@@ -4,6 +4,7 @@
  */
 package frame;
 
+import static class_.File_sub.agregarRegistro;
 import javax.swing.JPanel;
 
 /**
@@ -30,28 +31,80 @@ public class add_sale extends javax.swing.JFrame {
 
         panel_add_sale = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        nombre_v = new javax.swing.JTextField();
+        apellido_v = new javax.swing.JTextField();
+        cedula_v = new javax.swing.JTextField();
+        marca = new javax.swing.JTextField();
+        codigo = new javax.swing.JTextField();
+        costo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_add_sale.setBackground(new java.awt.Color(255, 255, 255));
         panel_add_sale.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("agregar venta");
-        panel_add_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
+        jLabel1.setText("Apellido Empleado");
+        panel_add_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jLabel2.setText("Cedula Empleado");
+        panel_add_sale.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+
+        jLabel3.setText("Marca del vehiculo");
+        panel_add_sale.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+
+        jLabel4.setText("Codigo del vehiculo");
+        panel_add_sale.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+
+        jLabel5.setText("Costo del vehiculo");
+        panel_add_sale.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+
+        jLabel6.setText("Nombre Empleado");
+        panel_add_sale.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        panel_add_sale.add(nombre_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
+        panel_add_sale.add(apellido_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
+        panel_add_sale.add(cedula_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
+        panel_add_sale.add(marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 110, -1));
+        panel_add_sale.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 110, -1));
+        panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, -1));
+
+        jButton1.setText("Agregar Venta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panel_add_sale.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String aux[] = new String[100];
+        aux[0] = nombre_v.getText();
+        aux[1] = apellido_v.getText();
+        aux[2] = codigo.getText();
+        aux[3] = cedula_v.getText();
+        aux[4] = marca.getText();
+        aux[5] = costo.getText();
+        agregarRegistro(aux, "Ventas.txt");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,7 +142,19 @@ public class add_sale extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apellido_v;
+    private javax.swing.JTextField cedula_v;
+    private javax.swing.JTextField codigo;
+    private javax.swing.JTextField costo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField marca;
+    private javax.swing.JTextField nombre_v;
     public javax.swing.JPanel panel_add_sale;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,6 +1,7 @@
 package frame;
 
 import java.awt.Image;
+import java.io.*;
 import javax.swing.ImageIcon;
 
 public class Main extends javax.swing.JFrame {
@@ -9,7 +10,15 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(600, 300);
-        
+        File archivo = new File("Ventas.txt");
+        if (archivo.exists() == false) {
+            try {
+                PrintWriter pw = new PrintWriter(archivo);
+                pw.close();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -22,7 +31,7 @@ public class Main extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        start = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -44,19 +53,18 @@ public class Main extends javax.swing.JFrame {
 
         tittle.setBackground(new java.awt.Color(0, 0, 0));
         tittle.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        tittle.setForeground(new java.awt.Color(0, 0, 0));
         tittle.setText("Automoviles Del Caribe SA");
         jPanel2.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 440, 75));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton4.setText("Iniciar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        start.setText("Iniciar");
+        start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                startActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4);
+        jPanel3.add(start);
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 600, 75));
 
@@ -67,13 +75,11 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         this.setVisible(false);
         Options window = new Options();
         window.setVisible(true);
-
-
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,10 +122,10 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JLabel images;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton start;
     private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }
