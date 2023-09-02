@@ -410,7 +410,7 @@ public class Options extends javax.swing.JFrame {
         menu.add(panel_see, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, 40));
 
         content_menu.setBackground(new java.awt.Color(11, 61, 138));
-        content_menu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+        content_menu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 30));
 
         tittle.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         tittle.setForeground(new java.awt.Color(255, 255, 255));

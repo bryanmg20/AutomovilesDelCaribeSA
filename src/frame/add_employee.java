@@ -30,19 +30,20 @@ public class add_employee extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_add_employee = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         nombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         apellido = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         cedula = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         cargo = new javax.swing.JTextField();
-        telefono = new javax.swing.JTextField();
-        fecha = new javax.swing.JTextField();
-        salario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        telefono = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        fecha = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        salario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
 
@@ -51,33 +52,50 @@ public class add_employee extends javax.swing.JFrame {
         panel_add_employee.setBackground(new java.awt.Color(255, 255, 255));
         panel_add_employee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.GridLayout(4, 5, 10, 55));
+        jPanel1.add(nombre);
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre");
-        panel_add_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-        panel_add_employee.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 110, -1));
+        jPanel1.add(jLabel1);
+        jPanel1.add(apellido);
 
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Apellido");
-        panel_add_employee.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-        panel_add_employee.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 110, -1));
+        jPanel1.add(jLabel2);
+        jPanel1.add(cedula);
 
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cedula");
-        panel_add_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
-        panel_add_employee.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 110, -1));
-        panel_add_employee.add(cargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 110, -1));
-        panel_add_employee.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 110, -1));
-        panel_add_employee.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 110, -1));
-        panel_add_employee.add(salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 110, -1));
+        jPanel1.add(jLabel3);
+        jPanel1.add(cargo);
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Cargo");
-        panel_add_employee.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        jPanel1.add(jLabel4);
+        jPanel1.add(telefono);
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Telefono");
-        panel_add_employee.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        jPanel1.add(jLabel5);
+        jPanel1.add(fecha);
 
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Fecha");
-        panel_add_employee.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        jPanel1.add(jLabel6);
+        jPanel1.add(salario);
 
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Salario");
-        panel_add_employee.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+        jPanel1.add(jLabel7);
 
         add.setText("Agregar empleado");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +103,9 @@ public class add_employee extends javax.swing.JFrame {
                 addActionPerformed(evt);
             }
         });
-        panel_add_employee.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
+        jPanel1.add(add);
+
+        panel_add_employee.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 670, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,6 +181,7 @@ public class add_employee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombre;
     public javax.swing.JPanel panel_add_employee;
     private javax.swing.JTextField salario;

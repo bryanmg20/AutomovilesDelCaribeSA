@@ -842,7 +842,7 @@
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
-                <Property name="verticalGap" type="int" value="15"/>
+                <Property name="verticalGap" type="int" value="30"/>
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="tittle">
