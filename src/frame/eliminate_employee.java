@@ -66,8 +66,8 @@ public class eliminate_employee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminateActionPerformed
-        String palabra = eliminar.getText();
-        eliminarRegistro(palabra, "Empleados.txt");
+        String cedula = eliminar.getText();
+        eliminarRegistro(cedula, "Empleados.txt");
     }//GEN-LAST:event_eliminateActionPerformed
 
     /**

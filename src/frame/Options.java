@@ -170,7 +170,7 @@ public class Options extends javax.swing.JFrame {
         button_eliminate_sale.setBackground(new java.awt.Color(11, 61, 138));
         button_eliminate_sale.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         button_eliminate_sale.setForeground(new java.awt.Color(255, 255, 255));
-        button_eliminate_sale.setText("Eliminar Empleado");
+        button_eliminate_sale.setText("Eliminar Venta");
         button_eliminate_sale.setBorderPainted(false);
         button_eliminate_sale.setContentAreaFilled(false);
         button_eliminate_sale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

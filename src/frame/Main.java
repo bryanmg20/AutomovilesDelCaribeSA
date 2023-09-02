@@ -10,6 +10,7 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(600, 300);
+        
         File archivo = new File("Ventas.txt");
         if (archivo.exists() == false) {
             try {
@@ -27,7 +28,6 @@ public class Main extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        images = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -42,10 +42,6 @@ public class Main extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        images.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/car (2).gif"))); // NOI18N
-        jPanel1.add(images, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -70, 340, 230));
-
         background.add(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -121,7 +117,6 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JLabel images;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

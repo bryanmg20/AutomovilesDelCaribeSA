@@ -85,7 +85,7 @@ public class add_employee extends javax.swing.JFrame {
                 addActionPerformed(evt);
             }
         });
-        panel_add_employee.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, -1));
+        panel_add_employee.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,7 +95,7 @@ public class add_employee extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+            .addComponent(panel_add_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
         pack();
