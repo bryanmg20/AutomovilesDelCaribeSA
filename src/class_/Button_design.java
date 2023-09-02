@@ -7,23 +7,37 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 public class Button_design implements MouseListener {
-
-    boolean pressed_add_e = false;
-    boolean pressed_eli_e = false;
-    boolean pressed_add_s = false;
-    boolean pressed_eli_s = false;
-    private final Options view;
+    //verifican si el boton esta seleccionado para seleccionar el color acordado
+    boolean employee = false;
+    boolean sale = false;
+    boolean graphique = false;
+    boolean see = false;
+    
+    public boolean add_e = true;
+    public boolean eliminate_e = false;
+    public boolean add_s = true;
+    public boolean eliminate_s = false;
+    
+    public final Options view;
 
     public Button_design(Options view) {
         this.view = view;
+ 
         events();
     }
+    
 
     public final void events() {
+        view.button_employee.addMouseListener(this);
+        view.button_sale.addMouseListener(this);
+        
         view.button_add_employee.addMouseListener(this);
         view.button_eliminate_employee.addMouseListener(this);
         view.button_add_sale.addMouseListener(this);
         view.button_eliminate_sale.addMouseListener(this);
+        
+        view.button_graphique.addMouseListener(this);
+        view.button_see.addMouseListener(this);
 
     }
 
@@ -33,50 +47,86 @@ public class Button_design implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        
+        //cambio de color de los botones del menu
         Object evt = e.getSource();
+        if (evt.equals(view.button_employee)) {
+            changeAparence(view.panel_employee, new Color(11, 61, 138));
+
+            changeAparence(view.panel_sale, new Color(23, 93, 163));
+            changeAparence(view.panel_graphique, new Color(23, 93, 163));
+            changeAparence(view.panel_see, new Color(23, 93, 163));
+            employee = true;
+            sale = false;
+            graphique = false;
+            see = false;
+        }
+        if (evt.equals(view.button_sale)) {
+            changeAparence(view.panel_sale, new Color(11, 61, 138));
+
+            changeAparence(view.panel_employee, new Color(23, 93, 163));
+            changeAparence(view.panel_graphique, new Color(23, 93, 163));
+            changeAparence(view.panel_see, new Color(23, 93, 163));
+            employee = false;
+            sale = true;
+            graphique = false;
+            see = false;
+        }
+        if (evt.equals(view.button_graphique)) {
+            changeAparence(view.panel_graphique, new Color(11, 61, 138));
+
+            changeAparence(view.panel_sale, new Color(23, 93, 163));
+            changeAparence(view.panel_employee, new Color(23, 93, 163));
+            changeAparence(view.panel_see, new Color(23, 93, 163));
+            employee = false;
+            sale = false;
+            graphique = true;
+            see = false;
+        }
+        if (evt.equals(view.button_see)) {
+            changeAparence(view.panel_see, new Color(11, 61, 138));
+
+            changeAparence(view.panel_sale, new Color(23, 93, 163));
+            changeAparence(view.panel_graphique, new Color(23, 93, 163));
+            changeAparence(view.panel_employee, new Color(23, 93, 163));
+            employee = false;
+            sale = false;
+            graphique = false;
+            see = true;
+        }
+        
+        //botones de eliminar y agregar empleado y ventas(cambio de colores)
         if (evt.equals(view.button_add_employee)) {
             changeAparence(view.panel_add_employee, new Color(11, 61, 138));
 
             changeAparence(view.panel_eliminate_employee, new Color(23, 93, 163));
-            changeAparence(view.panel_add_sale, new Color(23, 93, 163));
-            changeAparence(view.panel_eliminate_sale, new Color(23, 93, 163));
-            pressed_add_e = true;
-            pressed_eli_e = false;
-            pressed_add_s = false;
-            pressed_eli_s = false;
+    
+            add_e = true;
+            eliminate_e = false;
         }
         if (evt.equals(view.button_eliminate_employee)) {
-            changeAparence(view.panel_eliminate_employee, new Color(11, 61, 138));
-
             changeAparence(view.panel_add_employee, new Color(23, 93, 163));
-            changeAparence(view.panel_add_sale, new Color(23, 93, 163));
-            changeAparence(view.panel_eliminate_sale, new Color(23, 93, 163));
-            pressed_add_e = false;
-            pressed_eli_e = true;
-            pressed_add_s = false;
-            pressed_eli_s = false;
+
+            changeAparence(view.panel_eliminate_employee, new Color(11, 61, 133));
+    
+            add_e = false;
+            eliminate_e = true;
         }
         if (evt.equals(view.button_add_sale)) {
-            changeAparence(view.panel_add_sale, new Color(11, 61, 138));
+            changeAparence(view.panel_add_sale, new Color(11, 61, 133));
 
-            changeAparence(view.panel_eliminate_employee, new Color(23, 93, 163));
-            changeAparence(view.panel_add_employee, new Color(23, 93, 163));
             changeAparence(view.panel_eliminate_sale, new Color(23, 93, 163));
-            pressed_add_e = false;
-            pressed_eli_e = false;
-            pressed_add_s = true;
-            pressed_eli_s = false;
+    
+            add_s = true;
+            eliminate_s = false;
         }
         if (evt.equals(view.button_eliminate_sale)) {
-            changeAparence(view.panel_eliminate_sale, new Color(11, 61, 138));
-
-            changeAparence(view.panel_eliminate_employee, new Color(23, 93, 163));
             changeAparence(view.panel_add_sale, new Color(23, 93, 163));
-            changeAparence(view.panel_add_employee, new Color(23, 93, 163));
-            pressed_add_e = false;
-            pressed_eli_e = false;
-            pressed_add_s = false;
-            pressed_eli_s = true;
+
+            changeAparence(view.panel_eliminate_sale, new Color(11, 61, 133));
+    
+            add_s = false;
+            eliminate_s = true;
         }
     }
 
@@ -89,23 +139,39 @@ public class Button_design implements MouseListener {
     public void mouseEntered(MouseEvent e) {
         Object evt = e.getSource();
 
-        if (evt.equals(view.button_add_employee) && !pressed_add_e) {
-            changeAparence(view.panel_add_employee, new Color(27, 105, 188));
+        if (evt.equals(view.button_employee) && !employee) {
+            changeAparence(view.panel_employee, new Color(27, 105, 188));
 
         }
-        if (evt.equals(view.button_eliminate_employee) && !pressed_eli_e) {
+        if (evt.equals(view.button_sale) && !sale) {
+
+            changeAparence(view.panel_sale, new Color(27, 105, 188));
+
+        }
+        if (evt.equals(view.button_graphique) && !graphique) {
+
+            changeAparence(view.panel_graphique, new Color(27, 105, 188));
+
+        }
+        if (evt.equals(view.button_see) && !see) {
+
+            changeAparence(view.panel_see, new Color(27, 105, 188));
+        }
+        if (evt.equals(view.button_add_employee) && !add_e) {
+
+            changeAparence(view.panel_add_employee, new Color(27, 105, 188));
+        }
+        if (evt.equals(view.button_eliminate_employee) && !eliminate_e) {
 
             changeAparence(view.panel_eliminate_employee, new Color(27, 105, 188));
-
         }
-        if (evt.equals(view.button_add_sale) && !pressed_add_s) {
-
-            changeAparence(view.panel_add_sale, new Color(27, 105, 188));
-
-        }
-        if (evt.equals(view.button_eliminate_sale) && !pressed_eli_s) {
+        if (evt.equals(view.button_eliminate_sale) && !eliminate_s) {
 
             changeAparence(view.panel_eliminate_sale, new Color(27, 105, 188));
+        }
+        if (evt.equals(view.button_add_sale) && !add_s) {
+
+            changeAparence(view.panel_add_sale, new Color(27, 105, 188));
         }
 
     }
@@ -114,27 +180,43 @@ public class Button_design implements MouseListener {
     //Acccion al quitar el mouse
     public void mouseExited(MouseEvent e) {
         Object evt = e.getSource();
-        if (evt.equals(view.button_add_employee) && !pressed_add_e) {
-            changeAparence(view.panel_add_employee, new Color(23, 93, 163));
+        if (evt.equals(view.button_employee) && !employee) {
+            changeAparence(view.panel_employee, new Color(23, 93, 163));
 
         }
-        if (evt.equals(view.button_eliminate_employee) && !pressed_eli_e) {
+        if (evt.equals(view.button_sale) && !sale) {
+
+            changeAparence(view.panel_sale, new Color(23, 93, 163));
+
+        }
+        if (evt.equals(view.button_graphique) && !graphique) {
+
+            changeAparence(view.panel_graphique, new Color(23, 93, 163));
+
+        }
+        if (evt.equals(view.button_see) && !see) {
+
+            changeAparence(view.panel_see, new Color(23, 93, 163));
+        }
+        if (evt.equals(view.button_add_employee) && !add_e) {
+
+            changeAparence(view.panel_add_employee, new Color(23, 93, 163));
+        }
+        if (evt.equals(view.button_eliminate_employee) && !eliminate_e) {
 
             changeAparence(view.panel_eliminate_employee, new Color(23, 93, 163));
-
         }
-        if (evt.equals(view.button_add_sale) && !pressed_add_s) {
-
-            changeAparence(view.panel_add_sale, new Color(23, 93, 163));
-
-        }
-        if (evt.equals(view.button_eliminate_sale) && !pressed_eli_s) {
+        if (evt.equals(view.button_eliminate_sale) && !eliminate_s) {
 
             changeAparence(view.panel_eliminate_sale, new Color(23, 93, 163));
         }
+        if (evt.equals(view.button_add_sale) && !add_s) {
+
+            changeAparence(view.panel_add_sale, new Color(23, 93, 163));
+        }
     }
 
-    private void changeAparence(JPanel panel, Color color) {
+    public void changeAparence(JPanel panel, Color color) {
         panel.setBackground(color);
     }
 }

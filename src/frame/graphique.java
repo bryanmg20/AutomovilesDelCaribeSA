@@ -10,12 +10,12 @@ import javax.swing.JPanel;
  *
  * @author bryan
  */
-public class add_employee extends javax.swing.JFrame {
+public class graphique extends javax.swing.JFrame {
 
     /**
-     * Creates new form add_employee
+     * Creates new form graphique
      */
-    public add_employee() {
+    public graphique() {
         initComponents();
     }
 
@@ -28,26 +28,41 @@ public class add_employee extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_add_employee = new javax.swing.JPanel();
+        panel_graphique = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel_add_employee.setBackground(new java.awt.Color(255, 255, 255));
-        panel_add_employee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_graphique.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("agregar empleado");
-        panel_add_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
+        jLabel1.setText("grafica");
+
+        javax.swing.GroupLayout panel_graphiqueLayout = new javax.swing.GroupLayout(panel_graphique);
+        panel_graphique.setLayout(panel_graphiqueLayout);
+        panel_graphiqueLayout.setHorizontalGroup(
+            panel_graphiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_graphiqueLayout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(jLabel1)
+                .addContainerGap(186, Short.MAX_VALUE))
+        );
+        panel_graphiqueLayout.setVerticalGroup(
+            panel_graphiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_graphiqueLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1)
+                .addContainerGap(189, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+            .addComponent(panel_graphique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+            .addComponent(panel_graphique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -70,28 +85,28 @@ public class add_employee extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new add_employee().setVisible(true);
+                new graphique().setVisible(true);
             }
         });
     }
     public JPanel get_panel(){
-        return panel_add_employee;
+        return panel_graphique;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel panel_add_employee;
+    private javax.swing.JPanel panel_graphique;
     // End of variables declaration//GEN-END:variables
 }

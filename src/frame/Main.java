@@ -6,7 +6,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(1000,600);
+        this.setSize(600,300);
     }
 
     @SuppressWarnings("unchecked")
@@ -14,7 +14,9 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         tittle = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -22,13 +24,21 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        background.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 80));
 
         tittle.setBackground(new java.awt.Color(0, 0, 0));
         tittle.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         tittle.setForeground(new java.awt.Color(0, 0, 0));
         tittle.setText("Automoviles Del Caribe SA");
-        background.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
+        jPanel1.add(tittle);
+
+        background.add(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         jButton4.setText("Iniciar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -36,9 +46,11 @@ public class Main extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        background.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
+        jPanel2.add(jButton4);
 
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 627));
+        background.add(jPanel2);
+
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -92,6 +104,8 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton jButton4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }
