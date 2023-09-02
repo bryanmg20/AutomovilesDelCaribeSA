@@ -544,9 +544,6 @@ public class Options extends javax.swing.JFrame {
         screen.revalidate();
         screen.repaint();
     }
-    public JPanel get_panel(JPanel panel){
-        return panel;
-    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
