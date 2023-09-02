@@ -1,12 +1,15 @@
 package frame;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(600,300);
+        this.setSize(600, 300);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -15,8 +18,10 @@ public class Main extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        tittle = new javax.swing.JLabel();
+        images = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        tittle = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -27,18 +32,23 @@ public class Main extends javax.swing.JFrame {
         background.setLayout(new java.awt.GridLayout(2, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 80));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        images.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/car (2).gif"))); // NOI18N
+        jPanel1.add(images, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -70, 340, 230));
+
+        background.add(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tittle.setBackground(new java.awt.Color(0, 0, 0));
         tittle.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
         tittle.setForeground(new java.awt.Color(0, 0, 0));
         tittle.setText("Automoviles Del Caribe SA");
-        jPanel1.add(tittle);
+        jPanel2.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 440, 75));
 
-        background.add(jPanel1);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton4.setText("Iniciar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -46,7 +56,9 @@ public class Main extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4);
+        jPanel3.add(jButton4);
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 600, 75));
 
         background.add(jPanel2);
 
@@ -59,8 +71,8 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
         Options window = new Options();
         window.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -68,7 +80,7 @@ public class Main extends javax.swing.JFrame {
      */
     //prueba
     public static void main(String args[]) {
-       
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -103,9 +115,11 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JLabel images;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }
