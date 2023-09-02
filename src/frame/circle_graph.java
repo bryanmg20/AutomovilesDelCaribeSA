@@ -10,12 +10,12 @@ import javax.swing.JPanel;
  *
  * @author bryan
  */
-public class print extends javax.swing.JFrame {
+public class circle_graph extends javax.swing.JFrame {
 
     /**
-     * Creates new form print
+     * Creates new form circle_graph
      */
-    public print() {
+    public circle_graph() {
         initComponents();
     }
 
@@ -28,41 +28,41 @@ public class print extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_print = new javax.swing.JPanel();
+        panel_circle = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel_print.setBackground(new java.awt.Color(255, 255, 255));
+        panel_circle.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("print");
+        jLabel1.setText("circle");
 
-        javax.swing.GroupLayout panel_printLayout = new javax.swing.GroupLayout(panel_print);
-        panel_print.setLayout(panel_printLayout);
-        panel_printLayout.setHorizontalGroup(
-            panel_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_printLayout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
+        javax.swing.GroupLayout panel_circleLayout = new javax.swing.GroupLayout(panel_circle);
+        panel_circle.setLayout(panel_circleLayout);
+        panel_circleLayout.setHorizontalGroup(
+            panel_circleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_circleLayout.createSequentialGroup()
+                .addContainerGap(312, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(170, 170, 170))
+                .addGap(60, 60, 60))
         );
-        panel_printLayout.setVerticalGroup(
-            panel_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_printLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
+        panel_circleLayout.setVerticalGroup(
+            panel_circleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_circleLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
                 .addComponent(jLabel1)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_print, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_circle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_print, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_circle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -85,28 +85,26 @@ public class print extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(circle_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(circle_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(circle_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(circle_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new print().setVisible(true);
+                new circle_graph().setVisible(true);
             }
         });
     }
-    public JPanel get_panel(){
-        return panel_print;
-    }
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel panel_print;
+    public javax.swing.JPanel panel_circle;
     // End of variables declaration//GEN-END:variables
 }

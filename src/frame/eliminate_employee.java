@@ -87,11 +87,9 @@ public class eliminate_employee extends javax.swing.JFrame {
             }
         });
     }
-    public JPanel get_panel(){
-        return panel_eliminate_employee;
-    }
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel panel_eliminate_employee;
+    public javax.swing.JPanel panel_eliminate_employee;
     // End of variables declaration//GEN-END:variables
 }

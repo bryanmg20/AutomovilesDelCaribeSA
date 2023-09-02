@@ -87,11 +87,9 @@ public class eliminate_sale extends javax.swing.JFrame {
             }
         });
     }
-    public JPanel get_panel(){
-        return panel_eliminate_sale;
-    }
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel panel_eliminate_sale;
+    public javax.swing.JPanel panel_eliminate_sale;
     // End of variables declaration//GEN-END:variables
 }

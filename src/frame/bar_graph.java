@@ -10,12 +10,12 @@ import javax.swing.JPanel;
  *
  * @author bryan
  */
-public class graphique extends javax.swing.JFrame {
+public class bar_graph extends javax.swing.JFrame {
 
     /**
-     * Creates new form graphique
+     * Creates new form bar_graph
      */
-    public graphique() {
+    public bar_graph() {
         initComponents();
     }
 
@@ -28,41 +28,41 @@ public class graphique extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_graphique = new javax.swing.JPanel();
+        panel_bard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel_graphique.setBackground(new java.awt.Color(255, 255, 255));
+        panel_bard.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("grafica");
+        jLabel1.setText("barra");
 
-        javax.swing.GroupLayout panel_graphiqueLayout = new javax.swing.GroupLayout(panel_graphique);
-        panel_graphique.setLayout(panel_graphiqueLayout);
-        panel_graphiqueLayout.setHorizontalGroup(
-            panel_graphiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_graphiqueLayout.createSequentialGroup()
-                .addGap(178, 178, 178)
+        javax.swing.GroupLayout panel_bardLayout = new javax.swing.GroupLayout(panel_bard);
+        panel_bard.setLayout(panel_bardLayout);
+        panel_bardLayout.setHorizontalGroup(
+            panel_bardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_bardLayout.createSequentialGroup()
+                .addContainerGap(199, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addGap(174, 174, 174))
         );
-        panel_graphiqueLayout.setVerticalGroup(
-            panel_graphiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_graphiqueLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
+        panel_bardLayout.setVerticalGroup(
+            panel_bardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_bardLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
                 .addComponent(jLabel1)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_graphique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_bard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_graphique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_bard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -85,28 +85,26 @@ public class graphique extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(bar_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(bar_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(bar_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(graphique.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(bar_graph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new graphique().setVisible(true);
+                new bar_graph().setVisible(true);
             }
         });
     }
-    public JPanel get_panel(){
-        return panel_graphique;
-    }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel panel_graphique;
+    public javax.swing.JPanel panel_bard;
     // End of variables declaration//GEN-END:variables
 }
