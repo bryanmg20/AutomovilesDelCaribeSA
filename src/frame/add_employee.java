@@ -233,14 +233,14 @@ public class add_employee extends javax.swing.JFrame {
         System.out.println(pr);
         if (pr==null && cedula.getText().length() != 10 || telefono.getText().length() != 10 || salario.getText().length() <= 7) {
             datosinv.setVisible(true);
-            System.out.println("if");
+   
         } else {
-            System.out.println("else");
+            datosinv.setVisible(false);
             aux[5] = String.valueOf(pr);
             String[] campos_fecha = aux[5].split(" ");
             aux[5] = campos_fecha[2] + "-" + campos_fecha[1].toUpperCase() + "-" + campos_fecha[5];
             agregarRegistro(aux, "Empleados.txt");
-            datosinv.setVisible(false);
+            
         }
     }//GEN-LAST:event_b_agregarActionPerformed
 

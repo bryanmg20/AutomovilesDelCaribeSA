@@ -22,6 +22,9 @@ public class add_sale extends javax.swing.JFrame {
      */
     public add_sale() {
         initComponents();
+        mensajen.setVisible(false); 
+        mensajenum.setVisible(false);
+
     }
 
     /**
@@ -47,6 +50,8 @@ public class add_sale extends javax.swing.JFrame {
         marca = new javax.swing.JComboBox<>();
         codigo = new javax.swing.JTextField();
         costo = new javax.swing.JTextField();
+        mensajen = new javax.swing.JLabel();
+        mensajenum = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,6 +147,12 @@ public class add_sale extends javax.swing.JFrame {
         });
         panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, -1));
 
+        mensajen.setText("¡Ingresar unicamente letras en este campo!");
+        panel_add_sale.add(mensajen, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+
+        mensajenum.setText("¡Ingresar unicamente numeros en este campo!");
+        panel_add_sale.add(mensajenum, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,7 +216,10 @@ public class add_sale extends javax.swing.JFrame {
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
         if (!(minusculas || mayusculas)) {
+            mensajen.setVisible(true);
             evt.consume();
+        } else {
+            mensajen.setVisible(false);
         }
     }//GEN-LAST:event_nombre_vKeyTyped
 
@@ -218,7 +232,10 @@ public class add_sale extends javax.swing.JFrame {
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
         if (!(minusculas || mayusculas)) {
+            mensajen.setVisible(true);
             evt.consume();
+        } else {
+            mensajen.setVisible(false);
         }
     }//GEN-LAST:event_apellido_vKeyTyped
 
@@ -230,13 +247,15 @@ public class add_sale extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
+            mensajenum.setVisible(true);
             evt.consume();
+        }else {
+            mensajenum.setVisible(false);
         }
         String textoActual = cedula_v.getText();
         if (textoActual.length() >= 10) {
             evt.consume();
-
-        }
+        } 
     }//GEN-LAST:event_cedula_vKeyTyped
 
     private void marcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_marcaKeyTyped
@@ -255,12 +274,15 @@ public class add_sale extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
+            mensajenum.setVisible(true);
             evt.consume();
+        }else {
+            mensajenum.setVisible(false);
         }
         String textoActual = codigo.getText();
         if (textoActual.length() >= 6) {
             evt.consume();
-        }
+        } 
     }//GEN-LAST:event_codigoKeyTyped
 
     private void costoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_costoKeyReleased
@@ -271,7 +293,10 @@ public class add_sale extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
+            mensajenum.setVisible(true);
             evt.consume();
+        } else {
+            mensajenum.setVisible(false);
         }
     }//GEN-LAST:event_costoKeyTyped
 
@@ -323,6 +348,8 @@ public class add_sale extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JComboBox<String> marca;
+    private javax.swing.JLabel mensajen;
+    private javax.swing.JLabel mensajenum;
     private javax.swing.JTextField nombre_v;
     public javax.swing.JPanel panel_add_sale;
     // End of variables declaration//GEN-END:variables
