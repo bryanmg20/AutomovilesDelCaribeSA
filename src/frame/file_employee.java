@@ -88,15 +88,24 @@ public class file_employee extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String[][] registre_employee = ObtenerArchivo("Empleados.txt");
         //recorro la matriz
+        int indice=0;
         for (int i = 0; i < registre_employee.length - 1; i++) {
-            for (int j = 0; j < registre_employee.length - 1; j++) {
-                if (!registre_employee[j][0].equals(registre_employee[j + 1][0])) {
+            for (int j = 0; j < registre_employee.length - 1; j++) {    
+                //compara si los dos nombres son distintos o iguales, si son distintos obtiene el indice
+                if (!registre_employee[j][0].equals(registre_employee[j + 1][0])){
+                    indice = 0;
+                }else{
+                    if(!registre_employee[j][1].equals(registre_employee[j + 1][1])){
+                        indice = 1;
+                    }
+                }              
+//                if (!registre_employee[j][indice].equals(registre_employee[j + 1][indice])) {
                     int menor = 0;
                     //verifico que cadena de texto es mayor para saber el recorrido maximo
-                    if (registre_employee[j][0].length() < registre_employee[j + 1][0].length() || registre_employee[j][0].length() == registre_employee[j + 1][0].length()) {
+                    if (registre_employee[j][indice].length() < registre_employee[j + 1][indice].length() || registre_employee[j][indice].length() == registre_employee[j + 1][indice].length()) {
                         menor = registre_employee[j][0].length();
                     } else {
-                        if (registre_employee[j][0].length() > registre_employee[j + 1][0].length()) {
+                        if (registre_employee[j][indice].length() > registre_employee[j + 1][indice].length()) {
                             menor = registre_employee[j + 1][0].length();
                         }
                     }
@@ -105,71 +114,30 @@ public class file_employee extends javax.swing.JFrame {
                     int k = 0;
                     while (pin && !order) {
                   
-                        int aux_1 = registre_employee[j][0].substring(k, k + 1).charAt(0);
-                        int aux_2 = registre_employee[j + 1][0].substring(k, k + 1).charAt(0);
+                        int aux_1 = registre_employee[j][indice].substring(k, k + 1).charAt(0);
+                        int aux_2 = registre_employee[j + 1][indice].substring(k, k + 1).charAt(0);
                         if (aux_1 > aux_2) {
                           
                             order = true;
-                            //guardo la fila que voy a cambiar por la fila superior
+                            //guardo la fila anterior que voy a cambiar por la fila superior
                             String[] aux = new String[registre_employee[0].length];
 
-                            System.arraycopy(registre_employee[j], 0, aux, 0, registre_employee[0].length);
+                            System.arraycopy(registre_employee[j], 0,aux, 0, registre_employee[0].length);
                             System.arraycopy(registre_employee[j + 1], 0, registre_employee[j], 0, registre_employee[0].length);
-                            System.arraycopy(aux, 0, registre_employee[j + 1], 0, registre_employee[0].length);
+                            System.arraycopy(aux, 0, registre_employee[j + 1],0, registre_employee[0].length);
                         }else{
                             if (aux_1<aux_2) {
                                 order = true;
                             }
                         }
                         k++;
+                        //recorrido maximo
                         if (k >= menor) {
                             pin = false;
                         }
-                    }
-
-                } else {
-                    if (!registre_employee[j][1].equals(registre_employee[j + 1][1])) {
-                       
-                        int menor = 0;
-                    //verifico que cadena de texto es mayor para saber el recorrido maximo
-                    if (registre_employee[j][1].length() < registre_employee[j + 1][1].length() || registre_employee[j][1].length() == registre_employee[j + 1][1].length()) {
-                        menor = registre_employee[j][1].length();
-                    } else {
-                        if (registre_employee[j][1].length() > registre_employee[j + 1][1].length()) {
-                            menor = registre_employee[j + 1][1].length();
-                        }
-                    }
-                    boolean pin = true;
-                    boolean order = false;
-                    int k = 0;
-                    while (pin && !order) {
-                  
-                        int aux_1 = registre_employee[j][1].substring(k, k + 1).charAt(0);
-                        int aux_2 = registre_employee[j + 1][1].substring(k, k + 1).charAt(0);
-                        if (aux_1 > aux_2) {
-                           
-                            order = true;
-                            //guardo la fila que voy a cambiar por la fila superior
-                            String[] aux = new String[registre_employee[0].length];
-
-                            System.arraycopy(registre_employee[j], 0, aux, 0, registre_employee[0].length);
-                            System.arraycopy(registre_employee[j + 1], 0, registre_employee[j], 0, registre_employee[0].length);
-                            System.arraycopy(aux, 0, registre_employee[j + 1], 0, registre_employee[0].length);
-                        }else{
-                            if (aux_1<aux_2) {
-                                order = true;
-                            }
-                        }
-                        k++;
-                        if (k >= menor) {
-                            pin = false;
-                        }
-                    }
-
-                    }
+                    }           
                 }
             }
-        }
         for (int i = 0; i < registre_employee.length; i++) {
             System.out.println(" ");
             for (int j = 0; j < registre_employee[0].length; j++) {
@@ -177,6 +145,7 @@ public class file_employee extends javax.swing.JFrame {
             }
 
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
