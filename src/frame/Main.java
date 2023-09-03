@@ -2,15 +2,43 @@ package frame;
 
 import java.awt.Image;
 import java.io.*;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.ImageIcon;
 
 public class Main extends javax.swing.JFrame {
 
+    Timer timer;
+    TimerTask tarea;
+    public int aux;
     public Main() {
         initComponents();
+        
+
+//        //temporizador para abrir Options automaticamente
+//        timer = new Timer();
+//        tarea = new TimerTask() {
+//            public int c=0;
+//            @Override
+//            public void run() {
+//                c++;
+//                aux=c;
+//                if (c == 3) {
+//                    Options frame = new Options();
+//                    frame.setVisible(true);
+//                    timer.cancel();
+//                }             
+////                    
+//            }
+//
+//        };
+//        timer.schedule(tarea, 0, 1000);
+        
+        
+
         this.setLocationRelativeTo(null);
         this.setSize(600, 300);
-        
+
         File archivo = new File("Ventas.txt");
         if (archivo.exists() == false) {
             try {

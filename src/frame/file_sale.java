@@ -4,6 +4,8 @@
  */
 package frame;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author bryan
@@ -27,30 +29,31 @@ public class file_sale extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_file_sale = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_file_sale.setBackground(new java.awt.Color(255, 255, 255));
+        panel_file_sale.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("venta");
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(670, 350));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(670, 350));
 
-        javax.swing.GroupLayout panel_file_saleLayout = new javax.swing.GroupLayout(panel_file_sale);
-        panel_file_sale.setLayout(panel_file_saleLayout);
-        panel_file_saleLayout.setHorizontalGroup(
-            panel_file_saleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_file_saleLayout.createSequentialGroup()
-                .addContainerGap(309, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(62, 62, 62))
-        );
-        panel_file_saleLayout.setVerticalGroup(
-            panel_file_saleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_file_saleLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel1)
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(table);
+
+        panel_file_sale.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 670, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,9 +103,25 @@ public class file_sale extends javax.swing.JFrame {
             }
         });
     }
+    public void table(String[][] matriz) {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nombre");
+        model.addColumn("Apellido");
+        model.addColumn("Cedula");
+        model.addColumn("Marca del Vehiculo");
+        model.addColumn("Codigo del vehiculo");
+        model.addColumn("Costo del Vehiculo");
+        for (int i = 0; i < matriz.length; i++) {
 
+            model.addRow(new Object[]{matriz[i][0], matriz[i][1], matriz[i][2], matriz[i][3], matriz[i][4], matriz[i][5]});
+
+        }
+
+        table.setModel(model);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel panel_file_sale;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

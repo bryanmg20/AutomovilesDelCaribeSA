@@ -1,10 +1,12 @@
 package frame;
 
 import class_.Button_design;
+import static class_.File_sub.ObtenerArchivo;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Cursor;
+import frame.Main.*;
 import javax.swing.JFrame;
 
 public class Options extends javax.swing.JFrame {
@@ -13,6 +15,7 @@ public class Options extends javax.swing.JFrame {
 
     public Options() {
         initComponents();
+     
         //centrar el jframe
         this.setLocationRelativeTo(null);
         //llamamos la clase Button_desing
@@ -84,6 +87,7 @@ public class Options extends javax.swing.JFrame {
 
         sub_tittle.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         sub_tittle.setForeground(new java.awt.Color(255, 255, 255));
+        sub_tittle.setText("Bienvenido.");
         sub_panel.add(sub_tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 670, 30));
 
         menu_employee.setBackground(new java.awt.Color(33, 122, 204));
@@ -427,7 +431,8 @@ public class Options extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_employeeActionPerformed
-        //color predeterminado de los botones del sub_menu
+  
+//color predeterminado de los botones del sub_menu
         controller.changeAparence(panel_add_employee, new Color(11, 61, 138));
         controller.changeAparence(panel_eliminate_employee, new Color(23, 93, 163));
         //reinicio la activacion de los botones
@@ -440,7 +445,7 @@ public class Options extends javax.swing.JFrame {
         //invisibiliza otros botones
         menu_employee.setVisible(true);
         menu_graph.setVisible(false);
-         menu_file.setVisible(false);
+        menu_file.setVisible(false);
         menu_sale.setVisible(false);
         //
         sub_tittle.setText("/Administración de Empleados.");
@@ -457,7 +462,7 @@ public class Options extends javax.swing.JFrame {
         showPanel(window.panel_add_sale, content);
         menu_employee.setVisible(false);
         menu_graph.setVisible(false);
-         menu_file.setVisible(false);
+        menu_file.setVisible(false);
         menu_sale.setVisible(true);
 
         sub_tittle.setText("/Administración de ventas");
@@ -473,7 +478,7 @@ public class Options extends javax.swing.JFrame {
         showPanel(window.panel_bard, content);
         menu_employee.setVisible(false);
         menu_sale.setVisible(false);
-         menu_file.setVisible(false);
+        menu_file.setVisible(false);
         menu_graph.setVisible(true);
         sub_tittle.setText("/Relación entre los tipos de autos, la cantidad vendida y el valor total. ");
     }//GEN-LAST:event_button_graphiqueActionPerformed
@@ -481,10 +486,10 @@ public class Options extends javax.swing.JFrame {
     private void button_seeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_seeActionPerformed
         controller.changeAparence(panel_add_file_employee, new Color(11, 61, 138));
         controller.changeAparence(panel_add_file_sale, new Color(23, 93, 163));
-        
+
         controller.add_file_e = true;
         controller.add_file_s = false;
-        
+
         file_employee window = new file_employee();
         showPanel(window.panel_file_employee, content);
         menu_file.setVisible(true);
@@ -493,9 +498,10 @@ public class Options extends javax.swing.JFrame {
         menu_graph.setVisible(false);
         sub_tittle.setText("/Visualizar archivo de empleados y de ventas");
         
-        
-        
-        
+        //vizualizar archivo empleado en tabla
+        String[][] registre_employee = ObtenerArchivo("Empleados.txt");
+        window.table(registre_employee);
+
     }//GEN-LAST:event_button_seeActionPerformed
 
     private void button_add_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_employeeActionPerformed
@@ -533,11 +539,15 @@ public class Options extends javax.swing.JFrame {
     private void button_add_file_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_file_employeeActionPerformed
         file_employee window = new file_employee();
         showPanel(window.panel_file_employee, content);
+        String[][] registre_employee = ObtenerArchivo("Empleados.txt");
+        window.table(registre_employee);
     }//GEN-LAST:event_button_add_file_employeeActionPerformed
 
     private void button_add_file_saleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_file_saleActionPerformed
         file_sale window = new file_sale();
         showPanel(window.panel_file_sale, content);
+        String[][] registre_employee = ObtenerArchivo("Ventas.txt");
+        window.table(registre_employee);
     }//GEN-LAST:event_button_add_file_saleActionPerformed
 
     public static void showPanel(JPanel panel, JPanel screen) {

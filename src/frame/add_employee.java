@@ -287,6 +287,10 @@ public class add_employee extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_salarioKeyTyped
 
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,19 +329,29 @@ public class add_employee extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
     private javax.swing.JButton b_agregar;
+    private javax.swing.JButton b_agregar1;
     private javax.swing.JComboBox<String> cargo;
     private javax.swing.JTextField cedula;
     private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nombre;
     public javax.swing.JPanel panel_add_employee;
+    private javax.swing.JPanel panel_add_employee1;
     private javax.swing.JTextField salario;
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
