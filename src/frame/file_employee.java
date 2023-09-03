@@ -33,6 +33,7 @@ public class file_employee extends javax.swing.JFrame {
         panel_file_employee = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +48,13 @@ public class file_employee extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Ordenar por Salario");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_file_employeeLayout = new javax.swing.GroupLayout(panel_file_employee);
         panel_file_employee.setLayout(panel_file_employeeLayout);
         panel_file_employeeLayout.setHorizontalGroup(
@@ -58,7 +66,11 @@ public class file_employee extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(341, 341, 341))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_file_employeeLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addGroup(panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_file_employeeLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jButton2))
+                            .addComponent(jButton1))
                         .addGap(65, 65, 65))))
         );
         panel_file_employeeLayout.setVerticalGroup(
@@ -66,7 +78,9 @@ public class file_employee extends javax.swing.JFrame {
             .addGroup(panel_file_employeeLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jButton1)
-                .addGap(100, 100, 100)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel1)
                 .addContainerGap(266, Short.MAX_VALUE))
         );
@@ -148,6 +162,29 @@ public class file_employee extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String[][] registre_employee = ObtenerArchivo("Empleados.txt");
+        //recorro la matriz
+        for (int i = 0; i < registre_employee.length - 1; i++) {
+            for (int j = 0; j < registre_employee.length - 1; j++) {
+                if(Integer.parseInt(registre_employee[j][6])>Integer.parseInt(registre_employee[j+1][6])){
+                    String[] aux = new String[registre_employee[0].length];
+
+                            System.arraycopy(registre_employee[j], 0,aux, 0, registre_employee[0].length);
+                            System.arraycopy(registre_employee[j + 1], 0, registre_employee[j], 0, registre_employee[0].length);
+                            System.arraycopy(aux, 0, registre_employee[j + 1],0, registre_employee[0].length);
+                }
+            }
+        }
+        for (int i = 0; i < registre_employee.length; i++) {
+            System.out.println(" ");
+            for (int j = 0; j < registre_employee[0].length; j++) {
+                System.out.print(registre_employee[i][j] + " ");
+            }
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -185,6 +222,7 @@ public class file_employee extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel panel_file_employee;
     // End of variables declaration//GEN-END:variables

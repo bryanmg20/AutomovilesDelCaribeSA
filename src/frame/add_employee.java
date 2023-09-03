@@ -122,6 +122,7 @@ public class add_employee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        //campos
         String aux[] = new String[100];
         aux[0] = nombre.getText();
         aux[1] = apellido.getText();
