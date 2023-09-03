@@ -1,8 +1,10 @@
 package class_;
 
 import java.io.*;
+import javax.swing.JLabel;
 
 public class File_sub {
+
     public static void crearArchivo(String NombreDeArchivo) {
         File archivo = new File(NombreDeArchivo);
         try {
@@ -17,13 +19,14 @@ public class File_sub {
         File archivo = new File(NombreDelArchivo);
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(archivo, true));
-      
-            
-            switch(NombreDelArchivo){
+
+            switch (NombreDelArchivo) {
                 //segun le archivo a copiar en aux_1 con el pin verifica que arhivo y copia segun el archivo
-                case "Empleados.txt" -> pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5] + ";" + campos[6] + ";" + campos[6]);
-                case "Ventas.txt" -> pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4]+ ";" + campos[5]);
-                case "aux_1.txt" -> { 
+                case "Empleados.txt" ->
+                    pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5] + ";" + campos[6] + ";" + campos[6]);
+                case "Ventas.txt" ->
+                    pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5]);
+                case "aux_1.txt" -> {
                     switch (pin) {
                         case 0 ->
                             pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5] + ";" + campos[6] + ";" + campos[6]);
@@ -54,10 +57,10 @@ public class File_sub {
 
     public static void eliminarRegistro(String pal, String NombreDelArchivo) {
         crearArchivo("aux_1.txt");
-        
+
         //verifica en que archivos se modificará
         int pin = 0;
-        if("Ventas.txt".equals(NombreDelArchivo)){
+        if ("Ventas.txt".equals(NombreDelArchivo)) {
             pin = 1;
         }
         boolean encontrado = false;
@@ -68,7 +71,7 @@ public class File_sub {
             campos_prueba = new String[100];
             while (linea_sep != null) {
                 campos_prueba = linea_sep.split(";");
-           
+
                 if (pal.equals(campos_prueba[2])) {
                     encontrado = true;
                 } else {
@@ -76,23 +79,24 @@ public class File_sub {
                 }
                 linea_sep = br_prueba.readLine();
             }
-             br_prueba.close();
+            br_prueba.close();
             if (encontrado == true) {
                 eliminarArchivo(NombreDelArchivo);
                 //
-                switch(NombreDelArchivo){
-                    case "Empleados.txt"->{
-                        renombrarArchivo("aux_1.txt", "Empleados.txt");break;
+                switch (NombreDelArchivo) {
+                    case "Empleados.txt" -> {
+                        renombrarArchivo("aux_1.txt", "Empleados.txt");
+                        break;
                     }
-                    case "Ventas.txt"->{
-                        renombrarArchivo("aux_1.txt", "Ventas.txt");break;
+                    case "Ventas.txt" -> {
+                        renombrarArchivo("aux_1.txt", "Ventas.txt");
+                        break;
                     }
                 }
             } else {
                 eliminarArchivo("aux_1.txt");
                 System.out.println("No se encontro el registro");
             }
-           
 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
@@ -101,9 +105,9 @@ public class File_sub {
         }
     }
 
-    public static void agregarRegistro(String[] campos, String NombreDelArchivo) {
+    public static void agregarRegistro(String[] campos, String NombreDelArchivo, JLabel hola) {
         int pin = 0;
-        if("Ventas.txt".equals(NombreDelArchivo)){
+        if ("Ventas.txt".equals(NombreDelArchivo)) {
             pin = 1;
         }
         boolean fin = false;
@@ -114,14 +118,15 @@ public class File_sub {
                 String[] campos_prueba = linea_sep.split(";");
                 if (campos_prueba[2].equals(campos[2])) {
                     fin = true;
-                    System.out.println("Registro ya existente");
+                    hola.setVisible(true);
                 }
 
                 linea_sep = br_prueba.readLine();
             }
 
             if (fin == false) {
-                agregarArchivo(NombreDelArchivo,campos,pin);
+                agregarArchivo(NombreDelArchivo, campos, pin);
+                hola.setVisible(false);
             }
             br_prueba.close();
         } catch (FileNotFoundException ex) {
@@ -129,13 +134,13 @@ public class File_sub {
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
-        
+
     }
+
     public static String[][] ObtenerArchivo(String NombreDeArchivo) {
         int row = 0;
         String[][] aux = new String[100][100];
-        
-      
+
         File archivo = new File(NombreDeArchivo);
         try {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
@@ -144,7 +149,7 @@ public class File_sub {
 
                 aux[row] = lectura.split(";");
                 row++;
-                
+
                 lectura = entrada.readLine();
             }
             entrada.close();
@@ -155,14 +160,13 @@ public class File_sub {
         }
         String[][] file_employee = new String[row][aux[0].length];
         for (int i = 0; i < row; i++) {
-      
-            for (int j = 0; j <aux[0].length; j++) {
+
+            for (int j = 0; j < aux[0].length; j++) {
                 file_employee[i][j] = aux[i][j];
-        
+
             }
         }
-        
-        
+
         return file_employee;
     }
 }

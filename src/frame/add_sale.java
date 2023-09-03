@@ -22,9 +22,13 @@ public class add_sale extends javax.swing.JFrame {
      */
     public add_sale() {
         initComponents();
-        mensajen.setVisible(false); 
+        mensajenom.setVisible(false);
+        mensajecod.setVisible(false);
+        mensajecos.setVisible(false);
+        mensajeap.setVisible(false);
         mensajenum.setVisible(false);
-
+        mensajecodigo.setVisible(false);
+        empleadoex.setVisible(false);
     }
 
     /**
@@ -50,8 +54,13 @@ public class add_sale extends javax.swing.JFrame {
         marca = new javax.swing.JComboBox<>();
         codigo = new javax.swing.JTextField();
         costo = new javax.swing.JTextField();
-        mensajen = new javax.swing.JLabel();
+        mensajenom = new javax.swing.JLabel();
         mensajenum = new javax.swing.JLabel();
+        mensajeap = new javax.swing.JLabel();
+        mensajecod = new javax.swing.JLabel();
+        mensajecos = new javax.swing.JLabel();
+        mensajecodigo = new javax.swing.JLabel();
+        empleadoex = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,7 +91,7 @@ public class add_sale extends javax.swing.JFrame {
                 agregar_ventasActionPerformed(evt);
             }
         });
-        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
+        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, -1, -1));
 
         nombre_v.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -147,17 +156,32 @@ public class add_sale extends javax.swing.JFrame {
         });
         panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, -1));
 
-        mensajen.setText("¡Ingresar unicamente letras en este campo!");
-        panel_add_sale.add(mensajen, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+        mensajenom.setText("¡Ingresar unicamente letras en este campo!");
+        panel_add_sale.add(mensajenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
 
         mensajenum.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_sale.add(mensajenum, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+        panel_add_sale.add(mensajenum, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+
+        mensajeap.setText("¡Ingresar unicamente letras en este campo!");
+        panel_add_sale.add(mensajeap, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+
+        mensajecod.setText("¡Ingresar unicamente numeros en este campo!");
+        panel_add_sale.add(mensajecod, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+
+        mensajecos.setText("¡Ingresar unicamente numeros en este campo!");
+        panel_add_sale.add(mensajecos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+
+        mensajecodigo.setText("¡CODIGO YA EXISTENTE!");
+        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, -1));
+
+        empleadoex.setText("¡No existe el empleado!");
+        panel_add_sale.add(empleadoex, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +206,6 @@ public class add_sale extends javax.swing.JFrame {
         aux[3] = cedula_v.getText();
         aux[4] = marca.getSelectedItem().toString();
         aux[5] = costo.getText();
-        System.out.println("existe");
         try {
             BufferedReader br_prueba = new BufferedReader(new FileReader("Empleados.txt"));
             String linea_sep = br_prueba.readLine();
@@ -190,7 +213,6 @@ public class add_sale extends javax.swing.JFrame {
                 String[] campos_prueba = linea_sep.split(";");
                 if (campos_prueba[0].equals(aux[0]) && campos_prueba[1].equals(aux[1]) && campos_prueba[2].equals(aux[3])) {
                     existe = true;
-                    System.out.println("existe");
                 }
                 linea_sep = br_prueba.readLine();
             }
@@ -201,9 +223,20 @@ public class add_sale extends javax.swing.JFrame {
             ex.printStackTrace(System.out);
         }
         if (existe == true) {
-            agregarRegistro(aux, "Ventas.txt");
+            mensajenom.setVisible(false);
+            mensajecod.setVisible(false);
+            mensajecos.setVisible(false);
+            mensajeap.setVisible(false);
+            mensajenum.setVisible(false);
+            mensajecodigo.setVisible(false);
+            nombre_v.setText(null);
+            apellido_v.setText(null);
+            cedula_v.setText(null);
+            codigo.setText(null);
+            costo.setText(null); 
+            agregarRegistro(aux, "Ventas.txt", mensajecodigo);
         } else {
-            System.out.println("No Existe el empleado");
+            empleadoex.setVisible(true); 
         }
     }//GEN-LAST:event_agregar_ventasActionPerformed
 
@@ -216,10 +249,10 @@ public class add_sale extends javax.swing.JFrame {
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
         if (!(minusculas || mayusculas)) {
-            mensajen.setVisible(true);
+            mensajenom.setVisible(true);
             evt.consume();
         } else {
-            mensajen.setVisible(false);
+            mensajenom.setVisible(false);
         }
     }//GEN-LAST:event_nombre_vKeyTyped
 
@@ -232,10 +265,10 @@ public class add_sale extends javax.swing.JFrame {
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
         if (!(minusculas || mayusculas)) {
-            mensajen.setVisible(true);
+            mensajeap.setVisible(true);
             evt.consume();
         } else {
-            mensajen.setVisible(false);
+            mensajeap.setVisible(false);
         }
     }//GEN-LAST:event_apellido_vKeyTyped
 
@@ -249,13 +282,13 @@ public class add_sale extends javax.swing.JFrame {
         if (!(numeros)) {
             mensajenum.setVisible(true);
             evt.consume();
-        }else {
+        } else {
             mensajenum.setVisible(false);
         }
         String textoActual = cedula_v.getText();
         if (textoActual.length() >= 10) {
             evt.consume();
-        } 
+        }
     }//GEN-LAST:event_cedula_vKeyTyped
 
     private void marcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_marcaKeyTyped
@@ -274,15 +307,15 @@ public class add_sale extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
-            mensajenum.setVisible(true);
+            mensajecod.setVisible(true);
             evt.consume();
-        }else {
-            mensajenum.setVisible(false);
+        } else {
+            mensajecod.setVisible(false);
         }
         String textoActual = codigo.getText();
         if (textoActual.length() >= 6) {
             evt.consume();
-        } 
+        }
     }//GEN-LAST:event_codigoKeyTyped
 
     private void costoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_costoKeyReleased
@@ -293,10 +326,10 @@ public class add_sale extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
-            mensajenum.setVisible(true);
+            mensajecos.setVisible(true);
             evt.consume();
         } else {
-            mensajenum.setVisible(false);
+            mensajecos.setVisible(false);
         }
     }//GEN-LAST:event_costoKeyTyped
 
@@ -334,13 +367,14 @@ public class add_sale extends javax.swing.JFrame {
             }
         });
     }
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar_ventas;
     private javax.swing.JTextField apellido_v;
     private javax.swing.JTextField cedula_v;
     private javax.swing.JTextField codigo;
     private javax.swing.JTextField costo;
+    private javax.swing.JLabel empleadoex;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -348,7 +382,11 @@ public class add_sale extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JComboBox<String> marca;
-    private javax.swing.JLabel mensajen;
+    private javax.swing.JLabel mensajeap;
+    private javax.swing.JLabel mensajecod;
+    private javax.swing.JLabel mensajecodigo;
+    private javax.swing.JLabel mensajecos;
+    private javax.swing.JLabel mensajenom;
     private javax.swing.JLabel mensajenum;
     private javax.swing.JTextField nombre_v;
     public javax.swing.JPanel panel_add_sale;

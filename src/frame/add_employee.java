@@ -26,7 +26,7 @@ public class add_employee extends javax.swing.JFrame {
         mensajet.setVisible(false);
         mensajesal.setVisible(false);
         datosinv.setVisible(false);
-
+        mensajecedula.setVisible(false);
     }
 
     /**
@@ -62,6 +62,7 @@ public class add_employee extends javax.swing.JFrame {
         mensajet = new javax.swing.JLabel();
         mensajesal = new javax.swing.JLabel();
         datosinv = new javax.swing.JLabel();
+        mensajecedula = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,6 +196,9 @@ public class add_employee extends javax.swing.JFrame {
         datosinv.setText("¡DATOS INVALIDOS!");
         jPanel1.add(datosinv, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
 
+        mensajecedula.setText("!YA EXISTE EL EMPLEADO!");
+        jPanel1.add(mensajecedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
+
         panel_add_employee.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 670, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,16 +235,29 @@ public class add_employee extends javax.swing.JFrame {
         System.out.println(telefono.getText().length());
         System.out.println(salario.getText().length());
         System.out.println(pr);
-        if (pr==null && cedula.getText().length() != 10 || telefono.getText().length() != 10 || salario.getText().length() <= 7) {
+        if (pr == null || cedula.getText().length() != 10 || telefono.getText().length() != 10 || salario.getText().length() <= 7) {
             datosinv.setVisible(true);
-   
+
         } else {
             datosinv.setVisible(false);
+            mensaje1.setVisible(false);
+            mensaje2.setVisible(false);
+            mensaje3.setVisible(false);
+            mensaje4.setVisible(false);
+            mensajet.setVisible(false);
+            mensajesal.setVisible(false);
+            cedula.setText(null);
+            apellido.setText(null);
+            cedula.setText(null);
+            telefono.setText(null);
+            salario.setText(null); 
+            nombre.setText(null); 
+            fecha.setDate(null);
             aux[5] = String.valueOf(pr);
             String[] campos_fecha = aux[5].split(" ");
             aux[5] = campos_fecha[2] + "-" + campos_fecha[1].toUpperCase() + "-" + campos_fecha[5];
-            agregarRegistro(aux, "Empleados.txt");
-            
+            agregarRegistro(aux, "Empleados.txt", mensajecedula);
+
         }
     }//GEN-LAST:event_b_agregarActionPerformed
 
@@ -409,6 +426,7 @@ public class add_employee extends javax.swing.JFrame {
     private javax.swing.JLabel mensaje2;
     private javax.swing.JLabel mensaje3;
     private javax.swing.JLabel mensaje4;
+    private javax.swing.JLabel mensajecedula;
     private javax.swing.JLabel mensajesal;
     private javax.swing.JLabel mensajet;
     private javax.swing.JTextField nombre;

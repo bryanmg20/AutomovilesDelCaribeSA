@@ -18,6 +18,7 @@ public class eliminate_employee extends javax.swing.JFrame {
      */
     public eliminate_employee() {
         initComponents();
+        b_eliminar.setEnabled(false);
     }
 
     /**
