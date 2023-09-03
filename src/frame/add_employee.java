@@ -19,6 +19,14 @@ public class add_employee extends javax.swing.JFrame {
      */
     public add_employee() {
         initComponents();
+        mensaje1.setVisible(false);
+        mensaje2.setVisible(false);
+        mensaje3.setVisible(false);
+        mensaje4.setVisible(false);
+        mensajet.setVisible(false);
+        mensajesal.setVisible(false);
+        datosinv.setVisible(false);
+
     }
 
     /**
@@ -47,6 +55,13 @@ public class add_employee extends javax.swing.JFrame {
         cedula = new javax.swing.JTextField();
         telefono = new javax.swing.JTextField();
         salario = new javax.swing.JTextField();
+        mensaje1 = new javax.swing.JLabel();
+        mensaje2 = new javax.swing.JLabel();
+        mensaje3 = new javax.swing.JLabel();
+        mensaje4 = new javax.swing.JLabel();
+        mensajet = new javax.swing.JLabel();
+        mensajesal = new javax.swing.JLabel();
+        datosinv = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,7 +89,7 @@ public class add_employee extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setText("Telefono");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 172, 160, 31));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 160, 31));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel6.setText("Fecha");
@@ -159,6 +174,27 @@ public class add_employee extends javax.swing.JFrame {
         });
         jPanel1.add(salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 160, 30));
 
+        mensaje1.setText("El telefono debe comenzar por 3");
+        jPanel1.add(mensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 180, -1));
+
+        mensaje2.setText("¡Ingresar unicamente letras en este campo!");
+        jPanel1.add(mensaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 240, -1));
+
+        mensaje3.setText("¡Ingresar unicamente letras en este campo!");
+        jPanel1.add(mensaje3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 230, -1));
+
+        mensaje4.setText("¡Ingresar unicamente numeros en este campo!");
+        jPanel1.add(mensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 260, -1));
+
+        mensajet.setText("¡Ingresar unicamente numeros en este campo!");
+        jPanel1.add(mensajet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 280, -1));
+
+        mensajesal.setText("¡Ingresar unicamente numeros en este campo!");
+        jPanel1.add(mensajesal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 250, -1));
+
+        datosinv.setText("¡DATOS INVALIDOS!");
+        jPanel1.add(datosinv, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
+
         panel_add_employee.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 670, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,7 +211,7 @@ public class add_employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void botonagregar() {
-        if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !cedula.getText().isEmpty() && cedula.getText().length() == 10 && !telefono.getText().isEmpty() && telefono.getText().length() == 10 && !salario.getText().isEmpty() && salario.getText().length() >= 7 && fecha.getDate() != null) {
+        if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !cedula.getText().isEmpty() && !telefono.getText().isEmpty() && !salario.getText().isEmpty()) {
             b_agregar.setEnabled(true);
         } else {
             b_agregar.setEnabled(false);
@@ -190,11 +226,22 @@ public class add_employee extends javax.swing.JFrame {
         aux[3] = cargo.getSelectedItem().toString();
         aux[4] = telefono.getText();
         Date pr = fecha.getDate();
-        aux[5] = String.valueOf(pr);
-        String[] campos_fecha = aux[5].split(" ");
-        aux[5] = campos_fecha[2] + "-" + campos_fecha[1].toUpperCase() + "-" + campos_fecha[5];
         aux[6] = salario.getText();
-        agregarRegistro(aux, "Empleados.txt");
+        System.out.println(cedula.getText().length());
+        System.out.println(telefono.getText().length());
+        System.out.println(salario.getText().length());
+        System.out.println(pr);
+        if (pr==null && cedula.getText().length() != 10 || telefono.getText().length() != 10 || salario.getText().length() <= 7) {
+            datosinv.setVisible(true);
+            System.out.println("if");
+        } else {
+            System.out.println("else");
+            aux[5] = String.valueOf(pr);
+            String[] campos_fecha = aux[5].split(" ");
+            aux[5] = campos_fecha[2] + "-" + campos_fecha[1].toUpperCase() + "-" + campos_fecha[5];
+            agregarRegistro(aux, "Empleados.txt");
+            datosinv.setVisible(false);
+        }
     }//GEN-LAST:event_b_agregarActionPerformed
 
     private void cargoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cargoKeyReleased
@@ -214,7 +261,10 @@ public class add_employee extends javax.swing.JFrame {
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
         if (!(minusculas || mayusculas)) {
+            mensaje2.setVisible(true);
             evt.consume();
+        } else {
+            mensaje2.setVisible(false);
         }
     }//GEN-LAST:event_nombreKeyTyped
 
@@ -227,7 +277,10 @@ public class add_employee extends javax.swing.JFrame {
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
         if (!(minusculas || mayusculas)) {
+            mensaje3.setVisible(true);
             evt.consume();
+        } else {
+            mensaje3.setVisible(false);
         }
     }//GEN-LAST:event_apellidoKeyTyped
 
@@ -239,12 +292,14 @@ public class add_employee extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
+            mensaje4.setVisible(true);
             evt.consume();
+        } else {
+            mensaje4.setVisible(false);
         }
         String textoActual = cedula.getText();
         if (textoActual.length() >= 10) {
             evt.consume();
-
         }
     }//GEN-LAST:event_cedulaKeyTyped
 
@@ -255,14 +310,20 @@ public class add_employee extends javax.swing.JFrame {
     private void telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
-        if (!(numeros)) {
-            evt.consume();
-        }
         String textoActual = telefono.getText();
-        if (textoActual.length() >= 10) {
-            evt.consume();
-        }
         if (textoActual.length() == 0 && key != '3') {
+            mensaje1.setVisible(true);
+            evt.consume();
+        } else {
+            mensaje1.setVisible(false);
+            if (!(numeros)) {
+                mensajet.setVisible(true);
+                evt.consume();
+            } else {
+                mensajet.setVisible(false);
+            }
+        }
+        if (textoActual.length() >= 10) {
             evt.consume();
         }
     }//GEN-LAST:event_telefonoKeyTyped
@@ -279,7 +340,10 @@ public class add_employee extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
+            mensajesal.setVisible(true);
             evt.consume();
+        } else {
+            mensajesal.setVisible(false);
         }
         String textoact = salario.getText();
         if (textoact.length() >= 9) {
@@ -325,33 +389,30 @@ public class add_employee extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
     private javax.swing.JButton b_agregar;
-    private javax.swing.JButton b_agregar1;
     private javax.swing.JComboBox<String> cargo;
     private javax.swing.JTextField cedula;
+    private javax.swing.JLabel datosinv;
     private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel mensaje1;
+    private javax.swing.JLabel mensaje2;
+    private javax.swing.JLabel mensaje3;
+    private javax.swing.JLabel mensaje4;
+    private javax.swing.JLabel mensajesal;
+    private javax.swing.JLabel mensajet;
     private javax.swing.JTextField nombre;
     public javax.swing.JPanel panel_add_employee;
-    private javax.swing.JPanel panel_add_employee1;
     private javax.swing.JTextField salario;
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
