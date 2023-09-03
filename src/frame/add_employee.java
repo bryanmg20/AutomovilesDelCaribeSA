@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.agregarRegistro;
+import java.util.Date;
 import javax.swing.JPanel;
 
 /**
@@ -31,21 +32,21 @@ public class add_employee extends javax.swing.JFrame {
 
         panel_add_employee = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        nombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        apellido = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        cedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cargo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        telefono = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        fecha = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        salario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        add = new javax.swing.JButton();
+        b_agregar = new javax.swing.JButton();
+        fecha = new com.toedter.calendar.JDateChooser();
+        cargo = new javax.swing.JComboBox<>();
+        nombre = new javax.swing.JTextField();
+        apellido = new javax.swing.JTextField();
+        cedula = new javax.swing.JTextField();
+        telefono = new javax.swing.JTextField();
+        salario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,59 +54,112 @@ public class add_employee extends javax.swing.JFrame {
         panel_add_employee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.GridLayout(4, 5, 10, 55));
-        jPanel1.add(nombre);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre");
-        jPanel1.add(jLabel1);
-        jPanel1.add(apellido);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 160, 31));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Apellido");
-        jPanel1.add(jLabel2);
-        jPanel1.add(cedula);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 160, 31));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cedula");
-        jPanel1.add(jLabel3);
-        jPanel1.add(cargo);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 70, 31));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Cargo");
-        jPanel1.add(jLabel4);
-        jPanel1.add(telefono);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 160, 31));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Telefono");
-        jPanel1.add(jLabel5);
-        jPanel1.add(fecha);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 172, 160, 31));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Fecha");
-        jPanel1.add(jLabel6);
-        jPanel1.add(salario);
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 172, 160, 31));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Salario");
-        jPanel1.add(jLabel7);
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 160, 31));
 
-        add.setText("Agregar empleado");
-        add.addActionListener(new java.awt.event.ActionListener() {
+        b_agregar.setText("Agregar empleado");
+        b_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addActionPerformed(evt);
+                b_agregarActionPerformed(evt);
             }
         });
-        jPanel1.add(add);
+        jPanel1.add(b_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 160, 31));
+        jPanel1.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 172, 160, 30));
 
-        panel_add_employee.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 670, 290));
+        cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VENDEDOR", "ASESOR DE VENTAS", "GERENTE DE VENTAS" }));
+        cargo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cargoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cargoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(cargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 160, 30));
+
+        nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nombreKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
+
+        apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                apellidoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                apellidoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 160, 30));
+
+        cedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cedulaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cedulaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 160, 30));
+
+        telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                telefonoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telefonoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 160, 30));
+
+        salario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salarioActionPerformed(evt);
+            }
+        });
+        salario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                salarioKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                salarioKeyTyped(evt);
+            }
+        });
+        jPanel1.add(salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 160, 30));
+
+        panel_add_employee.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 670, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,19 +174,118 @@ public class add_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+    public void botonagregar() {
+        if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !cedula.getText().isEmpty() && cedula.getText().length() == 10 && !telefono.getText().isEmpty() && telefono.getText().length() == 10 && !salario.getText().isEmpty() && salario.getText().length() >= 7 && fecha.getDate() != null) {
+            b_agregar.setEnabled(true);
+        } else {
+            b_agregar.setEnabled(false);
+        }
+    }
+    private void b_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_agregarActionPerformed
         //campos
         String aux[] = new String[100];
-        aux[0] = nombre.getText();
-        aux[1] = apellido.getText();
+        aux[0] = nombre.getText().toUpperCase();
+        aux[1] = apellido.getText().toUpperCase();
         aux[2] = cedula.getText();
-        aux[3] = cargo.getText();
+        aux[3] = cargo.getSelectedItem().toString();
         aux[4] = telefono.getText();
-        aux[5] = fecha.getText();
+        Date pr = fecha.getDate();
+        aux[5] = String.valueOf(pr);
+        String[] campos_fecha = aux[5].split(" ");
+        aux[5] = campos_fecha[2] + "-" + campos_fecha[1].toUpperCase() + "-" + campos_fecha[5];
         aux[6] = salario.getText();
         agregarRegistro(aux, "Empleados.txt");
-    }//GEN-LAST:event_addActionPerformed
+    }//GEN-LAST:event_b_agregarActionPerformed
+
+    private void cargoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cargoKeyReleased
+        botonagregar();
+    }//GEN-LAST:event_cargoKeyReleased
+
+    private void cargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cargoKeyTyped
+
+    }//GEN-LAST:event_cargoKeyTyped
+
+    private void nombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyReleased
+        botonagregar();
+    }//GEN-LAST:event_nombreKeyReleased
+
+    private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
+        int key = evt.getKeyChar();
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean mayusculas = key >= 65 && key <= 90;
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nombreKeyTyped
+
+    private void apellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyReleased
+        botonagregar();
+    }//GEN-LAST:event_apellidoKeyReleased
+
+    private void apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyTyped
+        int key = evt.getKeyChar();
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean mayusculas = key >= 65 && key <= 90;
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_apellidoKeyTyped
+
+    private void cedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedulaKeyReleased
+        botonagregar();
+    }//GEN-LAST:event_cedulaKeyReleased
+
+    private void cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedulaKeyTyped
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+        if (!(numeros)) {
+            evt.consume();
+        }
+        String textoActual = cedula.getText();
+        if (textoActual.length() >= 10) {
+            evt.consume();
+
+        }
+    }//GEN-LAST:event_cedulaKeyTyped
+
+    private void telefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyReleased
+        botonagregar();
+    }//GEN-LAST:event_telefonoKeyReleased
+
+    private void telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyTyped
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+        if (!(numeros)) {
+            evt.consume();
+        }
+        String textoActual = telefono.getText();
+        if (textoActual.length() >= 10) {
+            evt.consume();
+        }
+        if (textoActual.length() == 0 && key != '3') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefonoKeyTyped
+
+    private void salarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salarioActionPerformed
+
+    }//GEN-LAST:event_salarioActionPerformed
+
+    private void salarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salarioKeyReleased
+        botonagregar();
+    }//GEN-LAST:event_salarioKeyReleased
+
+    private void salarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salarioKeyTyped
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+        if (!(numeros)) {
+            evt.consume();
+        }
+        String textoact = salario.getText();
+        if (textoact.length() >= 9) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_salarioKeyTyped
 
     /**
      * @param args the command line arguments
@@ -170,11 +323,11 @@ public class add_employee extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add;
     private javax.swing.JTextField apellido;
-    private javax.swing.JTextField cargo;
+    private javax.swing.JButton b_agregar;
+    private javax.swing.JComboBox<String> cargo;
     private javax.swing.JTextField cedula;
-    private javax.swing.JTextField fecha;
+    private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

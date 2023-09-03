@@ -5,6 +5,9 @@
 package frame;
 
 import static class_.File_sub.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 /**
@@ -34,12 +37,15 @@ public class file_employee extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_file_employee.setBackground(new java.awt.Color(255, 255, 255));
+        panel_file_employee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("empleado");
+        panel_file_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 160, -1, -1));
 
         jButton1.setText("Ordenar por Nombre");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +53,7 @@ public class file_employee extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        panel_file_employee.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 41, -1, -1));
 
         jButton2.setText("Ordenar por Salario");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -54,36 +61,15 @@ public class file_employee extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        panel_file_employee.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 76, -1, -1));
 
-        javax.swing.GroupLayout panel_file_employeeLayout = new javax.swing.GroupLayout(panel_file_employee);
-        panel_file_employee.setLayout(panel_file_employeeLayout);
-        panel_file_employeeLayout.setHorizontalGroup(
-            panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_file_employeeLayout.createSequentialGroup()
-                .addContainerGap(356, Short.MAX_VALUE)
-                .addGroup(panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_file_employeeLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(341, 341, 341))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_file_employeeLayout.createSequentialGroup()
-                        .addGroup(panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_file_employeeLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton2))
-                            .addComponent(jButton1))
-                        .addGap(65, 65, 65))))
-        );
-        panel_file_employeeLayout.setVerticalGroup(
-            panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_file_employeeLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(61, 61, 61)
-                .addComponent(jLabel1)
-                .addContainerGap(266, Short.MAX_VALUE))
-        );
+        actualizar.setText("Actualizar");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarActionPerformed(evt);
+            }
+        });
+        panel_file_employee.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,6 +170,48 @@ public class file_employee extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+    float contador = 0;
+    float acumulador = 0;
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+        System.out.println("hola");
+        try {
+            BufferedReader br_prueba = new BufferedReader(new FileReader("Empleados.txt"));
+            String linea_sep = br_prueba.readLine();
+            while (linea_sep != null) {
+                String[] campos_prueba = linea_sep.split(";");
+                BufferedReader br_prueba2 = new BufferedReader(new FileReader("Ventas.txt"));
+                String venta = br_prueba2.readLine();
+                while (venta != null) {
+                    String[] campos = venta.split(";");
+                    if (campos_prueba[2].equals(campos[3])) {
+                        if (Integer.parseInt(campos[5]) >= 30000000) {
+                            contador++;
+                            acumulador = acumulador + Float.parseFloat(campos[5]);
+                        }
+                    }
+                    venta = br_prueba2.readLine();
+                }
+                if (contador != 0) {
+                    float numero = Float.parseFloat(campos_prueba[6]) + ((acumulador / 100) * 2);
+                    campos_prueba[7] = numero + "";
+                    agregarArchivo("aux_1.txt", campos_prueba, 10);
+                    contador = 0;
+                    acumulador = 0;
+                } else {
+                    agregarArchivo("aux_1.txt", campos_prueba, 0);
+                }
+
+                linea_sep = br_prueba.readLine();
+            }
+            br_prueba.close();
+            eliminarArchivo("Empleados.txt");
+            renombrarArchivo("aux_1.txt", "Empleados.txt");
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+    }//GEN-LAST:event_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +249,7 @@ public class file_employee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

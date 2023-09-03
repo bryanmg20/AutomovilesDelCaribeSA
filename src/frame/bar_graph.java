@@ -29,45 +29,29 @@ public class bar_graph extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_bard = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_bard.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setText("barra");
 
         javax.swing.GroupLayout panel_bardLayout = new javax.swing.GroupLayout(panel_bard);
         panel_bard.setLayout(panel_bardLayout);
         panel_bardLayout.setHorizontalGroup(
             panel_bardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_bardLayout.createSequentialGroup()
-                .addContainerGap(199, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(174, 174, 174))
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         panel_bardLayout.setVerticalGroup(
             panel_bardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_bardLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel1)
-                .addContainerGap(217, Short.MAX_VALUE))
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_bard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_bard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(panel_bard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+        
     /**
      * @param args the command line arguments
      */
@@ -104,7 +88,6 @@ public class bar_graph extends javax.swing.JFrame {
     }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel panel_bard;
     // End of variables declaration//GEN-END:variables
 }

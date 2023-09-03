@@ -24,10 +24,13 @@ public class File_sub {
                 case "Empleados.txt" -> pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5] + ";" + campos[6] + ";" + campos[6]);
                 case "Ventas.txt" -> pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4]+ ";" + campos[5]);
                 case "aux_1.txt" -> { 
-                    if(pin == 0){
-                        pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5] + ";" + campos[6] + ";" + campos[6]);
-                    }else{
-                        pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4]+ ";" + campos[5]);
+                    switch (pin) {
+                        case 0 ->
+                            pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5] + ";" + campos[6] + ";" + campos[6]);
+                        case 10 ->
+                            pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5] + ";" + campos[6] + ";" + campos[7]);
+                        default ->
+                            pw.println(campos[0] + ";" + campos[1] + ";" + campos[2] + ";" + campos[3] + ";" + campos[4] + ";" + campos[5]);
                     }
                 }
             }

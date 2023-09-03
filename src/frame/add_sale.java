@@ -5,6 +5,10 @@
 package frame;
 
 import static class_.File_sub.agregarRegistro;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JPanel;
 
 /**
@@ -36,13 +40,13 @@ public class add_sale extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        agregar_ventas = new javax.swing.JButton();
         nombre_v = new javax.swing.JTextField();
         apellido_v = new javax.swing.JTextField();
         cedula_v = new javax.swing.JTextField();
-        marca = new javax.swing.JTextField();
+        marca = new javax.swing.JComboBox<>();
         codigo = new javax.swing.JTextField();
         costo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,20 +70,77 @@ public class add_sale extends javax.swing.JFrame {
 
         jLabel6.setText("Nombre Empleado");
         panel_add_sale.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
-        panel_add_sale.add(nombre_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
-        panel_add_sale.add(apellido_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
-        panel_add_sale.add(cedula_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
-        panel_add_sale.add(marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 110, -1));
-        panel_add_sale.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 110, -1));
-        panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, -1));
 
-        jButton1.setText("Agregar Venta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        agregar_ventas.setText("Agregar Venta");
+        agregar_ventas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                agregar_ventasActionPerformed(evt);
             }
         });
-        panel_add_sale.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
+        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
+
+        nombre_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nombre_vKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombre_vKeyTyped(evt);
+            }
+        });
+        panel_add_sale.add(nombre_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
+
+        apellido_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                apellido_vKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                apellido_vKeyTyped(evt);
+            }
+        });
+        panel_add_sale.add(apellido_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
+
+        cedula_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cedula_vKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cedula_vKeyTyped(evt);
+            }
+        });
+        panel_add_sale.add(cedula_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
+
+        marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CHEVROLET", "KIA", "BMW", "MAZDA", "TOYOTA", "MERCEDES-BENZ" }));
+        marca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                marcaKeyTyped(evt);
+            }
+        });
+        panel_add_sale.add(marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 120, -1));
+
+        codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoActionPerformed(evt);
+            }
+        });
+        codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                codigoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                codigoKeyTyped(evt);
+            }
+        });
+        panel_add_sale.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 110, -1));
+
+        costo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                costoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                costoKeyTyped(evt);
+            }
+        });
+        panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,17 +155,125 @@ public class add_sale extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void botonagregarventas() {
+        if (!nombre_v.getText().isEmpty() && !apellido_v.getText().isEmpty() && !cedula_v.getText().isEmpty() && cedula_v.getText().length() == 10 && !codigo.getText().isEmpty() && codigo.getText().length() == 6 && !costo.getText().isEmpty() && costo.getText().length() >= 8) {
+            agregar_ventas.setEnabled(true);
+        } else {
+            agregar_ventas.setEnabled(false);
+        }
+    }
+    private void agregar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_ventasActionPerformed
         String aux[] = new String[100];
-        aux[0] = nombre_v.getText();
-        aux[1] = apellido_v.getText();
+        boolean existe = false;
+        aux[0] = nombre_v.getText().toUpperCase();
+        aux[1] = apellido_v.getText().toUpperCase();
         aux[2] = codigo.getText();
         aux[3] = cedula_v.getText();
-        aux[4] = marca.getText();
+        aux[4] = marca.getSelectedItem().toString();
         aux[5] = costo.getText();
-        agregarRegistro(aux, "Ventas.txt");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        System.out.println("existe");
+        try {
+            BufferedReader br_prueba = new BufferedReader(new FileReader("Empleados.txt"));
+            String linea_sep = br_prueba.readLine();
+            while (linea_sep != null) {
+                String[] campos_prueba = linea_sep.split(";");
+                if (campos_prueba[0].equals(aux[0]) && campos_prueba[1].equals(aux[1]) && campos_prueba[2].equals(aux[3])) {
+                    existe = true;
+                    System.out.println("existe");
+                }
+                linea_sep = br_prueba.readLine();
+            }
+            br_prueba.close();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+        if (existe == true) {
+            agregarRegistro(aux, "Ventas.txt");
+        } else {
+            System.out.println("No Existe el empleado");
+        }
+    }//GEN-LAST:event_agregar_ventasActionPerformed
+
+    private void nombre_vKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombre_vKeyReleased
+        botonagregarventas();
+    }//GEN-LAST:event_nombre_vKeyReleased
+
+    private void nombre_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombre_vKeyTyped
+        int key = evt.getKeyChar();
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean mayusculas = key >= 65 && key <= 90;
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nombre_vKeyTyped
+
+    private void apellido_vKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellido_vKeyReleased
+        botonagregarventas();
+    }//GEN-LAST:event_apellido_vKeyReleased
+
+    private void apellido_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellido_vKeyTyped
+        int key = evt.getKeyChar();
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean mayusculas = key >= 65 && key <= 90;
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_apellido_vKeyTyped
+
+    private void cedula_vKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedula_vKeyReleased
+        botonagregarventas();
+    }//GEN-LAST:event_cedula_vKeyReleased
+
+    private void cedula_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedula_vKeyTyped
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+        if (!(numeros)) {
+            evt.consume();
+        }
+        String textoActual = cedula_v.getText();
+        if (textoActual.length() >= 10) {
+            evt.consume();
+
+        }
+    }//GEN-LAST:event_cedula_vKeyTyped
+
+    private void marcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_marcaKeyTyped
+
+    }//GEN-LAST:event_marcaKeyTyped
+
+    private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codigoActionPerformed
+
+    private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
+        botonagregarventas();
+    }//GEN-LAST:event_codigoKeyReleased
+
+    private void codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyTyped
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+        if (!(numeros)) {
+            evt.consume();
+        }
+        String textoActual = codigo.getText();
+        if (textoActual.length() >= 6) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_codigoKeyTyped
+
+    private void costoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_costoKeyReleased
+        botonagregarventas();
+    }//GEN-LAST:event_costoKeyReleased
+
+    private void costoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_costoKeyTyped
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_costoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -142,18 +311,18 @@ public class add_sale extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregar_ventas;
     private javax.swing.JTextField apellido_v;
     private javax.swing.JTextField cedula_v;
     private javax.swing.JTextField codigo;
     private javax.swing.JTextField costo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField marca;
+    private javax.swing.JComboBox<String> marca;
     private javax.swing.JTextField nombre_v;
     public javax.swing.JPanel panel_add_sale;
     // End of variables declaration//GEN-END:variables

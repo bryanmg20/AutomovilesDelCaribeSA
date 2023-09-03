@@ -31,8 +31,8 @@ public class eliminate_employee extends javax.swing.JFrame {
 
         panel_eliminate_employee = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        b_eliminar = new javax.swing.JButton();
         eliminar = new javax.swing.JTextField();
-        eliminate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,15 +41,21 @@ public class eliminate_employee extends javax.swing.JFrame {
 
         jLabel1.setText("Cedula Empleado");
         panel_eliminate_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-        panel_eliminate_employee.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 110, -1));
 
-        eliminate.setText("Eliminar Empleado");
-        eliminate.addActionListener(new java.awt.event.ActionListener() {
+        b_eliminar.setText("Eliminar Empleado");
+        b_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminateActionPerformed(evt);
+                b_eliminarActionPerformed(evt);
             }
         });
-        panel_eliminate_employee.add(eliminate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+        panel_eliminate_employee.add(b_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+
+        eliminar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                eliminarKeyTyped(evt);
+            }
+        });
+        panel_eliminate_employee.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,10 +71,26 @@ public class eliminate_employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void eliminateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminateActionPerformed
+    private void b_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eliminarActionPerformed
         String cedula = eliminar.getText();
         eliminarRegistro(cedula, "Empleados.txt");
-    }//GEN-LAST:event_eliminateActionPerformed
+    }//GEN-LAST:event_b_eliminarActionPerformed
+
+    private void eliminarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarKeyTyped
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+        if (!(numeros)) {
+            evt.consume();
+        }
+        String textoActual = eliminar.getText();
+        if (textoActual.length() == 9) {
+            b_eliminar.setEnabled(true);
+        } else if (textoActual.length() >= 10) {
+            evt.consume();
+        } else {
+            b_eliminar.setEnabled(false);
+        }
+    }//GEN-LAST:event_eliminarKeyTyped
 
     /**
      * @param args the command line arguments
@@ -106,8 +128,8 @@ public class eliminate_employee extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_eliminar;
     private javax.swing.JTextField eliminar;
-    private javax.swing.JButton eliminate;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel panel_eliminate_employee;
     // End of variables declaration//GEN-END:variables
