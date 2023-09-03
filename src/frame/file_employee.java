@@ -4,7 +4,9 @@
  */
 package frame;
 
-import javax.swing.JPanel;
+import static class_.File_sub.*;
+import java.io.IOException;
+
 /**
  *
  * @author bryan
@@ -30,6 +32,7 @@ public class file_employee extends javax.swing.JFrame {
 
         panel_file_employee = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,21 +40,35 @@ public class file_employee extends javax.swing.JFrame {
 
         jLabel1.setText("empleado");
 
+        jButton1.setText("Ordenar por Nombre");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_file_employeeLayout = new javax.swing.GroupLayout(panel_file_employee);
         panel_file_employee.setLayout(panel_file_employeeLayout);
         panel_file_employeeLayout.setHorizontalGroup(
             panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_file_employeeLayout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(57, 57, 57))
+            .addGroup(panel_file_employeeLayout.createSequentialGroup()
+                .addContainerGap(356, Short.MAX_VALUE)
+                .addGroup(panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_file_employeeLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(341, 341, 341))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_file_employeeLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(65, 65, 65))))
         );
         panel_file_employeeLayout.setVerticalGroup(
             panel_file_employeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_file_employeeLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
+                .addGap(41, 41, 41)
+                .addComponent(jButton1)
+                .addGap(100, 100, 100)
                 .addComponent(jLabel1)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -67,6 +84,100 @@ public class file_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String[][] registre_employee = ObtenerArchivo("Empleados.txt");
+        //recorro la matriz
+        for (int i = 0; i < registre_employee.length - 1; i++) {
+            for (int j = 0; j < registre_employee.length - 1; j++) {
+                if (!registre_employee[j][0].equals(registre_employee[j + 1][0])) {
+                    int menor = 0;
+                    //verifico que cadena de texto es mayor para saber el recorrido maximo
+                    if (registre_employee[j][0].length() < registre_employee[j + 1][0].length() || registre_employee[j][0].length() == registre_employee[j + 1][0].length()) {
+                        menor = registre_employee[j][0].length();
+                    } else {
+                        if (registre_employee[j][0].length() > registre_employee[j + 1][0].length()) {
+                            menor = registre_employee[j + 1][0].length();
+                        }
+                    }
+                    boolean pin = true;
+                    boolean order = false;
+                    int k = 0;
+                    while (pin && !order) {
+                  
+                        int aux_1 = registre_employee[j][0].substring(k, k + 1).charAt(0);
+                        int aux_2 = registre_employee[j + 1][0].substring(k, k + 1).charAt(0);
+                        if (aux_1 > aux_2) {
+                          
+                            order = true;
+                            //guardo la fila que voy a cambiar por la fila superior
+                            String[] aux = new String[registre_employee[0].length];
+
+                            System.arraycopy(registre_employee[j], 0, aux, 0, registre_employee[0].length);
+                            System.arraycopy(registre_employee[j + 1], 0, registre_employee[j], 0, registre_employee[0].length);
+                            System.arraycopy(aux, 0, registre_employee[j + 1], 0, registre_employee[0].length);
+                        }else{
+                            if (aux_1<aux_2) {
+                                order = true;
+                            }
+                        }
+                        k++;
+                        if (k >= menor) {
+                            pin = false;
+                        }
+                    }
+
+                } else {
+                    if (!registre_employee[j][1].equals(registre_employee[j + 1][1])) {
+                       
+                        int menor = 0;
+                    //verifico que cadena de texto es mayor para saber el recorrido maximo
+                    if (registre_employee[j][1].length() < registre_employee[j + 1][1].length() || registre_employee[j][1].length() == registre_employee[j + 1][1].length()) {
+                        menor = registre_employee[j][1].length();
+                    } else {
+                        if (registre_employee[j][1].length() > registre_employee[j + 1][1].length()) {
+                            menor = registre_employee[j + 1][1].length();
+                        }
+                    }
+                    boolean pin = true;
+                    boolean order = false;
+                    int k = 0;
+                    while (pin && !order) {
+                  
+                        int aux_1 = registre_employee[j][1].substring(k, k + 1).charAt(0);
+                        int aux_2 = registre_employee[j + 1][1].substring(k, k + 1).charAt(0);
+                        if (aux_1 > aux_2) {
+                           
+                            order = true;
+                            //guardo la fila que voy a cambiar por la fila superior
+                            String[] aux = new String[registre_employee[0].length];
+
+                            System.arraycopy(registre_employee[j], 0, aux, 0, registre_employee[0].length);
+                            System.arraycopy(registre_employee[j + 1], 0, registre_employee[j], 0, registre_employee[0].length);
+                            System.arraycopy(aux, 0, registre_employee[j + 1], 0, registre_employee[0].length);
+                        }else{
+                            if (aux_1<aux_2) {
+                                order = true;
+                            }
+                        }
+                        k++;
+                        if (k >= menor) {
+                            pin = false;
+                        }
+                    }
+
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < registre_employee.length; i++) {
+            System.out.println(" ");
+            for (int j = 0; j < registre_employee[0].length; j++) {
+                System.out.print(registre_employee[i][j] + " ");
+            }
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,8 +213,9 @@ public class file_employee extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel panel_file_employee;
     // End of variables declaration//GEN-END:variables

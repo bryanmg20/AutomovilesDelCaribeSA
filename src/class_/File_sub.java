@@ -126,5 +126,40 @@ public class File_sub {
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
+        
+    }
+    public static String[][] ObtenerArchivo(String NombreDeArchivo) {
+        int row = 0;
+        String[][] aux = new String[100][100];
+        
+      
+        File archivo = new File(NombreDeArchivo);
+        try {
+            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
+            String lectura = entrada.readLine();
+            while (lectura != null) {
+
+                aux[row] = lectura.split(";");
+                row++;
+                
+                lectura = entrada.readLine();
+            }
+            entrada.close();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+        String[][] file_employee = new String[row][aux[0].length];
+        for (int i = 0; i < row; i++) {
+      
+            for (int j = 0; j <aux[0].length; j++) {
+                file_employee[i][j] = aux[i][j];
+        
+            }
+        }
+        
+        
+        return file_employee;
     }
 }

@@ -492,6 +492,10 @@ public class Options extends javax.swing.JFrame {
         menu_sale.setVisible(false);
         menu_graph.setVisible(false);
         sub_tittle.setText("/Visualizar archivo de empleados y de ventas");
+        
+        
+        
+        
     }//GEN-LAST:event_button_seeActionPerformed
 
     private void button_add_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_employeeActionPerformed
