@@ -76,7 +76,6 @@ public class bar_graph extends javax.swing.JFrame {
         precio[3] = 0;
         precio[4] = 0;
         precio[5] = 0;
-        
         //Se lee el archivo de Ventas
         try {
             BufferedReader br_ventas = new BufferedReader(new FileReader("Ventas.txt"));

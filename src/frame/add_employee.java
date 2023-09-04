@@ -304,7 +304,7 @@ public class add_employee extends javax.swing.JFrame {
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
         //Se utiliza este metodo para verificar si lo ingresado es un caracter de control (backspace).
-        boolean carac = Character.isISOControl(key);
+        boolean carac = Character.isISOControl(key); 
         // se verifica si el caracter ingresado no es letra miniscula, mayuscula ni un caracter de control.
         if (!(minusculas || mayusculas || carac)) {
             mensaje2.setVisible(true); //se hace visible el mensaje de error
@@ -430,7 +430,8 @@ public class add_employee extends javax.swing.JFrame {
         aux[2] = cedula.getText();
         aux[3] = cargo.getSelectedItem().toString();
         aux[4] = telefono.getText();
-        Date pr = fecha.getDate();
+        Date pr = fecha.getDate(); //El campo coorrespondite a fecha se obtiene desde la libreria Jcalendar 
+        //lo ingresado se guarda en un objeto de tipo Date 
         aux[6] = salario.getText();
         //Se verifica si la fecha no esta vacia, y si la longitud de los demas campos es correcta
         if (pr == null || cedula.getText().length() != 10 || telefono.getText().length() != 10 || salario.getText().length() < 7) {

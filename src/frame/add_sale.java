@@ -25,7 +25,7 @@ public class add_sale extends javax.swing.JFrame {
         controller = new add_sale_(this);
         mensajenom.setVisible(false);
         color();
-        fuente(); 
+        fuente();   
         mensajecos.setVisible(false);
         mensajeap.setVisible(false);
         mensajenum.setVisible(false);
@@ -197,7 +197,7 @@ public class add_sale extends javax.swing.JFrame {
         panel_add_sale.add(mensajecos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
         mensajecodigo.setText("¡CODIGO YA EXISTENTE!");
-        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
+        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
 
         empleadoex.setText("¡No existe el empleado!");
         panel_add_sale.add(empleadoex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));

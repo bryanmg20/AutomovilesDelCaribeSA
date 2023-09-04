@@ -87,7 +87,7 @@ public class File_sub {
             if (encontrado == true) {
                 eliminarArchivo(NombreDelArchivo);
                 elim.setVisible(false);
-                //
+                //Dependiendo de cual archivo es  
                 switch (NombreDelArchivo) {
                     case "Empleados.txt" -> {
                         renombrarArchivo("aux_1.txt", "Empleados.txt");
@@ -110,7 +110,7 @@ public class File_sub {
         }
     }
     //Verifica si el registro ya existe 
-    public static void agregarRegistro(String[] campos, String NombreDelArchivo, JLabel hola) {
+    public static void agregarRegistro(String[] campos, String NombreDelArchivo, JLabel men) {
         //verifica en que archivos se modificará
         int pin = 0;
         if("Ventas.txt".equals(NombreDelArchivo)){
@@ -126,7 +126,7 @@ public class File_sub {
                 //Si es igual el campo se cambia el boolean a verdadero
                 if (campos_prueba[2].equals(campos[2])) {
                     fin = true;
-                    hola.setVisible(true);
+                    men.setVisible(true);
                 }
                 
                 linea_archivo = br_archivo.readLine();
@@ -134,7 +134,7 @@ public class File_sub {
             //Si no encuentra el registro llama a la funcion agregarArchivo y lo escribe al final 
             if (fin == false) {
                 agregarArchivo(NombreDelArchivo, campos, pin);
-                hola.setVisible(false);
+                men.setVisible(false);
             }
             br_archivo.close();
         } catch (FileNotFoundException ex) {
