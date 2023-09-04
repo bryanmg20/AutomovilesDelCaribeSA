@@ -23,7 +23,7 @@ public class add_employee extends javax.swing.JFrame {
         b_agregar.setEnabled(false);
         mensaje1.setVisible(false);
         mensaje2.setVisible(false);
-        color(); 
+        color();
         mensaje3.setVisible(false);
         mensaje4.setVisible(false);
         mensajet.setVisible(false);
@@ -264,14 +264,15 @@ public class add_employee extends javax.swing.JFrame {
             b_agregar.setEnabled(false);
         }
     }
+
     void color() {
-        jLabel1.setForeground(new Color(11,61,138));
-        jLabel2.setForeground(new Color(11,61,138));
-        jLabel3.setForeground(new Color(11,61,138));
-        jLabel4.setForeground(new Color(11,61,138));
-        jLabel5.setForeground(new Color(11,61,138));
-        jLabel6.setForeground(new Color(11,61,138));
-        jLabel7.setForeground(new Color(11,61,138));
+        jLabel1.setForeground(new Color(11, 61, 138));
+        jLabel2.setForeground(new Color(11, 61, 138));
+        jLabel3.setForeground(new Color(11, 61, 138));
+        jLabel4.setForeground(new Color(11, 61, 138));
+        jLabel5.setForeground(new Color(11, 61, 138));
+        jLabel6.setForeground(new Color(11, 61, 138));
+        jLabel7.setForeground(new Color(11, 61, 138));
     }
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
@@ -285,7 +286,8 @@ public class add_employee extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
-        if (!(minusculas || mayusculas)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(minusculas || mayusculas || carac)) {
             mensaje2.setVisible(true);
             evt.consume();
         } else {
@@ -301,7 +303,8 @@ public class add_employee extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
-        if (!(minusculas || mayusculas)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(minusculas || mayusculas || carac)) {
             mensaje3.setVisible(true);
             evt.consume();
         } else {
@@ -316,7 +319,8 @@ public class add_employee extends javax.swing.JFrame {
     private void cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedulaKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
-        if (!(numeros)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(numeros || carac)) {
             mensaje4.setVisible(true);
             evt.consume();
         } else {
@@ -347,13 +351,14 @@ public class add_employee extends javax.swing.JFrame {
     private void telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
+        boolean carac = Character.isISOControl(key);
         String textoActual = telefono.getText();
         if (textoActual.length() == 0 && key != '3') {
             mensaje1.setVisible(true);
             evt.consume();
         } else {
             mensaje1.setVisible(false);
-            if (!(numeros)) {
+            if (!(numeros || carac)) {
                 mensajet.setVisible(true);
                 evt.consume();
             } else {
@@ -376,7 +381,8 @@ public class add_employee extends javax.swing.JFrame {
     private void salarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salarioKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
-        if (!(numeros)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(numeros || carac)) {
             mensajesal.setVisible(true);
             evt.consume();
         } else {
@@ -398,13 +404,8 @@ public class add_employee extends javax.swing.JFrame {
         aux[4] = telefono.getText();
         Date pr = fecha.getDate();
         aux[6] = salario.getText();
-        System.out.println(cedula.getText().length());
-        System.out.println(telefono.getText().length());
-        System.out.println(salario.getText().length());
-        System.out.println(pr);
         if (pr == null || cedula.getText().length() != 10 || telefono.getText().length() != 10 || salario.getText().length() < 7) {
             datosinv.setVisible(true);
-
         } else {
             datosinv.setVisible(false);
             mensaje1.setVisible(false);
@@ -424,7 +425,6 @@ public class add_employee extends javax.swing.JFrame {
             String[] campos_fecha = aux[5].split(" ");
             aux[5] = campos_fecha[2] + "-" + campos_fecha[1].toUpperCase() + "-" + campos_fecha[5];
             agregarRegistro(aux, "Empleados.txt", mensajecedula);
-
         }
     }//GEN-LAST:event_b_agregarActionPerformed
 

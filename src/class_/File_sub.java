@@ -82,6 +82,7 @@ public class File_sub {
             br_prueba.close();
             if (encontrado == true) {
                 eliminarArchivo(NombreDelArchivo);
+                elim.setVisible(false);
                 //
                 switch (NombreDelArchivo) {
                     case "Empleados.txt" -> {

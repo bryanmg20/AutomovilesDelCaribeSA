@@ -23,7 +23,7 @@ public class add_sale extends javax.swing.JFrame {
      */
     public add_sale() {
         initComponents();
-        mensajenom.setVisible(false); 
+        mensajenom.setVisible(false);
         color();
         mensajecos.setVisible(false);
         mensajeap.setVisible(false);
@@ -278,8 +278,9 @@ public class add_sale extends javax.swing.JFrame {
     private void nombre_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombre_vKeyTyped
         int key = evt.getKeyChar();
         boolean minusculas = key >= 97 && key <= 122;
+        boolean carac = Character.isISOControl(key);
         boolean mayusculas = key >= 65 && key <= 90;
-        if (!(minusculas || mayusculas)) {
+        if (!(minusculas || mayusculas || carac)) {
             mensajenom.setVisible(true);
             evt.consume();
         } else {
@@ -297,9 +298,10 @@ public class add_sale extends javax.swing.JFrame {
 
     private void apellido_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellido_vKeyTyped
         int key = evt.getKeyChar();
+        boolean carac = Character.isISOControl(key);
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
-        if (!(minusculas || mayusculas)) {
+        if (!(minusculas || mayusculas || carac)) {
             mensajeap.setVisible(true);
             evt.consume();
         } else {
@@ -314,7 +316,8 @@ public class add_sale extends javax.swing.JFrame {
     private void cedula_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedula_vKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
-        if (!(numeros)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(numeros || carac)) {
             mensajenum.setVisible(true);
             evt.consume();
         } else {
@@ -341,7 +344,8 @@ public class add_sale extends javax.swing.JFrame {
     private void codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
-        if (!(numeros)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(numeros || carac)) {
             evt.consume();
         }
         String textoActual = codigo.getText();
@@ -357,7 +361,8 @@ public class add_sale extends javax.swing.JFrame {
     private void costoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_costoKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
-        if (!(numeros)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(numeros || carac)) {
             mensajecos.setVisible(true);
             evt.consume();
         } else {
@@ -371,14 +376,16 @@ public class add_sale extends javax.swing.JFrame {
             agregar_ventas.setEnabled(false);
         }
     }
+
     void color() {
-        jLabel1.setForeground(new Color(11,61,138));
-        jLabel2.setForeground(new Color(11,61,138));
-        jLabel3.setForeground(new Color(11,61,138));
-        jLabel4.setForeground(new Color(11,61,138));
-        jLabel5.setForeground(new Color(11,61,138));
-        jLabel6.setForeground(new Color(11,61,138));
+        jLabel1.setForeground(new Color(11, 61, 138));
+        jLabel2.setForeground(new Color(11, 61, 138));
+        jLabel3.setForeground(new Color(11, 61, 138));
+        jLabel4.setForeground(new Color(11, 61, 138));
+        jLabel5.setForeground(new Color(11, 61, 138));
+        jLabel6.setForeground(new Color(11, 61, 138));
     }
+
     /**
      * @param args the command line arguments
      */

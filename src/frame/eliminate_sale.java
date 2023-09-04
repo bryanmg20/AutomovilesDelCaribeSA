@@ -95,6 +95,7 @@ public class eliminate_sale extends javax.swing.JFrame {
     private void eliminar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_ventasActionPerformed
         String palabra = eliminar_v.getText();
         eliminarRegistro(palabra, "Ventas.txt", codin);
+        eliminar_v.setText(null);
     }//GEN-LAST:event_eliminar_ventasActionPerformed
 
     private void eliminar_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminar_vKeyTyped

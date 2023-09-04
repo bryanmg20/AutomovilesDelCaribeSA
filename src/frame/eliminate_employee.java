@@ -68,8 +68,8 @@ public class eliminate_employee extends javax.swing.JFrame {
         });
         panel_eliminate_employee.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 210, 30));
 
-        mensajeemp.setText("¡EMPLEADO NO EXISTENTE!");
-        panel_eliminate_employee.add(mensajeemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        mensajeemp.setText("¡Ingrese un empleado existente!");
+        panel_eliminate_employee.add(mensajeemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, -1));
 
         jLabel3.setText("___________________________________________");
         panel_eliminate_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
@@ -91,18 +91,20 @@ public class eliminate_employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     void color() {
-        jLabel1.setForeground(new Color(11,61,138));
+        jLabel1.setForeground(new Color(11, 61, 138));
     }
     private void b_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eliminarActionPerformed
         String cedula = eliminar.getText();
         eliminarRegistro(cedula, "Empleados.txt", mensajeemp);
         eliminar.setText(null);
+        num.setVisible(false);
     }//GEN-LAST:event_b_eliminarActionPerformed
 
     private void eliminarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
-        if (!(numeros)) {
+        boolean carac = Character.isISOControl(key);
+        if (!(numeros || carac)) {
             num.setVisible(true);
             evt.consume();
         } else {
@@ -152,7 +154,7 @@ public class eliminate_employee extends javax.swing.JFrame {
             }
         });
     }
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_eliminar;
     private javax.swing.JTextField eliminar;

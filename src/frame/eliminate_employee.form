@@ -95,11 +95,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="mensajeemp">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xa1;EMPLEADO NO EXISTENTE!"/>
+            <Property name="text" type="java.lang.String" value="&#xa1;Ingrese un empleado existente!"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="230" width="-1" height="-1"/>
+              <AbsoluteConstraints x="460" y="190" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
