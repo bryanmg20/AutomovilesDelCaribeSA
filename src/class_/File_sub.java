@@ -154,7 +154,7 @@ public class File_sub {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String lectura = entrada.readLine();
             while (lectura != null) {
-
+                //Obtiene los campos en vector
                 aux[row] = lectura.split(";");
                 row++;
 
@@ -168,7 +168,7 @@ public class File_sub {
         }
         String[][] file_employee = new String[row][aux[0].length];
         for (int i = 0; i < row; i++) {
-
+            //ingresa el vector en una matriz
             for (int j = 0; j < aux[0].length; j++) {
                 file_employee[i][j] = aux[i][j];
 

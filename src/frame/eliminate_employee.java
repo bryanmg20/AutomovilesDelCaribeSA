@@ -45,6 +45,7 @@ public class eliminate_employee extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         b_eliminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +68,7 @@ public class eliminate_employee extends javax.swing.JFrame {
         mensajeemp.setText("¡Ingrese un empleado existente!");
         panel_eliminate_employee.add(mensajeemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        jLabel3.setText("____________________________________");
+        jLabel3.setText("___________________________________________");
         panel_eliminate_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
         num.setText("¡Ingresar unicamente numeros en este campo!");
@@ -91,6 +92,9 @@ public class eliminate_employee extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cpu (1).png"))); // NOI18N
         panel_eliminate_employee.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
+
+        jLabel4.setText("¡Cedula debe contener 10 digitos!");
+        panel_eliminate_employee.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,6 +190,7 @@ public class eliminate_employee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel mensajeemp;
     private javax.swing.JLabel num;
     public javax.swing.JPanel panel;
