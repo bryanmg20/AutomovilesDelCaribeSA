@@ -98,7 +98,7 @@ public class eliminate_employee extends javax.swing.JFrame {
     private void b_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eliminarActionPerformed
         //Se obtiene el texto ingresado por el usuario y se almacena en la variable cedula
         String cedula = eliminar.getText();
-        //se llama a la funcion eliminarRegistro y se eliminar el registro del archivo empleadostxt
+        //se llama a la funcion eliminarRegistro y se elimina el registro del archivo empleadostxt
         eliminarRegistro(cedula, "Empleados.txt", mensajeemp);
         eliminar.setText(null); //Se borra el contenido del campo de texto para limpiarlo y permitir al usuario ingresar una nueva cedula
         num.setVisible(false); 
