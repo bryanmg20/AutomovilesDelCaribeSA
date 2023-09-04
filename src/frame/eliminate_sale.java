@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.eliminarRegistro;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -18,7 +19,9 @@ public class eliminate_sale extends javax.swing.JFrame {
      */
     public eliminate_sale() {
         initComponents();
+        color();
         eliminar_ventas.setEnabled(false); 
+        codin.setVisible(false);
     }
 
     /**
@@ -86,7 +89,9 @@ public class eliminate_sale extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    void color() {
+        jLabel1.setForeground(new Color(11,61,138));
+    }
     private void eliminar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_ventasActionPerformed
         String palabra = eliminar_v.getText();
         eliminarRegistro(palabra, "Ventas.txt", codin);

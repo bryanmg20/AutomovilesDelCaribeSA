@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.agregarRegistro;
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -22,13 +23,14 @@ public class add_sale extends javax.swing.JFrame {
      */
     public add_sale() {
         initComponents();
-        mensajenom.setVisible(false);
-        mensajecod.setVisible(false);
+        mensajenom.setVisible(false); 
+        color();
         mensajecos.setVisible(false);
         mensajeap.setVisible(false);
         mensajenum.setVisible(false);
         mensajecodigo.setVisible(false);
         empleadoex.setVisible(false);
+        agregar_ventas.setEnabled(false);
     }
 
     /**
@@ -228,7 +230,9 @@ public class add_sale extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panel_add_sale, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         pack();
@@ -376,6 +380,14 @@ public class add_sale extends javax.swing.JFrame {
         } else {
             agregar_ventas.setEnabled(false);
         }
+    }
+    void color() {
+        jLabel1.setForeground(new Color(11,61,138));
+        jLabel2.setForeground(new Color(11,61,138));
+        jLabel3.setForeground(new Color(11,61,138));
+        jLabel4.setForeground(new Color(11,61,138));
+        jLabel5.setForeground(new Color(11,61,138));
+        jLabel6.setForeground(new Color(11,61,138));
     }
     /**
      * @param args the command line arguments

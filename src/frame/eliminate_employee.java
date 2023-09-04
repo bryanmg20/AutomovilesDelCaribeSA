@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.eliminarRegistro;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -18,7 +19,10 @@ public class eliminate_employee extends javax.swing.JFrame {
      */
     public eliminate_employee() {
         initComponents();
+        color();
         b_eliminar.setEnabled(false);
+        num.setVisible(false);
+        mensajeemp.setVisible(false);
     }
 
     /**
@@ -86,7 +90,9 @@ public class eliminate_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    void color() {
+        jLabel1.setForeground(new Color(11,61,138));
+    }
     private void b_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eliminarActionPerformed
         String cedula = eliminar.getText();
         eliminarRegistro(cedula, "Empleados.txt", mensajeemp);

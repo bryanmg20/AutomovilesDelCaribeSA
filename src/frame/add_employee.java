@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.agregarRegistro;
+import java.awt.Color;
 import java.util.Date;
 import javax.swing.JPanel;
 
@@ -19,8 +20,10 @@ public class add_employee extends javax.swing.JFrame {
      */
     public add_employee() {
         initComponents();
+        b_agregar.setEnabled(false);
         mensaje1.setVisible(false);
         mensaje2.setVisible(false);
+        color(); 
         mensaje3.setVisible(false);
         mensaje4.setVisible(false);
         mensajet.setVisible(false);
@@ -255,6 +258,15 @@ public class add_employee extends javax.swing.JFrame {
         } else {
             b_agregar.setEnabled(false);
         }
+    }
+    void color() {
+        jLabel1.setForeground(new Color(11,61,138));
+        jLabel2.setForeground(new Color(11,61,138));
+        jLabel3.setForeground(new Color(11,61,138));
+        jLabel4.setForeground(new Color(11,61,138));
+        jLabel5.setForeground(new Color(11,61,138));
+        jLabel6.setForeground(new Color(11,61,138));
+        jLabel7.setForeground(new Color(11,61,138));
     }
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
