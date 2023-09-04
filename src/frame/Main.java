@@ -22,6 +22,7 @@ public class Main extends javax.swing.JFrame {
         this.setSize(400, 230);
         //Crea archivo Ventas al iniciar el programa
         File archivo = new File("Ventas.txt");
+        //si ya esta existe no lo vuelve a crear
         if (archivo.exists() == false) {
             try {
                 PrintWriter pw = new PrintWriter(archivo);

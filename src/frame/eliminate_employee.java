@@ -7,6 +7,7 @@ package frame;
 import static class_.File_sub.eliminarRegistro;
 import class_.button_eliminate_employee;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -43,6 +44,7 @@ public class eliminate_employee extends javax.swing.JFrame {
         num = new javax.swing.JLabel();
         panel = new javax.swing.JPanel();
         b_eliminar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,7 +54,7 @@ public class eliminate_employee extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 18)); // NOI18N
         jLabel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jLabel1.setText("Cedula Empleado:");
-        panel_eliminate_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        panel_eliminate_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         eliminar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         eliminar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -60,16 +62,16 @@ public class eliminate_employee extends javax.swing.JFrame {
                 eliminarKeyTyped(evt);
             }
         });
-        panel_eliminate_employee.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 210, 30));
+        panel_eliminate_employee.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 210, 30));
 
         mensajeemp.setText("¡Ingrese un empleado existente!");
-        panel_eliminate_employee.add(mensajeemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, -1));
+        panel_eliminate_employee.add(mensajeemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        jLabel3.setText("___________________________________________");
-        panel_eliminate_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        jLabel3.setText("____________________________________");
+        panel_eliminate_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
         num.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_eliminate_employee.add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+        panel_eliminate_employee.add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
         panel.setBackground(new java.awt.Color(23, 93, 163));
         panel.setLayout(new java.awt.BorderLayout());
@@ -85,7 +87,10 @@ public class eliminate_employee extends javax.swing.JFrame {
         });
         panel.add(b_eliminar, java.awt.BorderLayout.PAGE_START);
 
-        panel_eliminate_employee.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 140, 28));
+        panel_eliminate_employee.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 140, 28));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cpu (1).png"))); // NOI18N
+        panel_eliminate_employee.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,9 +106,13 @@ public class eliminate_employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //La funcion color se encarga de cambiar el color del texto del jLabel
-
     void color() {
         jLabel1.setForeground(new Color(11, 61, 138));
+    }
+    
+    //La subrutina fuete modifica la fuente del jLabel
+    void fuente() {
+        jLabel1.setFont(new Font("verdana", Font.BOLD, 18));
     }
 
     //Se encarga de eliminar un registro en funcion de la cedula ingresada por el usuario
@@ -175,6 +184,7 @@ public class eliminate_employee extends javax.swing.JFrame {
     public javax.swing.JButton b_eliminar;
     private javax.swing.JTextField eliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel mensajeemp;
     private javax.swing.JLabel num;

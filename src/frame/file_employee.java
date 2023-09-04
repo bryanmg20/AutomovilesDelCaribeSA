@@ -3,6 +3,7 @@ package frame;
 import static class_.File_sub.*;
 import class_.file;
 import java.awt.Color;
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,6 +17,8 @@ public class file_employee extends javax.swing.JFrame {
     public file_employee() {
         initComponents();
         controller = new file(this);
+        color();
+        fuente();
     }
 
     @SuppressWarnings("unchecked")
@@ -411,6 +414,17 @@ public class file_employee extends javax.swing.JFrame {
         
         table.setModel(model);
         table.getTableHeader().setForeground(Color.BLACK);
+    }
+    void color() {
+        jLabel1.setForeground(new Color(11, 61, 138));
+        jLabel2.setForeground(new Color(11, 61, 138));
+        jLabel3.setForeground(new Color(11, 61, 138));
+    }
+    //La subrutina fuete modifica la fuente de las jLabels
+    void fuente() {
+        jLabel1.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel2.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel3.setFont(new Font("verdana", Font.BOLD, 14));
     }
 
     public static void main(String args[]) {

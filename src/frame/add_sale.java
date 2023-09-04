@@ -7,6 +7,7 @@ package frame;
 import static class_.File_sub.agregarRegistro;
 import class_.add_sale_;
 import java.awt.Color;
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,6 +25,7 @@ public class add_sale extends javax.swing.JFrame {
         controller = new add_sale_(this);
         mensajenom.setVisible(false);
         color();
+        fuente(); 
         mensajecos.setVisible(false);
         mensajeap.setVisible(false);
         mensajenum.setVisible(false);
@@ -398,7 +400,7 @@ public class add_sale extends javax.swing.JFrame {
             agregar_ventas.setEnabled(false);
         }
     }
-    //La subrutina clor para cambiar los JLabels
+    //La subrutina color para cambiar los JLabels
     void color() {
         jLabel1.setForeground(new Color(11, 61, 138));
         jLabel2.setForeground(new Color(11, 61, 138));
@@ -406,6 +408,15 @@ public class add_sale extends javax.swing.JFrame {
         jLabel4.setForeground(new Color(11, 61, 138));
         jLabel5.setForeground(new Color(11, 61, 138));
         jLabel6.setForeground(new Color(11, 61, 138));
+    }
+    //La subrutina color para cambiar la fuente en los JLabels
+    void fuente() {
+        jLabel1.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel2.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel3.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel4.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel5.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel6.setFont(new Font("verdana", Font.BOLD, 14));
     }
 
     /**

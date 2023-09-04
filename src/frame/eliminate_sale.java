@@ -7,6 +7,7 @@ package frame;
 import static class_.File_sub.eliminarRegistro;
 import class_.eliminate_sale_;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JPanel;
 
 /**
@@ -20,6 +21,7 @@ public class eliminate_sale extends javax.swing.JFrame {
         initComponents();
         controller = new eliminate_sale_(this);
         color();
+        fuente();
         eliminar_ventas.setEnabled(false); 
         codin.setVisible(false);
     }
@@ -41,6 +43,7 @@ public class eliminate_sale extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         panel = new javax.swing.JPanel();
         eliminar_ventas = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,24 +53,29 @@ public class eliminate_sale extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 18)); // NOI18N
         jLabel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jLabel1.setText("Codigo del vehiculo: ");
-        panel_eliminate_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        panel_eliminate_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         eliminar_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        eliminar_v.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminar_vActionPerformed(evt);
+            }
+        });
         eliminar_v.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 eliminar_vKeyTyped(evt);
             }
         });
-        panel_eliminate_sale.add(eliminar_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 250, -1));
+        panel_eliminate_sale.add(eliminar_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 250, -1));
 
-        jLabel2.setText("____________________________________________");
-        panel_eliminate_sale.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+        jLabel2.setText("______________________________");
+        panel_eliminate_sale.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
 
         codin.setText("¡CÓDIGO NO EXISTENTE!");
-        panel_eliminate_sale.add(codin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
+        panel_eliminate_sale.add(codin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jLabel3.setText("¡Código unicamente contiene 6 digitos!");
-        panel_eliminate_sale.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+        panel_eliminate_sale.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         panel.setBackground(new java.awt.Color(23, 93, 163));
         panel.setLayout(new java.awt.BorderLayout());
@@ -83,7 +91,10 @@ public class eliminate_sale extends javax.swing.JFrame {
         });
         panel.add(eliminar_ventas, java.awt.BorderLayout.PAGE_END);
 
-        panel_eliminate_sale.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 110, 28));
+        panel_eliminate_sale.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 110, 28));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cpu (1).png"))); // NOI18N
+        panel_eliminate_sale.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,6 +112,11 @@ public class eliminate_sale extends javax.swing.JFrame {
     //La funcion color se encarga de cambiar el color del texto del jLabel
     void color() {
         jLabel1.setForeground(new Color(11, 61, 138));
+    }
+    
+    //La subrutina fuete modifica la fuente del jLabel
+    void fuente() {
+        jLabel1.setFont(new Font("verdana", Font.BOLD, 18));
     }
     //Se encarga de eliminar un registro en funcion de del codigo del vehiculo ingresada por el usuario
     private void eliminar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_ventasActionPerformed
@@ -126,6 +142,10 @@ public class eliminate_sale extends javax.swing.JFrame {
             eliminar_ventas.setEnabled(false);
         }
     }//GEN-LAST:event_eliminar_vKeyTyped
+
+    private void eliminar_vActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_vActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminar_vActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +189,7 @@ public class eliminate_sale extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     public javax.swing.JPanel panel;
     public javax.swing.JPanel panel_eliminate_sale;
     // End of variables declaration//GEN-END:variables

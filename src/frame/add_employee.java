@@ -4,6 +4,7 @@ package frame;
 import static class_.File_sub.agregarRegistro;
 import class_.button_employee;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.Date;
 
 
@@ -24,6 +25,7 @@ public class add_employee extends javax.swing.JFrame {
         datosinv.setVisible(false);
         mensajecedula.setVisible(false);
         color();
+        fuente(); 
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -275,6 +277,16 @@ public class add_employee extends javax.swing.JFrame {
         jLabel5.setForeground(new Color(11, 61, 138));
         jLabel6.setForeground(new Color(11, 61, 138));
         jLabel7.setForeground(new Color(11, 61, 138));
+    }
+    //La subrutina fuete modifica la fuente de las jLabels
+    void fuente() {
+        jLabel1.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel2.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel3.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel4.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel5.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel6.setFont(new Font("verdana", Font.BOLD, 14));
+        jLabel7.setFont(new Font("verdana", Font.BOLD, 14));
     }
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
 

@@ -15,6 +15,8 @@ public class Options extends javax.swing.JFrame {
 
     public Options() {
         initComponents();
+        color();
+        fuente();
         //Icono
         setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
         //centrar el jframe
@@ -63,6 +65,11 @@ public class Options extends javax.swing.JFrame {
         button_add_file_sale = new javax.swing.JButton();
         content = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         line = new javax.swing.JPanel();
         panel_employee = new javax.swing.JPanel();
@@ -89,7 +96,7 @@ public class Options extends javax.swing.JFrame {
 
         sub_tittle.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         sub_tittle.setForeground(new java.awt.Color(255, 255, 255));
-        sub_tittle.setText("Automoviles Del Caribe SA");
+        sub_tittle.setText("AUTOMOVILES DEL CARIBE SA");
         sub_panel.add(sub_tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 670, 90));
 
         menu_employee.setBackground(new java.awt.Color(33, 122, 204));
@@ -302,21 +309,51 @@ public class Options extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cpu (1).png"))); // NOI18N
 
+        jLabel1.setText("IMPULSANDO TUS METAS"); // NOI18N
+
+        jLabel3.setText("Y ASPIRACIONES, VEHICULOS");
+
+        jLabel4.setText("DE CALIDAD QUE VAN MAS ALLA");
+
+        jLabel5.setText("DE LA MOVILIDAD, SON LA ");
+
+        jLabel6.setText("ESENCIA DE LO QUE HACEMOS");
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
-                .addContainerGap(237, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(204, 204, 204))
+                .addGap(48, 48, 48))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6))
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         backgound.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 750, 450));
@@ -439,7 +476,25 @@ public class Options extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    void color() {
+        jLabel1.setForeground(new Color(11, 61, 138));
+        jLabel2.setForeground(new Color(11, 61, 138));
+        jLabel3.setForeground(new Color(11, 61, 138));
+        jLabel4.setForeground(new Color(11, 61, 138));
+        jLabel5.setForeground(new Color(11, 61, 138));
+        jLabel6.setForeground(new Color(11, 61, 138));
+    }
+    //La subrutina fuete modifica la fuente de las jLabels
+    void fuente() {
+        jLabel1.setFont(new Font("verdana", Font.BOLD, 18));
+        jLabel2.setFont(new Font("verdana", Font.BOLD, 18));
+        jLabel3.setFont(new Font("verdana", Font.BOLD, 18));
+        jLabel4.setFont(new Font("verdana", Font.BOLD, 18));
+        jLabel5.setFont(new Font("verdana", Font.BOLD, 18));
+        jLabel6.setFont(new Font("verdana", Font.BOLD, 18));
+    }    
+    //Se llama a un JFrame dependiendo de que boton pulse
+    //Para todos es el mismo funcionamiento
     private void button_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_employeeActionPerformed
   
         //color predeterminado de los botones del sub_menu
@@ -459,7 +514,7 @@ public class Options extends javax.swing.JFrame {
         menu_sale.setVisible(false);
         //Titulos al seleccionar el boton
         sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 24));
-        sub_tittle.setText("/Administración de Empleados.");
+        sub_tittle.setText("ADMINISTRACION DE EMPLEADOS");
     }//GEN-LAST:event_button_employeeActionPerformed
 
     private void button_saleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saleActionPerformed
@@ -476,7 +531,7 @@ public class Options extends javax.swing.JFrame {
         menu_file.setVisible(false);
         menu_sale.setVisible(true);
         sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 24));
-        sub_tittle.setText("/Administración de ventas");
+        sub_tittle.setText("ADMINISTRACION DE VENTAS");
     }//GEN-LAST:event_button_saleActionPerformed
 
     private void button_graphiqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_graphiqueActionPerformed
@@ -494,7 +549,7 @@ public class Options extends javax.swing.JFrame {
         menu_file.setVisible(false);
         menu_graph.setVisible(true);
         sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 24));
-        sub_tittle.setText("/Graficas-Relaciones");
+        sub_tittle.setText("GRAFICAS-RELACIONES");
     }//GEN-LAST:event_button_graphiqueActionPerformed
 
     private void button_seeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_seeActionPerformed
@@ -510,15 +565,15 @@ public class Options extends javax.swing.JFrame {
         menu_employee.setVisible(false);
         menu_sale.setVisible(false);
         menu_graph.setVisible(false);
-        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
-        sub_tittle.setText("/Visualizar archivo de empleados y de ventas");
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 22));
+        sub_tittle.setText("VISUALIZAR ARCHIVO DE EMPLEADOS Y VENTAS");
         
         //vizualizar archivo empleado en tabla
         String[][] registre_employee = ObtenerArchivo("Empleados.txt");
         window.table(registre_employee);
 
     }//GEN-LAST:event_button_seeActionPerformed
-
+    //Se cambia el JFrame dependiendo si es empleados o ventas en cada una de la opciones del menu
     private void button_add_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_employeeActionPerformed
         //cambio de color de color del boton al seleccionar
         add_employee window = new add_employee();
@@ -541,7 +596,7 @@ public class Options extends javax.swing.JFrame {
         eliminate_sale window = new eliminate_sale();
         showPanel(window.panel_eliminate_sale, content);
     }//GEN-LAST:event_button_eliminate_saleActionPerformed
-
+    //Para el caso de las graficas se hace lo mismo, solo que se importa la subrutina de crear la grafica para que pueda ver en el main
     private void button_add_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_barActionPerformed
         bar_graph window = new bar_graph();
         showPanel(window.panel_bard, content);
@@ -626,7 +681,12 @@ public class Options extends javax.swing.JFrame {
     public javax.swing.JButton button_see;
     public static javax.swing.JPanel content;
     private javax.swing.JPanel content_menu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel line;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel menu_employee;
