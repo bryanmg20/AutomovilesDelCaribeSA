@@ -59,6 +59,7 @@ public class circle_graph extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //Hola ale
+    //hola alan
     /**
      * @param args the command line arguments
      */
