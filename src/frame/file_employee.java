@@ -233,40 +233,52 @@ public class file_employee extends javax.swing.JFrame {
         String[][] aux = ObtenerArchivo("Empleados.txt");
         table(aux);
     }//GEN-LAST:event_jButton2ActionPerformed
+    //Se declara un acumulador y un contador en 0
     float contador = 0;
     float acumulador = 0;
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-
+        //Se lee el archivo de empleados
         try {
-            BufferedReader br_prueba = new BufferedReader(new FileReader("Empleados.txt"));
-            String linea_sep = br_prueba.readLine();
-            while (linea_sep != null) {
-                String[] campos_prueba = linea_sep.split(";");
-                BufferedReader br_prueba2 = new BufferedReader(new FileReader("Ventas.txt"));
-                String venta = br_prueba2.readLine();
-                while (venta != null) {
-                    String[] campos = venta.split(";");
-                    if (campos_prueba[2].equals(campos[3])) {
-                        if (Integer.parseInt(campos[5]) >= 30000000) {
+            BufferedReader br_emp = new BufferedReader(new FileReader("Empleados.txt"));
+            String linea_emp = br_emp.readLine();
+            while (linea_emp != null) {
+                String[] campos_emp = linea_emp.split(";");
+                //Se lee el archivo de ventas
+                BufferedReader br_ven = new BufferedReader(new FileReader("Ventas.txt"));
+                String lenea_venta = br_ven.readLine();
+                while (lenea_venta != null) {
+                    String[] campos_ven = lenea_venta.split(";");
+                    //Compara si las cedulas son iguales
+                    if (campos_emp[2].equals(campos_ven[3])) {
+                        //Si el costo del vehiculo es mayor o igual a 30,000,000 entra a este condicional
+                        if (Integer.parseInt(campos_ven[5]) >= 30000000) {
+                            //Se suma 1 al contador y se acumula el total de ventas con el costo requerido
                             contador++;
-                            acumulador = acumulador + Float.parseFloat(campos[5]);
+                            acumulador = acumulador + Float.parseFloat(campos_ven[5]);
                         }
                     }
-                    venta = br_prueba2.readLine();
+                    lenea_venta = br_ven.readLine();
                 }
+                br_ven.close();
+                //Si hubo almenos una venta superior al valor entra en el condicional
                 if (contador != 0) {
-                    float numero = Float.parseFloat(campos_prueba[6]) + ((acumulador / 100) * 2);
-                    campos_prueba[7] = numero + "";
-                    agregarArchivo("aux_1.txt", campos_prueba, 10);
+                    //Se utiliza la logica: numero1*0,02 + numero2*0,02 = (numero1 + numero2)*0,02
+                    float numero = Float.parseFloat(campos_emp[6]) + ((acumulador / 100) * 2);
+                    campos_emp[7] = numero + "";
+                    //Se llama la agregarArchivosubrutina para escribir el registro con el ultimo campo actualizado
+                    //Y se reinician las variables de apoyo
+                    agregarArchivo("aux_1.txt", campos_emp, 10);
                     contador = 0;
                     acumulador = 0;
                 } else {
-                    agregarArchivo("aux_1.txt", campos_prueba, 0);
+                    //Sino tuvo ninguna venta superior al requerido se imprime sin cambios
+                    agregarArchivo("aux_1.txt", campos_emp, 0);
                 }
 
-                linea_sep = br_prueba.readLine();
+                linea_emp = br_emp.readLine();
             }
-            br_prueba.close();
+            br_emp.close();
+            //elimino el archivo original y renombro la copia como este
             eliminarArchivo("Empleados.txt");
             renombrarArchivo("aux_1.txt", "Empleados.txt");
         } catch (FileNotFoundException ex) {
@@ -274,6 +286,7 @@ public class file_employee extends javax.swing.JFrame {
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
+        //Se muestra la tabla con los datos actualizados
         String[][] registre_employee = ObtenerArchivo("Empleados.txt");
         table(registre_employee);
     }//GEN-LAST:event_actualizarActionPerformed
