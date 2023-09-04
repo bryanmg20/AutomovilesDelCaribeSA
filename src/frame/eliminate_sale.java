@@ -34,14 +34,19 @@ public class eliminate_sale extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         eliminar_ventas = new javax.swing.JButton();
         eliminar_v = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        codin = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_eliminate_sale.setBackground(new java.awt.Color(255, 255, 255));
         panel_eliminate_sale.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Codigo del vehiculo");
-        panel_eliminate_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 18)); // NOI18N
+        jLabel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jLabel1.setText("Codigo del vehiculo: ");
+        panel_eliminate_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         eliminar_ventas.setText("Eliminar Venta");
         eliminar_ventas.addActionListener(new java.awt.event.ActionListener() {
@@ -49,24 +54,34 @@ public class eliminate_sale extends javax.swing.JFrame {
                 eliminar_ventasActionPerformed(evt);
             }
         });
-        panel_eliminate_sale.add(eliminar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+        panel_eliminate_sale.add(eliminar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
+        eliminar_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         eliminar_v.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 eliminar_vKeyTyped(evt);
             }
         });
-        panel_eliminate_sale.add(eliminar_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, -1));
+        panel_eliminate_sale.add(eliminar_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 250, -1));
+
+        jLabel2.setText("____________________________________________");
+        panel_eliminate_sale.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+
+        codin.setText("¡CÓDIGO NO EXISTENTE!");
+        panel_eliminate_sale.add(codin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
+
+        jLabel3.setText("¡Código unicamente contiene 6 digitos!");
+        panel_eliminate_sale.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_eliminate_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
         pack();
@@ -74,7 +89,7 @@ public class eliminate_sale extends javax.swing.JFrame {
 
     private void eliminar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_ventasActionPerformed
         String palabra = eliminar_v.getText();
-        eliminarRegistro(palabra, "Ventas.txt");
+        eliminarRegistro(palabra, "Ventas.txt", codin);
     }//GEN-LAST:event_eliminar_ventasActionPerformed
 
     private void eliminar_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminar_vKeyTyped
@@ -129,9 +144,12 @@ public class eliminate_sale extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel codin;
     private javax.swing.JTextField eliminar_v;
     private javax.swing.JButton eliminar_ventas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     public javax.swing.JPanel panel_eliminate_sale;
     // End of variables declaration//GEN-END:variables
 }

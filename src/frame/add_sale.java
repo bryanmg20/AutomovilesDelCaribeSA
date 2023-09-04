@@ -61,29 +61,46 @@ public class add_sale extends javax.swing.JFrame {
         mensajecos = new javax.swing.JLabel();
         mensajecodigo = new javax.swing.JLabel();
         empleadoex = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_add_sale.setBackground(new java.awt.Color(255, 255, 255));
         panel_add_sale.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Apellido Empleado");
-        panel_add_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
+        jLabel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jLabel1.setText("Apellido Empleado:");
+        panel_add_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 130, 370, -1));
 
-        jLabel2.setText("Cedula Empleado");
-        panel_add_sale.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
+        jLabel2.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jLabel2.setText("Cedula Empleado:");
+        panel_add_sale.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 210, -1));
 
-        jLabel3.setText("Marca del vehiculo");
-        panel_add_sale.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
+        jLabel3.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jLabel3.setText("Marca del vehiculo:");
+        panel_add_sale.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 280, -1));
 
+        jLabel4.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
+        jLabel4.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jLabel4.setText("Codigo del vehiculo");
-        panel_add_sale.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        panel_add_sale.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 270, -1));
 
-        jLabel5.setText("Costo del vehiculo");
-        panel_add_sale.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
+        jLabel5.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jLabel5.setText("Costo del vehiculo:");
+        panel_add_sale.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 340, -1));
 
-        jLabel6.setText("Nombre Empleado");
-        panel_add_sale.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
+        jLabel6.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jLabel6.setText("Nombre Empleado:");
+        panel_add_sale.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 370, -1));
 
         agregar_ventas.setText("Agregar Venta");
         agregar_ventas.addActionListener(new java.awt.event.ActionListener() {
@@ -91,8 +108,9 @@ public class add_sale extends javax.swing.JFrame {
                 agregar_ventasActionPerformed(evt);
             }
         });
-        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, -1, -1));
+        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
 
+        nombre_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         nombre_v.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nombre_vKeyReleased(evt);
@@ -101,8 +119,14 @@ public class add_sale extends javax.swing.JFrame {
                 nombre_vKeyTyped(evt);
             }
         });
-        panel_add_sale.add(nombre_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
+        panel_add_sale.add(nombre_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 170, 20));
 
+        apellido_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        apellido_v.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellido_vActionPerformed(evt);
+            }
+        });
         apellido_v.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 apellido_vKeyReleased(evt);
@@ -111,8 +135,9 @@ public class add_sale extends javax.swing.JFrame {
                 apellido_vKeyTyped(evt);
             }
         });
-        panel_add_sale.add(apellido_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
+        panel_add_sale.add(apellido_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 170, -1));
 
+        cedula_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         cedula_v.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cedula_vKeyReleased(evt);
@@ -121,16 +146,18 @@ public class add_sale extends javax.swing.JFrame {
                 cedula_vKeyTyped(evt);
             }
         });
-        panel_add_sale.add(cedula_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
+        panel_add_sale.add(cedula_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 180, 20));
 
+        marca.setBackground(new java.awt.Color(153, 204, 255));
         marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CHEVROLET", "KIA", "BMW", "MAZDA", "TOYOTA", "MERCEDES-BENZ" }));
         marca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 marcaKeyTyped(evt);
             }
         });
-        panel_add_sale.add(marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 120, -1));
+        panel_add_sale.add(marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 170, -1));
 
+        codigo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codigoActionPerformed(evt);
@@ -144,8 +171,9 @@ public class add_sale extends javax.swing.JFrame {
                 codigoKeyTyped(evt);
             }
         });
-        panel_add_sale.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 110, -1));
+        panel_add_sale.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 210, -1));
 
+        costo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         costo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 costoKeyReleased(evt);
@@ -154,28 +182,43 @@ public class add_sale extends javax.swing.JFrame {
                 costoKeyTyped(evt);
             }
         });
-        panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, -1));
+        panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 190, -1));
 
         mensajenom.setText("¡Ingresar unicamente letras en este campo!");
-        panel_add_sale.add(mensajenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+        panel_add_sale.add(mensajenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         mensajenum.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_sale.add(mensajenum, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        panel_add_sale.add(mensajenum, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 300, 250, -1));
 
         mensajeap.setText("¡Ingresar unicamente letras en este campo!");
-        panel_add_sale.add(mensajeap, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+        panel_add_sale.add(mensajeap, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 180, 240, -1));
 
-        mensajecod.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_sale.add(mensajecod, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+        mensajecod.setText("¡Código unicamente contiene 6 digitos!");
+        panel_add_sale.add(mensajecod, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
         mensajecos.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_sale.add(mensajecos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+        panel_add_sale.add(mensajecos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, -1));
 
         mensajecodigo.setText("¡CODIGO YA EXISTENTE!");
-        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, -1));
+        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
 
         empleadoex.setText("¡No existe el empleado!");
-        panel_add_sale.add(empleadoex, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
+        panel_add_sale.add(empleadoex, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
+
+        jLabel8.setText("_________________________________");
+        panel_add_sale.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 200, 20));
+
+        jLabel9.setText("_________________________________");
+        panel_add_sale.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 280, 210, -1));
+
+        jLabel10.setText("_________________________________");
+        panel_add_sale.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 240, -1));
+
+        jLabel11.setText("_________________________________");
+        panel_add_sale.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
+
+        jLabel12.setText("_________________________________");
+        panel_add_sale.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 200, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,18 +228,12 @@ public class add_sale extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void botonagregarventas() {
-        if (!nombre_v.getText().isEmpty() && !apellido_v.getText().isEmpty() && !cedula_v.getText().isEmpty() && cedula_v.getText().length() == 10 && !codigo.getText().isEmpty() && codigo.getText().length() == 6 && !costo.getText().isEmpty() && costo.getText().length() >= 8) {
-            agregar_ventas.setEnabled(true);
-        } else {
-            agregar_ventas.setEnabled(false);
-        }
-    }
+
     private void agregar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_ventasActionPerformed
         String aux[] = new String[100];
         boolean existe = false;
@@ -224,19 +261,19 @@ public class add_sale extends javax.swing.JFrame {
         }
         if (existe == true) {
             mensajenom.setVisible(false);
-            mensajecod.setVisible(false);
             mensajecos.setVisible(false);
             mensajeap.setVisible(false);
             mensajenum.setVisible(false);
             mensajecodigo.setVisible(false);
+            empleadoex.setVisible(false);
             nombre_v.setText(null);
             apellido_v.setText(null);
             cedula_v.setText(null);
             codigo.setText(null);
-            costo.setText(null); 
+            costo.setText(null);
             agregarRegistro(aux, "Ventas.txt", mensajecodigo);
         } else {
-            empleadoex.setVisible(true); 
+            empleadoex.setVisible(true);
         }
     }//GEN-LAST:event_agregar_ventasActionPerformed
 
@@ -255,6 +292,10 @@ public class add_sale extends javax.swing.JFrame {
             mensajenom.setVisible(false);
         }
     }//GEN-LAST:event_nombre_vKeyTyped
+
+    private void apellido_vActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellido_vActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellido_vActionPerformed
 
     private void apellido_vKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellido_vKeyReleased
         botonagregarventas();
@@ -307,10 +348,7 @@ public class add_sale extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
-            mensajecod.setVisible(true);
             evt.consume();
-        } else {
-            mensajecod.setVisible(false);
         }
         String textoActual = codigo.getText();
         if (textoActual.length() >= 6) {
@@ -332,7 +370,13 @@ public class add_sale extends javax.swing.JFrame {
             mensajecos.setVisible(false);
         }
     }//GEN-LAST:event_costoKeyTyped
-
+    public void botonagregarventas() {
+        if (!nombre_v.getText().isEmpty() && !apellido_v.getText().isEmpty() && !cedula_v.getText().isEmpty() && cedula_v.getText().length() == 10 && !codigo.getText().isEmpty() && codigo.getText().length() == 6 && !costo.getText().isEmpty() && costo.getText().length() >= 8) {
+            agregar_ventas.setEnabled(true);
+        } else {
+            agregar_ventas.setEnabled(false);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -376,11 +420,16 @@ public class add_sale extends javax.swing.JFrame {
     private javax.swing.JTextField costo;
     private javax.swing.JLabel empleadoex;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> marca;
     private javax.swing.JLabel mensajeap;
     private javax.swing.JLabel mensajecod;

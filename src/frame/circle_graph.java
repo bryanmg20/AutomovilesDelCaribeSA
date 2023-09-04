@@ -29,29 +29,20 @@ public class circle_graph extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_circle = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_circle.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("circle");
-
         javax.swing.GroupLayout panel_circleLayout = new javax.swing.GroupLayout(panel_circle);
         panel_circle.setLayout(panel_circleLayout);
         panel_circleLayout.setHorizontalGroup(
             panel_circleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_circleLayout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(60, 60, 60))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         panel_circleLayout.setVerticalGroup(
             panel_circleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_circleLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(jLabel1)
-                .addContainerGap(152, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,7 +95,6 @@ public class circle_graph extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel panel_circle;
     // End of variables declaration//GEN-END:variables
 }

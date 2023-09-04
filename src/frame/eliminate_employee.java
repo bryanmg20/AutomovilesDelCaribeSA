@@ -34,14 +34,19 @@ public class eliminate_employee extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         b_eliminar = new javax.swing.JButton();
         eliminar = new javax.swing.JTextField();
+        mensajeemp = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        num = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_eliminate_employee.setBackground(new java.awt.Color(255, 255, 255));
         panel_eliminate_employee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Cedula Empleado");
-        panel_eliminate_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 18)); // NOI18N
+        jLabel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jLabel1.setText("Cedula Empleado:");
+        panel_eliminate_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         b_eliminar.setText("Eliminar Empleado");
         b_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -49,24 +54,34 @@ public class eliminate_employee extends javax.swing.JFrame {
                 b_eliminarActionPerformed(evt);
             }
         });
-        panel_eliminate_employee.add(b_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+        panel_eliminate_employee.add(b_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
 
+        eliminar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         eliminar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 eliminarKeyTyped(evt);
             }
         });
-        panel_eliminate_employee.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 110, -1));
+        panel_eliminate_employee.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 210, 30));
+
+        mensajeemp.setText("¡EMPLEADO NO EXISTENTE!");
+        panel_eliminate_employee.add(mensajeemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+
+        jLabel3.setText("___________________________________________");
+        panel_eliminate_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+
+        num.setText("¡Ingresar unicamente numeros en este campo!");
+        panel_eliminate_employee.add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_eliminate_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+            .addComponent(panel_eliminate_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_eliminate_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+            .addComponent(panel_eliminate_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
         pack();
@@ -74,14 +89,18 @@ public class eliminate_employee extends javax.swing.JFrame {
 
     private void b_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eliminarActionPerformed
         String cedula = eliminar.getText();
-        eliminarRegistro(cedula, "Empleados.txt");
+        eliminarRegistro(cedula, "Empleados.txt", mensajeemp);
+        eliminar.setText(null);
     }//GEN-LAST:event_b_eliminarActionPerformed
 
     private void eliminarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
         if (!(numeros)) {
+            num.setVisible(true);
             evt.consume();
+        } else {
+            num.setVisible(false);
         }
         String textoActual = eliminar.getText();
         if (textoActual.length() == 9) {
@@ -132,6 +151,9 @@ public class eliminate_employee extends javax.swing.JFrame {
     private javax.swing.JButton b_eliminar;
     private javax.swing.JTextField eliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel mensajeemp;
+    private javax.swing.JLabel num;
     public javax.swing.JPanel panel_eliminate_employee;
     // End of variables declaration//GEN-END:variables
 }

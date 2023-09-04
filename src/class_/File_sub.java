@@ -14,12 +14,12 @@ public class File_sub {
             ex.printStackTrace(System.out);
         }
     }
-
+    
     public static void agregarArchivo(String NombreDelArchivo, String[] campos, int pin) {
         File archivo = new File(NombreDelArchivo);
         try {
             PrintWriter pw = new PrintWriter(new FileWriter(archivo, true));
-
+            
             switch (NombreDelArchivo) {
                 //segun le archivo a copiar en aux_1 con el pin verifica que arhivo y copia segun el archivo
                 case "Empleados.txt" ->
@@ -44,18 +44,18 @@ public class File_sub {
             ex.printStackTrace(System.out);
         }
     }
-
+    
     public static void eliminarArchivo(String NombreDelArchivo) {
         File archivo = new File(NombreDelArchivo);
         archivo.delete();
     }
-
+    
     public static void renombrarArchivo(String NombreDelArchivo, String NuevoNombreDelArchivo) {
         File archivo = new File(NombreDelArchivo);
         archivo.renameTo(new File(NuevoNombreDelArchivo));
     }
-
-    public static void eliminarRegistro(String pal, String NombreDelArchivo) {
+    
+    public static void eliminarRegistro(String pal, String NombreDelArchivo, JLabel elim) {
         crearArchivo("aux_1.txt");
 
         //verifica en que archivos se modificará
@@ -71,7 +71,7 @@ public class File_sub {
             campos_prueba = new String[100];
             while (linea_sep != null) {
                 campos_prueba = linea_sep.split(";");
-
+                
                 if (pal.equals(campos_prueba[2])) {
                     encontrado = true;
                 } else {
@@ -95,16 +95,15 @@ public class File_sub {
                 }
             } else {
                 eliminarArchivo("aux_1.txt");
-                System.out.println("No se encontro el registro");
+                elim.setVisible(true);
             }
-
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
     }
-
+    
     public static void agregarRegistro(String[] campos, String NombreDelArchivo, JLabel hola) {
         int pin = 0;
         if ("Ventas.txt".equals(NombreDelArchivo)) {
@@ -120,10 +119,10 @@ public class File_sub {
                     fin = true;
                     hola.setVisible(true);
                 }
-
+                
                 linea_sep = br_prueba.readLine();
             }
-
+            
             if (fin == false) {
                 agregarArchivo(NombreDelArchivo, campos, pin);
                 hola.setVisible(false);
@@ -134,7 +133,7 @@ public class File_sub {
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
-
+        
     }
 
     public static String[][] ObtenerArchivo(String NombreDeArchivo) {
