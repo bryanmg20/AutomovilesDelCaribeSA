@@ -6,7 +6,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Cursor;
-import frame.Main.*;
 import javax.swing.JFrame;
 
 public class Options extends javax.swing.JFrame {
@@ -15,7 +14,6 @@ public class Options extends javax.swing.JFrame {
 
     public Options() {
         initComponents();
-     
         //centrar el jframe
         this.setLocationRelativeTo(null);
         //llamamos la clase Button_desing

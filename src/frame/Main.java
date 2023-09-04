@@ -1,43 +1,27 @@
 package frame;
 
-import java.awt.Image;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.io.*;
-import java.util.Timer;
-import java.util.TimerTask;
-import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.UIManager;
+
+import javax.swing.plaf.basic.BasicProgressBarUI;
 
 public class Main extends javax.swing.JFrame {
 
-    Timer timer;
-    TimerTask tarea;
     public int aux;
+
     public Main() {
         initComponents();
-        
-
-//        //temporizador para abrir Options automaticamente
-//        timer = new Timer();
-//        tarea = new TimerTask() {
-//            public int c=0;
-//            @Override
-//            public void run() {
-//                c++;
-//                aux=c;
-//                if (c == 3) {
-//                    Options frame = new Options();
-//                    frame.setVisible(true);
-//                    timer.cancel();
-//                }             
-////                    
-//            }
-//
-//        };
-//        timer.schedule(tarea, 0, 1000);
-        
-        
+        //diseño de la barra de progreso
+        UIManager.put("nimbusOrange", new Color(11, 61, 138));
 
         this.setLocationRelativeTo(null);
-        this.setSize(600, 300);
+        this.setSize(400, 230);
 
         File archivo = new File("Ventas.txt");
         if (archivo.exists() == false) {
@@ -55,55 +39,34 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        tittle = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        start = new javax.swing.JButton();
+        bar = new javax.swing.JProgressBar();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(400, 300));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setLayout(new java.awt.GridLayout(2, 0));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        background.add(jPanel1);
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
-        tittle.setBackground(new java.awt.Color(0, 0, 0));
-        tittle.setFont(new java.awt.Font("Roboto Medium", 0, 36)); // NOI18N
-        tittle.setText("Automoviles Del Caribe SA");
-        jPanel2.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 440, 75));
+        bar.setPreferredSize(new java.awt.Dimension(500, 10));
+        background.add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 400, 10));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -20, 470, 240));
 
-        start.setText("Iniciar");
-        start.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startActionPerformed(evt);
-            }
-        });
-        jPanel3.add(start);
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 230));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 600, 75));
-
-        background.add(jPanel2);
-
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 300));
-
-        pack();
+        setSize(new java.awt.Dimension(400, 230));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
-        this.setVisible(false);
-        Options window = new Options();
-        window.setVisible(true);
-    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,22 +96,32 @@ public class Main extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        Main frame = new Main();
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
-                new Main().setVisible(true);
-                //Hola bryan, gracias por lo de hoy
-                //de nada pa
+                frame.setVisible(true);
             }
         });
+        Options next = new Options();
+        try {
+            for (int i = 0; i <= 100; i++) {
+                
+                Thread.sleep(15);
+                frame.bar.setValue(i);
+            }
+        } catch (Exception e) {
+
+        }
+        new Main().setVisible(false);
+        next.setVisible(true);
+        frame.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JProgressBar bar;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JButton start;
-    private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }
