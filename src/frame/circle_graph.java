@@ -72,76 +72,84 @@ public class circle_graph extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    void diagrama_circulo (int[] cant){
+    //Se hace una subrutina publica para importarla en el Jframe Options
+
+    void diagrama_circulo(int[] cant) {
+        //Se le asigna valores a cada posicion del vector para que funcionen como contadores
         cant[0] = 0;
-        cant[1] = 0; 
+        cant[1] = 0;
         cant[2] = 0;
         cant[3] = 0;
         cant[4] = 0;
         cant[5] = 0;
+        //Se lee el archivo de Ventas
         try {
-            BufferedReader br_prueba = new BufferedReader(new FileReader("Ventas.txt"));
-            String linea_sep = br_prueba.readLine();
-            while (linea_sep != null) {
-                String[] campos_prueba = linea_sep.split(";");
-                System.out.println("4" + campos_prueba[3]);
+            BufferedReader br_ventas = new BufferedReader(new FileReader("Ventas.txt"));
+            String linea_v = br_ventas.readLine();
+            //Hasta que no se lea todo el archivo
+            while (linea_v != null) {
+                String[] campos_prueba = linea_v.split(";");
+                //Se aumenta el contador dependiendo de las marcas de vehiculos
                 switch (campos_prueba[3]) {
                     case "CHEVROLET" -> {
                         cant[0] = cant[0] + 1;
-                        break; 
+                        break;
                     }
                     case "KIA" -> {
                         cant[1] = cant[1] + 1;
-                        break; 
+                        break;
                     }
                     case "BMW" -> {
                         cant[2] = cant[2] + 1;
-                        break; 
+                        break;
                     }
                     case "MAZDA" -> {
                         cant[3] = cant[3] + 1;
-                        break; 
+                        break;
                     }
                     case "TOYOTA" -> {
                         cant[4] = cant[4] + 1;
-                        break; 
+                        break;
                     }
                     case "MERCEDES-BENZ" -> {
                         cant[5] = cant[5] + 1;
-                        break; 
+                        break;
                     }
                 }
 
-                linea_sep = br_prueba.readLine();
-            } br_prueba.close();
+                linea_v = br_ventas.readLine();
+            }
+            br_ventas.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
-        
-        DefaultPieDataset datos_cant = new DefaultPieDataset(); 
+        //Se crea un objeto DefaultCategoryDataset para almacenar los datos 
+        DefaultPieDataset datos_cant = new DefaultPieDataset();
+        //Se utiliza una manera de ordenar los datos propia del diagrama circular
         datos_cant.setValue("CHEVROLET", cant[0]);
-        datos_cant.setValue("KIA", cant[1]); 
+        datos_cant.setValue("KIA", cant[1]);
         datos_cant.setValue("BMW", cant[2]);
         datos_cant.setValue("MAZDA", cant[3]);
         datos_cant.setValue("TOYOTA", cant[4]);
         datos_cant.setValue("MERCEDES-BENZ", cant[5]);
-        
-        
-        
+        //Se crea un objeto JFreeChart y se especifica que es un diagrama circular
+        //Ademas se introducen todos los datos necesarios para crearlo
         JFreeChart grafico_rueda = ChartFactory.createPieChart("Cantidades Vendidas Automoviles", datos_cant, true, true, false);
-        ChartPanel panel_r = new ChartPanel(grafico_rueda);
-        panel_r.setMouseWheelEnabled(true);
-        panel_r.setPreferredSize(new Dimension(600,380));
-        
-        
+        ChartPanel panel_c = new ChartPanel(grafico_rueda);
+        panel_c.setMouseWheelEnabled(true);
+        panel_c.setPreferredSize(new Dimension(600, 380));
+
+        //Se añade la grafica a un JPanel de la interfaz
         gra.setLayout(new BorderLayout());
-        gra.add(panel_r,BorderLayout.NORTH);
+        gra.add(panel_c,BorderLayout.NORTH);
         
+        //Se actualiza la interfaz para que no haya error mostrando la grafica
         pack();
         repaint();
     }
+
     /**
      * @param args the command line arguments
      */
@@ -176,7 +184,7 @@ public class circle_graph extends javax.swing.JFrame {
             }
         });
     }
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel gra;
     public javax.swing.JPanel panel_circle;

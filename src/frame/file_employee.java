@@ -360,13 +360,12 @@ public class file_employee extends javax.swing.JFrame {
             model.addRow(new Object[]{matriz[i][0], matriz[i][1], matriz[i][2], matriz[i][3], matriz[i][4], matriz[i][5], matriz[i][6], matriz[i][7]});
 
         }
+        
         table.getTableHeader().setOpaque(false);
 
         table.getTableHeader().setForeground(new Color(255, 255, 255));
-
         JTableHeader header = table.getTableHeader();
         header.setBackground(new Color(0, 0, 0));
-
         table.setModel(model);
     }
 

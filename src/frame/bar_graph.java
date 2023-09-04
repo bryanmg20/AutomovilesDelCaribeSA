@@ -67,19 +67,24 @@ public class bar_graph extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //Se hace una subrutina publica para importarla en el Jframe Options
     void diagrama_barras (int[] precio){
+        //Se le asigna valores a cada posicion del vector para que funcionen como acumuladores
         precio[0] = 0;
         precio[1] = 0; 
         precio[2] = 0;
         precio[3] = 0;
         precio[4] = 0;
         precio[5] = 0;
+        
+        //Se lee el archivo de Ventas
         try {
-            BufferedReader br_prueba = new BufferedReader(new FileReader("Ventas.txt"));
-            String linea_sep = br_prueba.readLine();
-            while (linea_sep != null) {
-                String[] campos_prueba = linea_sep.split(";");
-                System.out.println("4" + campos_prueba[3]);
+            BufferedReader br_ventas = new BufferedReader(new FileReader("Ventas.txt"));
+            String linea_v = br_ventas.readLine();
+            //Hasta que no se lea todo el archivo
+            while (linea_v != null) {
+                String[] campos_prueba = linea_v.split(";");
+                //Se suma el acumulador dependiendo de las marcas de vehiculos
                 switch (campos_prueba[3]) {
                     case "CHEVROLET" -> {
                         precio[0] = precio[0] + Integer.parseInt(campos_prueba[5]);
@@ -107,15 +112,18 @@ public class bar_graph extends javax.swing.JFrame {
                     }
                 }
 
-                linea_sep = br_prueba.readLine();
-            } br_prueba.close();
+                linea_v = br_ventas.readLine();
+            } br_ventas.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
         
+        //Se crea un objeto DefaultCategoryDataset para almacenar los datos 
         DefaultCategoryDataset datos_pre = new DefaultCategoryDataset(); 
+        //Se utiliza una manera de ordenar los datos propia del diagrama de barras
+        //Se divien entre 1,000,000 para que se observen los numeros con claridad, es decir en la grafica 30 es igual a 30,000,000
         datos_pre.setValue(precio[0]/1000000, "Precios", "CHEVROLET");
         datos_pre.setValue(precio[1]/1000000, "Precios", "KIA"); 
         datos_pre.setValue(precio[2]/1000000, "Precios", "BMW");
@@ -123,20 +131,23 @@ public class bar_graph extends javax.swing.JFrame {
         datos_pre.setValue(precio[4]/1000000, "Precios", "TOYOTA");
         datos_pre.setValue(precio[5]/1000000, "Precios", "MERCEDES-BENZ");
         
-        
-        
+        //Se crea un objeto JFreeChart y se especifica que es un diagrama de barras
+        //Ademas se introducen todos los datos necesarios para crearlo
         JFreeChart grafico_barras = ChartFactory.createBarChart("Precios Automoviles", "Marcas", "Precios", datos_pre,PlotOrientation.VERTICAL, true, true, false);
         ChartPanel panel = new ChartPanel(grafico_barras);
         
+        //Se cambia el color de las barras a azul
         CategoryPlot plot = grafico_barras.getCategoryPlot();
         plot.getRenderer().setSeriesPaint(0, new Color(11, 61, 138));
+        //Se establece las dimenciones y la posibilidad de hacerle zoom a la grafica
         panel.setMouseWheelEnabled(true);
         panel.setPreferredSize(new Dimension(600,380));
         
-        
+        //Se añade la grafica a un JPanel de la interfaz
         gra.setLayout(new BorderLayout());
         gra.add(panel,BorderLayout.NORTH);
         
+        //Se actualiza la interfaz para que no haya error mostrando la grafica
         pack();
         repaint();
     }
