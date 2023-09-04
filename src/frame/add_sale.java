@@ -227,32 +227,36 @@ public class add_sale extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Se activa cuando se hace click sobre el boton agregar ventas
     private void agregar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_ventasActionPerformed
         String aux[] = new String[100];
         boolean existe = false;
+        //Se almacenan los valores ingresados por el usuario
         aux[0] = nombre_v.getText().toUpperCase();
         aux[1] = apellido_v.getText().toUpperCase();
         aux[2] = codigo.getText();
         aux[3] = cedula_v.getText();
         aux[4] = marca.getSelectedItem().toString();
         aux[5] = costo.getText();
+        //Se lee el archivo de empleados para validar que el empleado que se va a ingresar en ventas si esta realmente en la empresa 
         try {
-            BufferedReader br_prueba = new BufferedReader(new FileReader("Empleados.txt"));
-            String linea_sep = br_prueba.readLine();
-            while (linea_sep != null) {
-                String[] campos_prueba = linea_sep.split(";");
+            BufferedReader br_archivo = new BufferedReader(new FileReader("Empleados.txt"));
+            String linea_archivo = br_archivo.readLine();
+            while (linea_archivo != null) {
+                String[] campos_prueba = linea_archivo.split(";");
+                //Se verifica si el nombre, el apellido y la cedula son iguales
                 if (campos_prueba[0].equals(aux[0]) && campos_prueba[1].equals(aux[1]) && campos_prueba[2].equals(aux[3])) {
                     existe = true;
                 }
-                linea_sep = br_prueba.readLine();
+                linea_archivo = br_archivo.readLine();
             }
-            br_prueba.close();
+            br_archivo.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
+        //Si el empleado si existe en el archivo Empleados se agrega el registro con agregarRegistro
         if (existe == true) {
             mensajenom.setVisible(false);
             mensajecos.setVisible(false);
@@ -267,6 +271,7 @@ public class add_sale extends javax.swing.JFrame {
             costo.setText(null);
             agregarRegistro(aux, "Ventas.txt", mensajecodigo);
         } else {
+            //Sino no se agrega y se borra la informacion en los jTextfield
             empleadoex.setVisible(true);
             mensajecodigo.setVisible(false);
             nombre_v.setText(null);
@@ -277,7 +282,7 @@ public class add_sale extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_agregar_ventasActionPerformed
-
+    //Estos eventos funcionan igual que los correspondientes en empleados
     private void nombre_vKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombre_vKeyReleased
         botonagregarventas();
     }//GEN-LAST:event_nombre_vKeyReleased
@@ -347,7 +352,7 @@ public class add_sale extends javax.swing.JFrame {
     private void codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyReleased
         botonagregarventas();
     }//GEN-LAST:event_codigoKeyReleased
-
+    //Este funciona exactamente igual que los metodos que utilizan numeros
     private void codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoKeyTyped
         int key = evt.getKeyChar();
         boolean numeros = key >= 48 && key <= 57;
@@ -355,7 +360,7 @@ public class add_sale extends javax.swing.JFrame {
         if (!(numeros || carac)) {
             evt.consume();
         }
-        String textoActual = codigo.getText();
+        String textoActual = codigo.getText(); //Pero se verifica si el numero de digitos es 6
         if (textoActual.length() >= 6) {
             evt.consume();
         }
@@ -376,6 +381,7 @@ public class add_sale extends javax.swing.JFrame {
             mensajecos.setVisible(false);
         }
     }//GEN-LAST:event_costoKeyTyped
+    //Se crea una funcion la cual esta encargada de habilitar o deshabilitar un boton y se valida igual que en Empleados
     public void botonagregarventas() {
         if (!nombre_v.getText().isEmpty() && !apellido_v.getText().isEmpty() && !cedula_v.getText().isEmpty() &&  !codigo.getText().isEmpty() &&  !costo.getText().isEmpty()) {
             agregar_ventas.setEnabled(true);
@@ -383,7 +389,7 @@ public class add_sale extends javax.swing.JFrame {
             agregar_ventas.setEnabled(false);
         }
     }
-
+    //La subrutina clor para cambiar los JLabels
     void color() {
         jLabel1.setForeground(new Color(11, 61, 138));
         jLabel2.setForeground(new Color(11, 61, 138));

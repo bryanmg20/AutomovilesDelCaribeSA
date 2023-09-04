@@ -257,12 +257,12 @@ public class add_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //creamos un funcion la cual esta encargada de habilitar o deshabilitar un boton
+    //Se crea una funcion la cual esta encargada de habilitar o deshabilitar un boton
     public void botonagregar() {
-        //se verifica si todos los campos estan llenos, de ser asi se habilita el boton de agregar
+        //Se verifica si todos los campos estan llenos, de ser asi se habilita el boton de agregar
         if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !cedula.getText().isEmpty() && !telefono.getText().isEmpty() && !salario.getText().isEmpty()) {
             b_agregar.setEnabled(true);
-            // en caso de que algun campo este vacio, entonces el boton no se habilitará
+            //En caso de que algun campo este vacio, entonces el boton no se habilitará
         } else {
             b_agregar.setEnabled(false);
         }

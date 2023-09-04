@@ -108,7 +108,7 @@ public class eliminate_sale extends javax.swing.JFrame {
         if (!(numeros)) {
             evt.consume();
         }
-        String textoActual = eliminar_v.getText();
+        String textoActual = eliminar_v.getText(); 
         if (textoActual.length() == 5) {
             eliminar_ventas.setEnabled(true);
         } else if (textoActual.length() > 5) {
