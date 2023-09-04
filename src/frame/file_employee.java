@@ -90,7 +90,7 @@ public class file_employee extends javax.swing.JFrame {
         table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(table);
 
-        panel_file_employee.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 670, 300));
+        panel_file_employee.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 680, 300));
 
         jLabel1.setText("Ordenar por Salario:");
         panel_file_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));

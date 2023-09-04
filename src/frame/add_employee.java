@@ -83,7 +83,7 @@ public class add_employee extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("_________________________________");
-        panel_add_employee.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, 20));
+        panel_add_employee.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, 20));
 
         nombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         nombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -94,7 +94,7 @@ public class add_employee extends javax.swing.JFrame {
                 nombreKeyTyped(evt);
             }
         });
-        panel_add_employee.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 160, 20));
+        panel_add_employee.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 230, 20));
 
         mensaje2.setText("¡Ingresar unicamente letras en este campo!");
         panel_add_employee.add(mensaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 240, -1));
@@ -108,7 +108,7 @@ public class add_employee extends javax.swing.JFrame {
                 apellidoKeyTyped(evt);
             }
         });
-        panel_add_employee.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 32, 160, -1));
+        panel_add_employee.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 230, -1));
 
         jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
         jLabel2.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
@@ -116,7 +116,7 @@ public class add_employee extends javax.swing.JFrame {
         panel_add_employee.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 270, 31));
 
         mensaje3.setText("¡Ingresar unicamente letras en este campo!");
-        panel_add_employee.add(mensaje3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 290, 30));
+        panel_add_employee.add(mensaje3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 290, 30));
 
         jLabel3.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
         jLabel3.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
@@ -124,6 +124,11 @@ public class add_employee extends javax.swing.JFrame {
         panel_add_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, 31));
 
         cedula.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cedulaActionPerformed(evt);
+            }
+        });
         cedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cedulaKeyReleased(evt);
@@ -132,10 +137,10 @@ public class add_employee extends javax.swing.JFrame {
                 cedulaKeyTyped(evt);
             }
         });
-        panel_add_employee.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 160, 20));
+        panel_add_employee.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 230, 20));
 
         mensaje4.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_employee.add(mensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 260, -1));
+        panel_add_employee.add(mensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
 
         cargo.setBackground(new java.awt.Color(203, 229, 250));
         cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VENDEDOR", "ASESOR DE VENTAS", "GERENTE DE VENTAS" }));
@@ -153,7 +158,7 @@ public class add_employee extends javax.swing.JFrame {
                 cargoKeyTyped(evt);
             }
         });
-        panel_add_employee.add(cargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 200, 30));
+        panel_add_employee.add(cargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
         jLabel4.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
@@ -174,13 +179,13 @@ public class add_employee extends javax.swing.JFrame {
                 telefonoKeyTyped(evt);
             }
         });
-        panel_add_employee.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 160, 20));
+        panel_add_employee.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 230, 20));
 
         mensaje1.setText("El telefono debe comenzar por 3");
-        panel_add_employee.add(mensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 180, -1));
+        panel_add_employee.add(mensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 180, -1));
 
         mensajet.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_employee.add(mensajet, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 280, -1));
+        panel_add_employee.add(mensajet, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 280, -1));
 
         salario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         salario.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +201,7 @@ public class add_employee extends javax.swing.JFrame {
                 salarioKeyTyped(evt);
             }
         });
-        panel_add_employee.add(salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 160, 20));
+        panel_add_employee.add(salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 230, 20));
 
         jLabel7.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
         jLabel7.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
@@ -204,13 +209,13 @@ public class add_employee extends javax.swing.JFrame {
         panel_add_employee.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 290, 31));
 
         mensajesal.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_employee.add(mensajesal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 280, -1));
+        panel_add_employee.add(mensajesal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 280, -1));
 
         jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 14)); // NOI18N
         jLabel6.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jLabel6.setText("Fecha de ingreso:");
-        panel_add_employee.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 200, 31));
-        panel_add_employee.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 160, 30));
+        panel_add_employee.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 200, 31));
+        panel_add_employee.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 160, 30));
 
         datosinv.setText("¡DATOS INVALIDOS!");
         panel_add_employee.add(datosinv, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, 20));
@@ -227,17 +232,17 @@ public class add_employee extends javax.swing.JFrame {
         panel_add_employee.add(b_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 160, 31));
 
         jLabel9.setText("_________________________________");
-        panel_add_employee.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        panel_add_employee.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         jLabel10.setText("_________________________________");
-        panel_add_employee.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+        panel_add_employee.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jLabel11.setText("_________________________________");
-        panel_add_employee.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 260, 20));
+        panel_add_employee.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 260, 20));
 
         jLabel12.setText("_________________________________");
         jLabel12.setToolTipText("");
-        panel_add_employee.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 270, -1));
+        panel_add_employee.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 270, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -247,7 +252,7 @@ public class add_employee extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_employee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_add_employee, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
         );
 
         pack();
@@ -422,6 +427,10 @@ public class add_employee extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_b_agregarActionPerformed
+
+    private void cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cedulaActionPerformed
 
     /**
      * @param args the command line arguments

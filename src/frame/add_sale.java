@@ -70,6 +70,7 @@ public class add_sale extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_add_sale.setBackground(new java.awt.Color(255, 255, 255));
         panel_add_sale.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,7 +111,7 @@ public class add_sale extends javax.swing.JFrame {
                 agregar_ventasActionPerformed(evt);
             }
         });
-        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
+        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
 
         nombre_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         nombre_v.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -121,7 +122,7 @@ public class add_sale extends javax.swing.JFrame {
                 nombre_vKeyTyped(evt);
             }
         });
-        panel_add_sale.add(nombre_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 170, 20));
+        panel_add_sale.add(nombre_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 240, 20));
 
         apellido_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         apellido_v.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +138,7 @@ public class add_sale extends javax.swing.JFrame {
                 apellido_vKeyTyped(evt);
             }
         });
-        panel_add_sale.add(apellido_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 170, -1));
+        panel_add_sale.add(apellido_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 230, -1));
 
         cedula_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         cedula_v.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -148,7 +149,7 @@ public class add_sale extends javax.swing.JFrame {
                 cedula_vKeyTyped(evt);
             }
         });
-        panel_add_sale.add(cedula_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 180, 20));
+        panel_add_sale.add(cedula_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 240, 20));
 
         marca.setBackground(new java.awt.Color(153, 204, 255));
         marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CHEVROLET", "KIA", "BMW", "MAZDA", "TOYOTA", "MERCEDES-BENZ" }));
@@ -157,7 +158,7 @@ public class add_sale extends javax.swing.JFrame {
                 marcaKeyTyped(evt);
             }
         });
-        panel_add_sale.add(marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 170, -1));
+        panel_add_sale.add(marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 170, -1));
 
         codigo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         codigo.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +174,7 @@ public class add_sale extends javax.swing.JFrame {
                 codigoKeyTyped(evt);
             }
         });
-        panel_add_sale.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 210, -1));
+        panel_add_sale.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 240, -1));
 
         costo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         costo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -184,34 +185,34 @@ public class add_sale extends javax.swing.JFrame {
                 costoKeyTyped(evt);
             }
         });
-        panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 190, -1));
+        panel_add_sale.add(costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 250, -1));
 
         mensajenom.setText("¡Ingresar unicamente letras en este campo!");
-        panel_add_sale.add(mensajenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        panel_add_sale.add(mensajenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         mensajenum.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_sale.add(mensajenum, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 300, 250, -1));
+        panel_add_sale.add(mensajenum, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 250, -1));
 
         mensajeap.setText("¡Ingresar unicamente letras en este campo!");
-        panel_add_sale.add(mensajeap, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 180, 240, -1));
+        panel_add_sale.add(mensajeap, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 240, -1));
 
         mensajecod.setText("¡Código unicamente contiene 6 digitos!");
         panel_add_sale.add(mensajecod, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
         mensajecos.setText("¡Ingresar unicamente numeros en este campo!");
-        panel_add_sale.add(mensajecos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, -1));
+        panel_add_sale.add(mensajecos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
         mensajecodigo.setText("¡CODIGO YA EXISTENTE!");
-        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
+        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
 
         empleadoex.setText("¡No existe el empleado!");
-        panel_add_sale.add(empleadoex, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
+        panel_add_sale.add(empleadoex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
 
         jLabel8.setText("_________________________________");
-        panel_add_sale.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 200, 20));
+        panel_add_sale.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 20));
 
         jLabel9.setText("_________________________________");
-        panel_add_sale.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 280, 210, -1));
+        panel_add_sale.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 280, -1, -1));
 
         jLabel10.setText("_________________________________");
         panel_add_sale.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 240, -1));
@@ -220,20 +221,9 @@ public class add_sale extends javax.swing.JFrame {
         panel_add_sale.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
 
         jLabel12.setText("_________________________________");
-        panel_add_sale.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 200, -1));
+        panel_add_sale.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_add_sale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_add_sale, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 28, Short.MAX_VALUE))
-        );
+        getContentPane().add(panel_add_sale, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

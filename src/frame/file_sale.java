@@ -53,7 +53,7 @@ public class file_sale extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table);
 
-        panel_file_sale.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 670, 300));
+        panel_file_sale.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 670, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
