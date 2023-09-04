@@ -89,18 +89,22 @@ public class eliminate_sale extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //La funcion color se encarga de cambiar el color del texto del jLabel
     void color() {
-        jLabel1.setForeground(new Color(11,61,138));
+        jLabel1.setForeground(new Color(11, 61, 138));
     }
+    //Se encarga de eliminar un registro en funcion de del codigo del vehiculo ingresada por el usuario
     private void eliminar_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_ventasActionPerformed
+        //Se obtiene el texto ingresado por el usuario y se almacena en la variable palabra
         String palabra = eliminar_v.getText();
+        //se llama a la funcion eliminarRegistro y se elimina el registro de ventas
         eliminarRegistro(palabra, "Ventas.txt", codin);
-        eliminar_v.setText(null);
+        eliminar_v.setText(null);//Se borra el contenido del campo de texto para limpiarlo y permitir al usuario ingresar un nuevo codigo
     }//GEN-LAST:event_eliminar_ventasActionPerformed
 
     private void eliminar_vKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminar_vKeyTyped
         int key = evt.getKeyChar();
-        boolean numeros = key >= 48 && key <= 57;
+        boolean numeros = key >= 48 && key <= 57; //Se verifica si lo ingresado son numeros
         if (!(numeros)) {
             evt.consume();
         }
