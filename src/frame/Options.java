@@ -7,6 +7,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Cursor;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class Options extends javax.swing.JFrame {
 
@@ -14,6 +15,8 @@ public class Options extends javax.swing.JFrame {
 
     public Options() {
         initComponents();
+        //Icono
+        setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
         //centrar el jframe
         this.setLocationRelativeTo(null);
         //llamamos la clase Button_desing

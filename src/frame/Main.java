@@ -2,14 +2,10 @@ package frame;
 
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.io.*;
-import javax.swing.JComponent;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
-import javax.swing.plaf.basic.BasicProgressBarUI;
 
 public class Main extends javax.swing.JFrame {
 
@@ -17,6 +13,8 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
+        //icon
+        setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
         //Color de la barra de progreso
         UIManager.put("nimbusOrange", new Color(11, 61, 138));
         //valores predeterminados del jframe
