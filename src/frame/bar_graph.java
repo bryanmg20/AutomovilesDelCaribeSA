@@ -4,7 +4,20 @@
  */
 package frame;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -29,28 +42,104 @@ public class bar_graph extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_bard = new javax.swing.JPanel();
+        gra = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_bard.setBackground(new java.awt.Color(255, 255, 255));
+        panel_bard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout panel_bardLayout = new javax.swing.GroupLayout(panel_bard);
-        panel_bard.setLayout(panel_bardLayout);
-        panel_bardLayout.setHorizontalGroup(
-            panel_bardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+        javax.swing.GroupLayout graLayout = new javax.swing.GroupLayout(gra);
+        gra.setLayout(graLayout);
+        graLayout.setHorizontalGroup(
+            graLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
-        panel_bardLayout.setVerticalGroup(
-            panel_bardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+        graLayout.setVerticalGroup(
+            graLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
         );
+
+        panel_bard.add(gra, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 25, 600, 380));
 
         getContentPane().add(panel_bard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    void diagrama_barras (int[] precio){
+        precio[0] = 0;
+        precio[1] = 0; 
+        precio[2] = 0;
+        precio[3] = 0;
+        precio[4] = 0;
+        precio[5] = 0;
+        try {
+            BufferedReader br_prueba = new BufferedReader(new FileReader("Ventas.txt"));
+            String linea_sep = br_prueba.readLine();
+            while (linea_sep != null) {
+                String[] campos_prueba = linea_sep.split(";");
+                System.out.println("4" + campos_prueba[3]);
+                switch (campos_prueba[3]) {
+                    case "CHEVROLET" -> {
+                        precio[0] = precio[0] + Integer.parseInt(campos_prueba[5]);
+                        break; 
+                    }
+                    case "KIA" -> {
+                        precio[1] = precio[1] + Integer.parseInt(campos_prueba[5]);
+                        break; 
+                    }
+                    case "BMW" -> {
+                        precio[2] = precio[2] + Integer.parseInt(campos_prueba[5]);
+                        break; 
+                    }
+                    case "MAZDA" -> {
+                        precio[3] = precio[3] + Integer.parseInt(campos_prueba[5]);
+                        break; 
+                    }
+                    case "TOYOTA" -> {
+                        precio[4] = precio[4] + Integer.parseInt(campos_prueba[5]);
+                        break; 
+                    }
+                    case "MERCEDES-BENZ" -> {
+                        precio[5] = precio[5] + Integer.parseInt(campos_prueba[5]);
+                        break; 
+                    }
+                }
+
+                linea_sep = br_prueba.readLine();
+            } br_prueba.close();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+        
+        DefaultCategoryDataset datos_pre = new DefaultCategoryDataset(); 
+        datos_pre.setValue(precio[0]/1000000, "Precios", "CHEVROLET");
+        datos_pre.setValue(precio[1]/1000000, "Precios", "KIA"); 
+        datos_pre.setValue(precio[2]/1000000, "Precios", "BMW");
+        datos_pre.setValue(precio[3]/1000000, "Precios", "MAZDA");
+        datos_pre.setValue(precio[4]/1000000, "Precios", "TOYOTA");
+        datos_pre.setValue(precio[5]/1000000, "Precios", "MERCEDES-BENZ");
+        
+        
+        
+        JFreeChart grafico_barras = ChartFactory.createBarChart("Precios Automoviles", "Marcas", "Precios", datos_pre,PlotOrientation.VERTICAL, true, true, false);
+        ChartPanel panel = new ChartPanel(grafico_barras);
+        
+        CategoryPlot plot = grafico_barras.getCategoryPlot();
+        plot.getRenderer().setSeriesPaint(0, new Color(11, 61, 138));
+        panel.setMouseWheelEnabled(true);
+        panel.setPreferredSize(new Dimension(600,380));
+        
+        
+        gra.setLayout(new BorderLayout());
+        gra.add(panel,BorderLayout.NORTH);
+        
+        pack();
+        repaint();
+    }
         
     /**
      * @param args the command line arguments
@@ -88,6 +177,7 @@ public class bar_graph extends javax.swing.JFrame {
     }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel gra;
     public javax.swing.JPanel panel_bard;
     // End of variables declaration//GEN-END:variables
 }

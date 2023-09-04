@@ -485,6 +485,8 @@ public class Options extends javax.swing.JFrame {
 
         bar_graph window = new bar_graph();
         showPanel(window.panel_bard, content);
+        int precio[] = new int[100];
+        window.diagrama_barras(precio);
         menu_employee.setVisible(false);
         menu_sale.setVisible(false);
         menu_file.setVisible(false);
@@ -540,11 +542,15 @@ public class Options extends javax.swing.JFrame {
     private void button_add_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_barActionPerformed
         bar_graph window = new bar_graph();
         showPanel(window.panel_bard, content);
+        int precio[] = new int[100];
+        window.diagrama_barras(precio);
     }//GEN-LAST:event_button_add_barActionPerformed
 
     private void button_add_circleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_circleActionPerformed
         circle_graph window = new circle_graph();
         showPanel(window.panel_circle, content);
+        int cant[] = new int[100];
+        window.diagrama_circulo(cant);
     }//GEN-LAST:event_button_add_circleActionPerformed
 
     private void button_add_file_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_file_employeeActionPerformed

@@ -4,7 +4,17 @@
  */
 package frame;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -29,21 +39,25 @@ public class circle_graph extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_circle = new javax.swing.JPanel();
+        gra = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_circle.setBackground(new java.awt.Color(255, 255, 255));
+        panel_circle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout panel_circleLayout = new javax.swing.GroupLayout(panel_circle);
-        panel_circle.setLayout(panel_circleLayout);
-        panel_circleLayout.setHorizontalGroup(
-            panel_circleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        javax.swing.GroupLayout graLayout = new javax.swing.GroupLayout(gra);
+        gra.setLayout(graLayout);
+        graLayout.setHorizontalGroup(
+            graLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
-        panel_circleLayout.setVerticalGroup(
-            panel_circleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        graLayout.setVerticalGroup(
+            graLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
         );
+
+        panel_circle.add(gra, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 25, 600, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,8 +72,76 @@ public class circle_graph extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Hola ale
-    //hola alan
+    void diagrama_circulo (int[] cant){
+        cant[0] = 0;
+        cant[1] = 0; 
+        cant[2] = 0;
+        cant[3] = 0;
+        cant[4] = 0;
+        cant[5] = 0;
+        try {
+            BufferedReader br_prueba = new BufferedReader(new FileReader("Ventas.txt"));
+            String linea_sep = br_prueba.readLine();
+            while (linea_sep != null) {
+                String[] campos_prueba = linea_sep.split(";");
+                System.out.println("4" + campos_prueba[3]);
+                switch (campos_prueba[3]) {
+                    case "CHEVROLET" -> {
+                        cant[0] = cant[0] + 1;
+                        break; 
+                    }
+                    case "KIA" -> {
+                        cant[1] = cant[1] + 1;
+                        break; 
+                    }
+                    case "BMW" -> {
+                        cant[2] = cant[2] + 1;
+                        break; 
+                    }
+                    case "MAZDA" -> {
+                        cant[3] = cant[3] + 1;
+                        break; 
+                    }
+                    case "TOYOTA" -> {
+                        cant[4] = cant[4] + 1;
+                        break; 
+                    }
+                    case "MERCEDES-BENZ" -> {
+                        cant[5] = cant[5] + 1;
+                        break; 
+                    }
+                }
+
+                linea_sep = br_prueba.readLine();
+            } br_prueba.close();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+        
+        DefaultPieDataset datos_cant = new DefaultPieDataset(); 
+        datos_cant.setValue("CHEVROLET", cant[0]);
+        datos_cant.setValue("KIA", cant[1]); 
+        datos_cant.setValue("BMW", cant[2]);
+        datos_cant.setValue("MAZDA", cant[3]);
+        datos_cant.setValue("TOYOTA", cant[4]);
+        datos_cant.setValue("MERCEDES-BENZ", cant[5]);
+        
+        
+        
+        JFreeChart grafico_rueda = ChartFactory.createPieChart("Cantidades Vendidas Automoviles", datos_cant, true, true, false);
+        ChartPanel panel_r = new ChartPanel(grafico_rueda);
+        panel_r.setMouseWheelEnabled(true);
+        panel_r.setPreferredSize(new Dimension(600,380));
+        
+        
+        gra.setLayout(new BorderLayout());
+        gra.add(panel_r,BorderLayout.NORTH);
+        
+        pack();
+        repaint();
+    }
     /**
      * @param args the command line arguments
      */
@@ -96,6 +178,7 @@ public class circle_graph extends javax.swing.JFrame {
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel gra;
     public javax.swing.JPanel panel_circle;
     // End of variables declaration//GEN-END:variables
 }
