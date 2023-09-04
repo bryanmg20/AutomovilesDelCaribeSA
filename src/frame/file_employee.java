@@ -1,24 +1,21 @@
 package frame;
 
 import static class_.File_sub.*;
+import class_.file;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
 
 public class file_employee extends javax.swing.JFrame {
 
     String[][] registre_employee;
-
+    file controller;
     public file_employee() {
         initComponents();
-        //diseño de tabla
-
+        controller = new file(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -26,58 +23,32 @@ public class file_employee extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_file_employee = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        actualizar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        panel_c = new javax.swing.JPanel();
+        c = new javax.swing.JButton();
+        panel_n_min = new javax.swing.JPanel();
+        n_min = new javax.swing.JButton();
+        panel_n_max = new javax.swing.JPanel();
+        n_max = new javax.swing.JButton();
+        panel_s_min = new javax.swing.JPanel();
+        s_min = new javax.swing.JButton();
+        panel_s_max = new javax.swing.JPanel();
+        s_max = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel_file_employee.setBackground(new java.awt.Color(255, 255, 255));
         panel_file_employee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Menor");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        panel_file_employee.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jButton2.setText("Menor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        panel_file_employee.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
-
-        actualizar.setText("Actualizar");
-        actualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarActionPerformed(evt);
-            }
-        });
-        panel_file_employee.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, -1));
-
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(670, 350));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(670, 350));
+        scroll.setMaximumSize(new java.awt.Dimension(670, 350));
+        scroll.setPreferredSize(new java.awt.Dimension(670, 350));
 
         table.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
+        table.setColumnSelectionAllowed(true);
         table.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         table.setDragEnabled(true);
         table.setDropMode(javax.swing.DropMode.ON);
@@ -88,9 +59,10 @@ public class file_employee extends javax.swing.JFrame {
         table.setRowHeight(30);
         table.setSelectionBackground(new java.awt.Color(23, 93, 163));
         table.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(table);
+        scroll.setViewportView(table);
+        table.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        panel_file_employee.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 680, 300));
+        panel_file_employee.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 680, 300));
 
         jLabel1.setText("Ordenar por Salario:");
         panel_file_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
@@ -98,24 +70,93 @@ public class file_employee extends javax.swing.JFrame {
         jLabel2.setText("Ordenar por Nombre:");
         panel_file_employee.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jButton3.setText("Mayor");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        panel_file_employee.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
-
-        jButton4.setText("Mayor");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        panel_file_employee.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
-
         jLabel3.setText("Comisiones:");
         panel_file_employee.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, -1, -1));
+
+        panel_c.setBackground(new java.awt.Color(23, 93, 163));
+        panel_c.setForeground(new java.awt.Color(255, 255, 255));
+        panel_c.setLayout(new java.awt.BorderLayout());
+
+        c.setForeground(new java.awt.Color(255, 255, 255));
+        c.setText("Actualizar");
+        c.setBorderPainted(false);
+        c.setContentAreaFilled(false);
+        c.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cActionPerformed(evt);
+            }
+        });
+        panel_c.add(c, java.awt.BorderLayout.CENTER);
+
+        panel_file_employee.add(panel_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 90, 25));
+
+        panel_n_min.setBackground(new java.awt.Color(23, 93, 163));
+        panel_n_min.setForeground(new java.awt.Color(255, 255, 255));
+        panel_n_min.setLayout(new java.awt.BorderLayout());
+
+        n_min.setForeground(new java.awt.Color(255, 255, 255));
+        n_min.setText("Menor");
+        n_min.setBorderPainted(false);
+        n_min.setContentAreaFilled(false);
+        n_min.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n_minActionPerformed(evt);
+            }
+        });
+        panel_n_min.add(n_min, java.awt.BorderLayout.CENTER);
+
+        panel_file_employee.add(panel_n_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 80, 25));
+
+        panel_n_max.setBackground(new java.awt.Color(23, 93, 163));
+        panel_n_max.setForeground(new java.awt.Color(255, 255, 255));
+        panel_n_max.setLayout(new java.awt.BorderLayout());
+
+        n_max.setForeground(new java.awt.Color(255, 255, 255));
+        n_max.setText("Mayor");
+        n_max.setBorderPainted(false);
+        n_max.setContentAreaFilled(false);
+        n_max.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n_maxActionPerformed(evt);
+            }
+        });
+        panel_n_max.add(n_max, java.awt.BorderLayout.CENTER);
+
+        panel_file_employee.add(panel_n_max, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, 25));
+
+        panel_s_min.setBackground(new java.awt.Color(23, 93, 163));
+        panel_s_min.setForeground(new java.awt.Color(255, 255, 255));
+        panel_s_min.setLayout(new java.awt.BorderLayout());
+
+        s_min.setForeground(new java.awt.Color(255, 255, 255));
+        s_min.setText("Menor");
+        s_min.setBorderPainted(false);
+        s_min.setContentAreaFilled(false);
+        s_min.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                s_minActionPerformed(evt);
+            }
+        });
+        panel_s_min.add(s_min, java.awt.BorderLayout.CENTER);
+
+        panel_file_employee.add(panel_s_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 80, 25));
+
+        panel_s_max.setBackground(new java.awt.Color(23, 93, 163));
+        panel_s_max.setForeground(new java.awt.Color(255, 255, 255));
+        panel_s_max.setLayout(new java.awt.BorderLayout());
+
+        s_max.setForeground(new java.awt.Color(255, 255, 255));
+        s_max.setText("Mayor");
+        s_max.setBorderPainted(false);
+        s_max.setContentAreaFilled(false);
+        s_max.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                s_maxActionPerformed(evt);
+            }
+        });
+        panel_s_max.add(s_max, java.awt.BorderLayout.CENTER);
+
+        panel_file_employee.add(panel_s_max, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 80, 25));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,9 +171,10 @@ public class file_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
     private int indice(String[][] matriz, int j, int n) {
         int indice = 0;
-        //verifica si el nombre o a pellido de dos cadenas son iguales, devuelve el indice
+        //verifica si el nombre o a pellido de dos cadenas son iguales, devuelve el indice 
         //del nombre o apellido que sean distintos
         if (!matriz[j][n].equals(matriz[j + 1][n])) {
             indice = 0;
@@ -155,24 +197,34 @@ public class file_employee extends javax.swing.JFrame {
                 menor = matriz[j + 1][n].length();
             }
         }
-
+        //devuelve el tamaño mas pequeño
         return menor;
     }
 
     private void exchange(int j) {
         String[] aux = new String[registre_employee[0].length];
-
+        //intercambia fila j con fila j+1
         System.arraycopy(registre_employee[j], 0, aux, 0, registre_employee[0].length);
         System.arraycopy(registre_employee[j + 1], 0, registre_employee[j], 0, registre_employee[0].length);
         System.arraycopy(aux, 0, registre_employee[j + 1], 0, registre_employee[0].length);
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void new_file(){
+        for (String[] registre_employee1 : registre_employee) {
+            agregarArchivo("aux_1.txt", registre_employee1, 10);
+        }
+        eliminarArchivo("Empleados.txt");
+        renombrarArchivo("aux_1.txt", "Empleados.txt");
+        String[][] aux = ObtenerArchivo("Empleados.txt");
+        //imprime registros en tabla
+        table(aux);
+    }
+    private void n_minActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_minActionPerformed
         registre_employee = ObtenerArchivo("Empleados.txt");
+        int indice;
         //recorro la matriz
-        int indice = 0;
         for (int i = 0; i < registre_employee.length - 1; i++) {
             for (int j = 0; j < registre_employee.length - 1; j++) {
-                //obtiene el indice del nombre o apellido
+                //obtiene el indice del nombre o apellido que al comparar sean distintos
                 indice = indice(registre_employee, j, 0);
                 //tamaño de la cadena menor
                 int menor = menor(registre_employee, j, indice);
@@ -181,9 +233,10 @@ public class file_employee extends javax.swing.JFrame {
                 boolean order = false;
                 int k = 0;
                 while (pin && !order) {
-
+                    //Obtiene el valor numerico de el caracter
                     int aux_1 = registre_employee[j][indice].substring(k, k + 1).charAt(0);
                     int aux_2 = registre_employee[j + 1][indice].substring(k, k + 1).charAt(0);
+                    //compara los valores numerico de los caracteres
                     if (aux_1 > aux_2) {
                         order = true;
                         //guardo la fila anterior que voy a cambiar por la fila superior
@@ -194,28 +247,25 @@ public class file_employee extends javax.swing.JFrame {
                         }
                     }
                     k++;
-                    //recorrido maximo
+                    //recorrido maximo segun el tamaño de la cadena menor
                     if (k >= menor) {
                         pin = false;
                     }
                 }
             }
         }
-        for (int i = 0; i < registre_employee.length; i++) {
-            agregarArchivo("aux_1.txt", registre_employee[i], 10);
-        }
-        eliminarArchivo("Empleados.txt");
-        renombrarArchivo("aux_1.txt", "Empleados.txt");
-        String[][] aux = ObtenerArchivo("Empleados.txt");
-        table(aux);
+        //Crea nuevo archivo con los registros ordenados
+        new_file();
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_n_minActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void s_minActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_minActionPerformed
         registre_employee = ObtenerArchivo("Empleados.txt");
         //recorro la matriz
         for (int i = 0; i < registre_employee.length - 1; i++) {
             for (int j = 0; j < registre_employee.length - 1; j++) {
+                //si fila j es mayor a fila j+1
+                //intercambia filas
                 if (Integer.parseInt(registre_employee[j][6]) > Integer.parseInt(registre_employee[j + 1][6])) {
                     String[] aux = new String[registre_employee[0].length];
                     //intercambio las filas
@@ -225,18 +275,12 @@ public class file_employee extends javax.swing.JFrame {
                 }
             }
         }
-        for (int i = 0; i < registre_employee.length; i++) {
-            agregarArchivo("aux_1.txt", registre_employee[i], 10);
-        }
-        eliminarArchivo("Empleados.txt");
-        renombrarArchivo("aux_1.txt", "Empleados.txt");
-        String[][] aux = ObtenerArchivo("Empleados.txt");
-        table(aux);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        new_file();
+    }//GEN-LAST:event_s_minActionPerformed
     //Se declara un acumulador y un contador en 0
     float contador = 0;
     float acumulador = 0;
-    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+    private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
         //Se lee el archivo de empleados
         try {
             BufferedReader br_emp = new BufferedReader(new FileReader("Empleados.txt"));
@@ -289,9 +333,9 @@ public class file_employee extends javax.swing.JFrame {
         //Se muestra la tabla con los datos actualizados
         String[][] registre_employee = ObtenerArchivo("Empleados.txt");
         table(registre_employee);
-    }//GEN-LAST:event_actualizarActionPerformed
+    }//GEN-LAST:event_cActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void s_maxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_maxActionPerformed
 
         registre_employee = ObtenerArchivo("Empleados.txt");
         //recorro la matriz
@@ -306,16 +350,10 @@ public class file_employee extends javax.swing.JFrame {
                 }
             }
         }
-        for (int i = 0; i < registre_employee.length; i++) {
-            agregarArchivo("aux_1.txt", registre_employee[i], 10);
-        }
-        eliminarArchivo("Empleados.txt");
-        renombrarArchivo("aux_1.txt", "Empleados.txt");
-        String[][] aux = ObtenerArchivo("Empleados.txt");
-        table(aux);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        new_file();
+    }//GEN-LAST:event_s_maxActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void n_maxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_maxActionPerformed
         registre_employee = ObtenerArchivo("Empleados.txt");
         //recorro la matriz
         int indice = 0;
@@ -350,16 +388,13 @@ public class file_employee extends javax.swing.JFrame {
                 }
             }
         }
-        for (int i = 0; i < registre_employee.length; i++) {
-            agregarArchivo("aux_1.txt", registre_employee[i], 10);
-        }
-        eliminarArchivo("Empleados.txt");
-        renombrarArchivo("aux_1.txt", "Empleados.txt");
-        String[][] aux = ObtenerArchivo("Empleados.txt");
-        table(aux);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        new_file();
+    }//GEN-LAST:event_n_maxActionPerformed
     public void table(String[][] matriz) {
+        
         DefaultTableModel model = new DefaultTableModel();
+        
+        
         model.addColumn("Nombre");
         model.addColumn("Apellido");
         model.addColumn("Cedula");
@@ -374,12 +409,8 @@ public class file_employee extends javax.swing.JFrame {
 
         }
         
-        table.getTableHeader().setOpaque(false);
-
-        table.getTableHeader().setForeground(new Color(255, 255, 255));
-        JTableHeader header = table.getTableHeader();
-        header.setBackground(new Color(0, 0, 0));
         table.setModel(model);
+        table.getTableHeader().setForeground(Color.BLACK);
     }
 
     public static void main(String args[]) {
@@ -415,16 +446,21 @@ public class file_employee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton actualizar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton c;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JButton n_max;
+    public javax.swing.JButton n_min;
+    public javax.swing.JPanel panel_c;
     public javax.swing.JPanel panel_file_employee;
-    private javax.swing.JTable table;
+    public javax.swing.JPanel panel_n_max;
+    public javax.swing.JPanel panel_n_min;
+    public javax.swing.JPanel panel_s_max;
+    public javax.swing.JPanel panel_s_min;
+    public javax.swing.JButton s_max;
+    public javax.swing.JButton s_min;
+    private javax.swing.JScrollPane scroll;
+    public javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

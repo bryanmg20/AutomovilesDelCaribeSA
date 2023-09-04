@@ -1,6 +1,7 @@
 package class_;
 
 import frame.Options;
+import frame.add_employee;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -27,7 +28,6 @@ public class Button_design implements MouseListener {
 
     public Button_design(Options view) {
         this.view = view;
-
         events();
     }
 
@@ -43,6 +43,9 @@ public class Button_design implements MouseListener {
         view.button_add_circle.addMouseListener(this);
         view.button_add_file_employee.addMouseListener(this);
         view.button_add_file_sale.addMouseListener(this);
+        
+        
+       
 
         view.button_graphique.addMouseListener(this);
         view.button_see.addMouseListener(this);
@@ -106,6 +109,7 @@ public class Button_design implements MouseListener {
         //botones del submenu
         if (evt.equals(view.button_add_employee)) {
             changeAparence(view.panel_add_employee, new Color(11, 61, 138));
+            
 
             changeAparence(view.panel_eliminate_employee, new Color(23, 93, 163));
 
@@ -166,6 +170,9 @@ public class Button_design implements MouseListener {
             add_file_s = true;
             add_file_e = false;
         }
+        
+      
+
         
     }
 
@@ -228,6 +235,7 @@ public class Button_design implements MouseListener {
 
             changeAparence(view.panel_add_file_sale, new Color(27, 105, 188));
         }
+     
 
     }
 
@@ -285,6 +293,7 @@ public class Button_design implements MouseListener {
 
             changeAparence(view.panel_add_file_sale, new Color(23, 93, 163));
         }
+   
     }
 
     public void changeAparence(JPanel panel, Color color) {

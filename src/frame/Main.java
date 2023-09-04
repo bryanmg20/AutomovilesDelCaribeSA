@@ -17,12 +17,12 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
-        //diseño de la barra de progreso
+        //Color de la barra de progreso
         UIManager.put("nimbusOrange", new Color(11, 61, 138));
-
+        //valores predeterminados del jframe
         this.setLocationRelativeTo(null);
         this.setSize(400, 230);
-
+        //Crea archivo Ventas al iniciar el programa
         File archivo = new File("Ventas.txt");
         if (archivo.exists() == false) {
             try {
@@ -52,10 +52,10 @@ public class Main extends javax.swing.JFrame {
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bar.setPreferredSize(new java.awt.Dimension(500, 10));
-        jPanel2.add(bar);
+        jPanel2.add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, -1, 20));
 
         background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 400, 10));
 
@@ -69,10 +69,6 @@ public class Main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    //prueba
     public static void main(String args[]) {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -107,13 +103,14 @@ public class Main extends javax.swing.JFrame {
         Options next = new Options();
         try {
             for (int i = 0; i <= 100; i++) {
-                
+                //reelentalizacion de la barra de progreso
                 Thread.sleep(15);
                 frame.bar.setValue(i);
             }
         } catch (Exception e) {
 
         }
+        //Cierra este jframe y abre Options al llenarse la barra de progreso
         new Main().setVisible(false);
         next.setVisible(true);
         frame.dispose();

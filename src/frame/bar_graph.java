@@ -85,7 +85,7 @@ public class bar_graph extends javax.swing.JFrame {
             while (linea_v != null) {
                 String[] campos_prueba = linea_v.split(";");
                 //Se suma el acumulador dependiendo de las marcas de vehiculos
-                switch (campos_prueba[3]) {
+                switch (campos_prueba[4]) {
                     case "CHEVROLET" -> {
                         precio[0] = precio[0] + Integer.parseInt(campos_prueba[5]);
                         break; 

@@ -7,7 +7,6 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Cursor;
 import java.awt.Font;
-import javax.swing.JFrame;
 
 public class Options extends javax.swing.JFrame {
 
@@ -440,7 +439,7 @@ public class Options extends javax.swing.JFrame {
 
     private void button_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_employeeActionPerformed
   
-//color predeterminado de los botones del sub_menu
+        //color predeterminado de los botones del sub_menu
         controller.changeAparence(panel_add_employee, new Color(11, 61, 138));
         controller.changeAparence(panel_eliminate_employee, new Color(23, 93, 163));
         //reinicio la activacion de los botones
@@ -455,8 +454,8 @@ public class Options extends javax.swing.JFrame {
         menu_graph.setVisible(false);
         menu_file.setVisible(false);
         menu_sale.setVisible(false);
-        //
-        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
+        //Titulos al seleccionar el boton
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 24));
         sub_tittle.setText("/Administración de Empleados.");
     }//GEN-LAST:event_button_employeeActionPerformed
 
@@ -473,7 +472,7 @@ public class Options extends javax.swing.JFrame {
         menu_graph.setVisible(false);
         menu_file.setVisible(false);
         menu_sale.setVisible(true);
-        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 24));
         sub_tittle.setText("/Administración de ventas");
     }//GEN-LAST:event_button_saleActionPerformed
 
@@ -491,8 +490,8 @@ public class Options extends javax.swing.JFrame {
         menu_sale.setVisible(false);
         menu_file.setVisible(false);
         menu_graph.setVisible(true);
-        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
-        sub_tittle.setText("/Relación entre los tipos de autos, la cantidad vendida \n y el valor total. ");
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 24));
+        sub_tittle.setText("/Graficas-Relaciones");
     }//GEN-LAST:event_button_graphiqueActionPerformed
 
     private void button_seeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_seeActionPerformed
@@ -518,6 +517,7 @@ public class Options extends javax.swing.JFrame {
     }//GEN-LAST:event_button_seeActionPerformed
 
     private void button_add_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_add_employeeActionPerformed
+        //cambio de color de color del boton al seleccionar
         add_employee window = new add_employee();
         showPanel(window.panel_add_employee, content);
 
@@ -566,7 +566,7 @@ public class Options extends javax.swing.JFrame {
         String[][] registre_employee = ObtenerArchivo("Ventas.txt");
         window.table(registre_employee);
     }//GEN-LAST:event_button_add_file_saleActionPerformed
-
+    //importa Jpanel de otro Jframe para mostrarlo en pantalla
     public static void showPanel(JPanel panel, JPanel screen) {
         panel.setSize(750, 450);
         panel.setLocation(0, 0);

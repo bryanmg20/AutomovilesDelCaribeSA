@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.eliminarRegistro;
+import class_.button_eliminate_employee;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -14,11 +15,11 @@ import javax.swing.JPanel;
  */
 public class eliminate_employee extends javax.swing.JFrame {
 
-    /**
-     * Creates new form eliminate_employee
-     */
+    public button_eliminate_employee controller;
+
     public eliminate_employee() {
         initComponents();
+        controller = new button_eliminate_employee(this);
         color();
         b_eliminar.setEnabled(false);
         num.setVisible(false);
@@ -36,11 +37,12 @@ public class eliminate_employee extends javax.swing.JFrame {
 
         panel_eliminate_employee = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        b_eliminar = new javax.swing.JButton();
         eliminar = new javax.swing.JTextField();
         mensajeemp = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         num = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
+        b_eliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,14 +53,6 @@ public class eliminate_employee extends javax.swing.JFrame {
         jLabel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jLabel1.setText("Cedula Empleado:");
         panel_eliminate_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-
-        b_eliminar.setText("Eliminar Empleado");
-        b_eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_eliminarActionPerformed(evt);
-            }
-        });
-        panel_eliminate_employee.add(b_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
 
         eliminar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         eliminar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -77,6 +71,22 @@ public class eliminate_employee extends javax.swing.JFrame {
         num.setText("¡Ingresar unicamente numeros en este campo!");
         panel_eliminate_employee.add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
+        panel.setBackground(new java.awt.Color(23, 93, 163));
+        panel.setLayout(new java.awt.BorderLayout());
+
+        b_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        b_eliminar.setText("Eliminar Empleado");
+        b_eliminar.setBorderPainted(false);
+        b_eliminar.setContentAreaFilled(false);
+        b_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_eliminarActionPerformed(evt);
+            }
+        });
+        panel.add(b_eliminar, java.awt.BorderLayout.PAGE_START);
+
+        panel_eliminate_employee.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 140, 28));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,9 +101,11 @@ public class eliminate_employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //La funcion color se encarga de cambiar el color del texto del jLabel
+
     void color() {
         jLabel1.setForeground(new Color(11, 61, 138));
     }
+
     //Se encarga de eliminar un registro en funcion de la cedula ingresada por el usuario
     private void b_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eliminarActionPerformed
         //Se obtiene el texto ingresado por el usuario y se almacena en la variable cedula
@@ -101,7 +113,7 @@ public class eliminate_employee extends javax.swing.JFrame {
         //se llama a la funcion eliminarRegistro y se elimina el registro del archivo empleadostxt
         eliminarRegistro(cedula, "Empleados.txt", mensajeemp);
         eliminar.setText(null); //Se borra el contenido del campo de texto para limpiarlo y permitir al usuario ingresar una nueva cedula
-        num.setVisible(false); 
+        num.setVisible(false);
     }//GEN-LAST:event_b_eliminarActionPerformed
 
     private void eliminarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarKeyTyped
@@ -160,12 +172,13 @@ public class eliminate_employee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b_eliminar;
+    public javax.swing.JButton b_eliminar;
     private javax.swing.JTextField eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel mensajeemp;
     private javax.swing.JLabel num;
+    public javax.swing.JPanel panel;
     public javax.swing.JPanel panel_eliminate_employee;
     // End of variables declaration//GEN-END:variables
 }

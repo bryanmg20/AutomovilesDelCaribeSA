@@ -40,6 +40,7 @@ public class file_sale extends javax.swing.JFrame {
         jScrollPane1.setMaximumSize(new java.awt.Dimension(670, 350));
         jScrollPane1.setPreferredSize(new java.awt.Dimension(670, 350));
 
+        table.setForeground(new java.awt.Color(0, 0, 0));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -51,6 +52,8 @@ public class file_sale extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table.setEnabled(false);
+        table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(table);
 
         panel_file_sale.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 670, 310));

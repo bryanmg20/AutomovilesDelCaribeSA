@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.eliminarRegistro;
+import class_.eliminate_sale_;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -14,11 +15,10 @@ import javax.swing.JPanel;
  */
 public class eliminate_sale extends javax.swing.JFrame {
 
-    /**
-     * Creates new form eliminate_sale
-     */
+    public eliminate_sale_ controller;
     public eliminate_sale() {
         initComponents();
+        controller = new eliminate_sale_(this);
         color();
         eliminar_ventas.setEnabled(false); 
         codin.setVisible(false);
@@ -35,11 +35,12 @@ public class eliminate_sale extends javax.swing.JFrame {
 
         panel_eliminate_sale = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        eliminar_ventas = new javax.swing.JButton();
         eliminar_v = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         codin = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
+        eliminar_ventas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,14 +51,6 @@ public class eliminate_sale extends javax.swing.JFrame {
         jLabel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jLabel1.setText("Codigo del vehiculo: ");
         panel_eliminate_sale.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
-
-        eliminar_ventas.setText("Eliminar Venta");
-        eliminar_ventas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminar_ventasActionPerformed(evt);
-            }
-        });
-        panel_eliminate_sale.add(eliminar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
         eliminar_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         eliminar_v.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -75,6 +68,22 @@ public class eliminate_sale extends javax.swing.JFrame {
 
         jLabel3.setText("¡Código unicamente contiene 6 digitos!");
         panel_eliminate_sale.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+
+        panel.setBackground(new java.awt.Color(23, 93, 163));
+        panel.setLayout(new java.awt.BorderLayout());
+
+        eliminar_ventas.setForeground(new java.awt.Color(255, 255, 255));
+        eliminar_ventas.setText("Eliminar Venta");
+        eliminar_ventas.setBorderPainted(false);
+        eliminar_ventas.setContentAreaFilled(false);
+        eliminar_ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminar_ventasActionPerformed(evt);
+            }
+        });
+        panel.add(eliminar_ventas, java.awt.BorderLayout.PAGE_END);
+
+        panel_eliminate_sale.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 110, 28));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,10 +165,11 @@ public class eliminate_sale extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel codin;
     private javax.swing.JTextField eliminar_v;
-    private javax.swing.JButton eliminar_ventas;
+    public javax.swing.JButton eliminar_ventas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    public javax.swing.JPanel panel;
     public javax.swing.JPanel panel_eliminate_sale;
     // End of variables declaration//GEN-END:variables
 }

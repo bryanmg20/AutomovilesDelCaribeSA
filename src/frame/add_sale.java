@@ -5,6 +5,7 @@
 package frame;
 
 import static class_.File_sub.agregarRegistro;
+import class_.add_sale_;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -17,12 +18,10 @@ import javax.swing.JPanel;
  * @author bryan
  */
 public class add_sale extends javax.swing.JFrame {
-
-    /**
-     * Creates new form add_sale
-     */
+    public add_sale_ controller;
     public add_sale() {
         initComponents();
+        controller = new add_sale_(this);
         mensajenom.setVisible(false);
         color();
         mensajecos.setVisible(false);
@@ -49,7 +48,6 @@ public class add_sale extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        agregar_ventas = new javax.swing.JButton();
         nombre_v = new javax.swing.JTextField();
         apellido_v = new javax.swing.JTextField();
         cedula_v = new javax.swing.JTextField();
@@ -68,6 +66,8 @@ public class add_sale extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
+        agregar_ventas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,14 +104,6 @@ public class add_sale extends javax.swing.JFrame {
         jLabel6.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jLabel6.setText("Nombre Empleado:");
         panel_add_sale.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 370, -1));
-
-        agregar_ventas.setText("Agregar Venta");
-        agregar_ventas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregar_ventasActionPerformed(evt);
-            }
-        });
-        panel_add_sale.add(agregar_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
 
         nombre_v.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         nombre_v.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -222,6 +214,23 @@ public class add_sale extends javax.swing.JFrame {
 
         jLabel12.setText("_________________________________");
         panel_add_sale.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
+        panel.setBackground(new java.awt.Color(23, 93, 163));
+        panel.setForeground(new java.awt.Color(255, 255, 255));
+        panel.setLayout(new java.awt.BorderLayout());
+
+        agregar_ventas.setForeground(new java.awt.Color(255, 255, 255));
+        agregar_ventas.setText("Agregar Venta");
+        agregar_ventas.setBorderPainted(false);
+        agregar_ventas.setContentAreaFilled(false);
+        agregar_ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_ventasActionPerformed(evt);
+            }
+        });
+        panel.add(agregar_ventas, java.awt.BorderLayout.PAGE_END);
+
+        panel_add_sale.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 130, 28));
 
         getContentPane().add(panel_add_sale, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
 
@@ -435,7 +444,7 @@ public class add_sale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregar_ventas;
+    public javax.swing.JButton agregar_ventas;
     private javax.swing.JTextField apellido_v;
     private javax.swing.JTextField cedula_v;
     private javax.swing.JTextField codigo;
@@ -460,6 +469,7 @@ public class add_sale extends javax.swing.JFrame {
     private javax.swing.JLabel mensajenom;
     private javax.swing.JLabel mensajenum;
     private javax.swing.JTextField nombre_v;
+    public javax.swing.JPanel panel;
     public javax.swing.JPanel panel_add_sale;
     // End of variables declaration//GEN-END:variables
 }

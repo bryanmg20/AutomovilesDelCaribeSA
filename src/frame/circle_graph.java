@@ -90,7 +90,7 @@ public class circle_graph extends javax.swing.JFrame {
             while (linea_v != null) {
                 String[] campos_prueba = linea_v.split(";");
                 //Se aumenta el contador dependiendo de las marcas de vehiculos
-                switch (campos_prueba[3]) {
+                switch (campos_prueba[4]) {
                     case "CHEVROLET" -> {
                         cant[0] = cant[0] + 1;
                         break;
