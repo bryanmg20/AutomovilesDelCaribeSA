@@ -257,14 +257,17 @@ public class add_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //creamos un funcion la cual esta encargada de habilitar o deshabilitar un boton
     public void botonagregar() {
+        //se verifica si todos los campos estan llenos, de ser asi se habilita el boton de agregar
         if (!nombre.getText().isEmpty() && !apellido.getText().isEmpty() && !cedula.getText().isEmpty() && !telefono.getText().isEmpty() && !salario.getText().isEmpty()) {
             b_agregar.setEnabled(true);
+            // en caso de que algun campo este vacio, entonces el boton no se habilitará
         } else {
             b_agregar.setEnabled(false);
         }
     }
-
+    //La subrutina color esta encargada de cambiar el color del texto de varios JLabel
     void color() {
         jLabel1.setForeground(new Color(11, 61, 138));
         jLabel2.setForeground(new Color(11, 61, 138));
@@ -277,28 +280,34 @@ public class add_employee extends javax.swing.JFrame {
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
-
+    //La funcion botonagregar() se llama dentro de "nombreKeyReleased"
     private void nombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyReleased
+        //Se utiliza para actualizar el estado del boton agregar en funcion del contedio del campo de texto nombre
         botonagregar();
     }//GEN-LAST:event_nombreKeyReleased
 
     private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
-        int key = evt.getKeyChar();
+        //Se obtiene el codigo de la tecla correspondiente al caracter ingresado por el usuario
+        int key = evt.getKeyChar(); // devuelve el caracter que se presionó como un valor entero
+       // se verifica si el caracter ingresado es una letra minuscula o mayuscula
         boolean minusculas = key >= 97 && key <= 122;
         boolean mayusculas = key >= 65 && key <= 90;
+        //Se utiliza este metodo para verificar si lo ingresado es un caracter de control (backspace).
         boolean carac = Character.isISOControl(key);
+        // se verifica si el caracter ingresado no es letra miniscula, mayuscula ni un caracter de control.
         if (!(minusculas || mayusculas || carac)) {
-            mensaje2.setVisible(true);
-            evt.consume();
+            mensaje2.setVisible(true); //se hace visible el mensaje de error
+            evt.consume();//Se consume el evento de tecla para evitar que el caracter no valido se muestre en el campo de texto.
+        // si el caracter ingresado es una letra minuscula, mayuscula o un caracter de control, se oculta el mensaje de error.
         } else {
             mensaje2.setVisible(false);
         }
     }//GEN-LAST:event_nombreKeyTyped
-
+    //Se realizan los mismos eventos anteriores
     private void apellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyReleased
         botonagregar();
     }//GEN-LAST:event_apellidoKeyReleased
-
+    
     private void apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyTyped
         int key = evt.getKeyChar();
         boolean minusculas = key >= 97 && key <= 122;
@@ -315,20 +324,27 @@ public class add_employee extends javax.swing.JFrame {
     private void cedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedulaKeyReleased
         botonagregar();
     }//GEN-LAST:event_cedulaKeyReleased
-
+    //Esta funcion se activa cuando el usuario presiona una tecla en un campo de texto
     private void cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedulaKeyTyped
+        //Se obtiene el codigo de la tecla presionada por el usarui y se almacena en una variable.
         int key = evt.getKeyChar();
+        //Se verifica si el caracter ingresado es un numero.
         boolean numeros = key >= 48 && key <= 57;
+        //Se verifica si el caracter ingresado es un caracter de control.
         boolean carac = Character.isISOControl(key);
+       //Se verifica si el caracter ingresado no es un numero ni un caracter de control
         if (!(numeros || carac)) {
-            mensaje4.setVisible(true);
-            evt.consume();
+            mensaje4.setVisible(true); //se hace visible el mensaje de error.
+            evt.consume(); //Esto impide que el caracter incorrecto aparezca en el campo de texto.
+       // si el caracter ingresado es un numero o un caracter de control, se ejecuta el codigo dentro del else
         } else {
-            mensaje4.setVisible(false);
+            mensaje4.setVisible(false); //se oculta el mensaje de error
         }
+        //Se almacena el texto actual en una variable
         String textoActual = cedula.getText();
+        // se verifica si la longitud es mayor o igual a 10 caracteres
         if (textoActual.length() >= 10) {
-            evt.consume();
+            evt.consume(); //Se evita que el usuario pueda ingresar mas de 10 caracteres en el campo
         }
     }//GEN-LAST:event_cedulaKeyTyped
 
@@ -343,7 +359,7 @@ public class add_employee extends javax.swing.JFrame {
     private void cargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cargoKeyTyped
 
     }//GEN-LAST:event_cargoKeyTyped
-
+    //se realiza lo mismo del evento de la cedula
     private void telefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyReleased
         botonagregar();
     }//GEN-LAST:event_telefonoKeyReleased
@@ -373,7 +389,7 @@ public class add_employee extends javax.swing.JFrame {
     private void salarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salarioActionPerformed
 
     }//GEN-LAST:event_salarioActionPerformed
-
+    //se realiza lo mismo del evento de la cedula
     private void salarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_salarioKeyReleased
         botonagregar();
     }//GEN-LAST:event_salarioKeyReleased
@@ -393,10 +409,11 @@ public class add_employee extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_salarioKeyTyped
-
+    //Se activa cuando se hace click sobre el boton agregar
     private void b_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_agregarActionPerformed
-        //campos
+        //Se crea un arreglo de cadenas
         String aux[] = new String[100];
+        //Se almacenan los valores ingresados por el usuario
         aux[0] = nombre.getText().toUpperCase();
         aux[1] = apellido.getText().toUpperCase();
         aux[2] = cedula.getText();
@@ -404,9 +421,12 @@ public class add_employee extends javax.swing.JFrame {
         aux[4] = telefono.getText();
         Date pr = fecha.getDate();
         aux[6] = salario.getText();
+        //Se verifica si la fecha no esta vacia, y si la longitud de los demas campos es correcta
         if (pr == null || cedula.getText().length() != 10 || telefono.getText().length() != 10 || salario.getText().length() < 7) {
-            datosinv.setVisible(true);
+            //Si alguna condicion no se cumple, se hace visible el mensaje "datosinv"
+            datosinv.setVisible(true); //Indica que el usuario ingreso informacion incompleta
         } else {
+            //Si todas las validaciones se cumplen, se ocultan los mensajes que se estaban mostrando anteriormente
             datosinv.setVisible(false);
             mensaje1.setVisible(false);
             mensaje2.setVisible(false);
@@ -414,6 +434,7 @@ public class add_employee extends javax.swing.JFrame {
             mensaje4.setVisible(false);
             mensajet.setVisible(false);
             mensajesal.setVisible(false);
+            //Se borra el contenido de todos los campos de entrada
             cedula.setText(null);
             apellido.setText(null);
             cedula.setText(null);
@@ -421,10 +442,13 @@ public class add_employee extends javax.swing.JFrame {
             salario.setText(null);
             nombre.setText(null);
             fecha.setDate(null);
+            //Se convierte la fecha seleccionada en string y se almacena en una variabke
             aux[5] = String.valueOf(pr);
             String[] campos_fecha = aux[5].split(" ");
             aux[5] = campos_fecha[2] + "-" + campos_fecha[1].toUpperCase() + "-" + campos_fecha[5];
+            //Se llama a la funcion agregarRegistro para agregar la informacion al archivo empleados.txt.
             agregarRegistro(aux, "Empleados.txt", mensajecedula);
+            //Se escriben toda la informacion en el archivo.
         }
     }//GEN-LAST:event_b_agregarActionPerformed
 

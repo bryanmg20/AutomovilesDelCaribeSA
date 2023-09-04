@@ -90,20 +90,24 @@ public class eliminate_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //La funcion color se encarga de cambiar el color del texto del jLabel
     void color() {
         jLabel1.setForeground(new Color(11, 61, 138));
     }
+    //Se encarga de eliminar un registro en funcion de la cedula ingresada por el usuario
     private void b_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eliminarActionPerformed
+        //Se obtiene el texto ingresado por el usuario y se almacena en la variable cedula
         String cedula = eliminar.getText();
+        //se llama a la funcion eliminarRegistro y se eliminar el registro del archivo empleadostxt
         eliminarRegistro(cedula, "Empleados.txt", mensajeemp);
-        eliminar.setText(null);
-        num.setVisible(false);
+        eliminar.setText(null); //Se borra el contenido del campo de texto para limpiarlo y permitir al usuario ingresar una nueva cedula
+        num.setVisible(false); 
     }//GEN-LAST:event_b_eliminarActionPerformed
 
     private void eliminarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarKeyTyped
         int key = evt.getKeyChar();
-        boolean numeros = key >= 48 && key <= 57;
-        boolean carac = Character.isISOControl(key);
+        boolean numeros = key >= 48 && key <= 57; //Se verifica si lo ingresado son numeros
+        boolean carac = Character.isISOControl(key); //Se verifica si lo ingresado es una tecla de control
         if (!(numeros || carac)) {
             num.setVisible(true);
             evt.consume();

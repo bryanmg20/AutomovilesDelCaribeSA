@@ -278,14 +278,14 @@ public class file_employee extends javax.swing.JFrame {
                 linea_emp = br_emp.readLine();
             }
             br_emp.close();
-            //elimino el archivo original y renombro la copia como este
-            eliminarArchivo("Empleados.txt");
-            renombrarArchivo("aux_1.txt", "Empleados.txt");
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
         }
+        //elimino el archivo original y renombro la copia como este
+        eliminarArchivo("Empleados.txt");
+        renombrarArchivo("aux_1.txt", "Empleados.txt");
         //Se muestra la tabla con los datos actualizados
         String[][] registre_employee = ObtenerArchivo("Empleados.txt");
         table(registre_employee);
