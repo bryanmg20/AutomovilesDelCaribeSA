@@ -203,7 +203,7 @@ public class add_sale extends javax.swing.JFrame {
         panel_add_sale.add(mensajecos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
         mensajecodigo.setText("¡CODIGO YA EXISTENTE!");
-        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
+        panel_add_sale.add(mensajecodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
 
         empleadoex.setText("¡No existe el empleado!");
         panel_add_sale.add(empleadoex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
@@ -268,6 +268,13 @@ public class add_sale extends javax.swing.JFrame {
             agregarRegistro(aux, "Ventas.txt", mensajecodigo);
         } else {
             empleadoex.setVisible(true);
+            mensajecodigo.setVisible(false);
+            nombre_v.setText(null);
+            apellido_v.setText(null);
+            cedula_v.setText(null);
+            codigo.setText(null);
+            costo.setText(null);
+            
         }
     }//GEN-LAST:event_agregar_ventasActionPerformed
 
@@ -370,7 +377,7 @@ public class add_sale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_costoKeyTyped
     public void botonagregarventas() {
-        if (!nombre_v.getText().isEmpty() && !apellido_v.getText().isEmpty() && !cedula_v.getText().isEmpty() && cedula_v.getText().length() == 10 && !codigo.getText().isEmpty() && codigo.getText().length() == 6 && !costo.getText().isEmpty() && costo.getText().length() >= 8) {
+        if (!nombre_v.getText().isEmpty() && !apellido_v.getText().isEmpty() && !cedula_v.getText().isEmpty() &&  !codigo.getText().isEmpty() &&  !costo.getText().isEmpty()) {
             agregar_ventas.setEnabled(true);
         } else {
             agregar_ventas.setEnabled(false);

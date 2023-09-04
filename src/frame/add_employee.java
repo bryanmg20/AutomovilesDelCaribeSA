@@ -353,7 +353,7 @@ public class add_employee extends javax.swing.JFrame {
         boolean numeros = key >= 48 && key <= 57;
         boolean carac = Character.isISOControl(key);
         String textoActual = telefono.getText();
-        if (textoActual.length() == 0 && key != '3') {
+        if (textoActual.length() == 0 && key != '3' || carac) {
             mensaje1.setVisible(true);
             evt.consume();
         } else {
