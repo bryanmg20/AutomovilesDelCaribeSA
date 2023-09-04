@@ -1,17 +1,23 @@
-
 package frame;
 
 import static class_.File_sub.*;
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 
 public class file_employee extends javax.swing.JFrame {
+
     String[][] registre_employee;
+
     public file_employee() {
         initComponents();
+        //diseño de tabla
 
     }
 
@@ -63,20 +69,28 @@ public class file_employee extends javax.swing.JFrame {
         jScrollPane1.setMaximumSize(new java.awt.Dimension(670, 350));
         jScrollPane1.setPreferredSize(new java.awt.Dimension(670, 350));
 
+        table.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
+        table.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        table.setDragEnabled(true);
+        table.setDropMode(javax.swing.DropMode.ON);
+        table.setEnabled(false);
+        table.setFocusable(false);
+        table.setGridColor(new java.awt.Color(23, 93, 163));
+        table.setOpaque(false);
+        table.setRowHeight(30);
+        table.setSelectionBackground(new java.awt.Color(23, 93, 163));
+        table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(table);
 
-        panel_file_employee.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 670, 300));
+        panel_file_employee.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 670, 300));
 
         jLabel1.setText("Ordenar por Salario:");
         panel_file_employee.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
@@ -116,34 +130,36 @@ public class file_employee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private int indice(String[][] matriz, int j, int n){
-        int indice=0;
+    private int indice(String[][] matriz, int j, int n) {
+        int indice = 0;
         //verifica si el nombre o a pellido de dos cadenas son iguales, devuelve el indice
         //del nombre o apellido que sean distintos
         if (!matriz[j][n].equals(matriz[j + 1][n])) {
-                    indice = 0;
-                } else {
-                    if (!matriz[j][n+1].equals(matriz[j + 1][n+1])) {
-                        indice = 1;
-                    }
-                }
-        
+            indice = 0;
+        } else {
+            if (!matriz[j][n + 1].equals(matriz[j + 1][n + 1])) {
+                indice = 1;
+            }
+        }
+
         return indice;
     }
-    private int menor(String[][] matriz, int j, int n){
-        int menor=0;
+
+    private int menor(String[][] matriz, int j, int n) {
+        int menor = 0;
         //compara el tamaño de dos cadenas
         if (matriz[j][n].length() < matriz[j + 1][n].length() || matriz[j][n].length() == matriz[j + 1][n].length()) {
-                    menor =matriz[j][0].length();
-                } else {
-                    if (matriz[j][n].length() > matriz[j + 1][n].length()) {
-                        menor = matriz[j + 1][n].length();
-                    }
-                }
-        
+            menor = matriz[j][0].length();
+        } else {
+            if (matriz[j][n].length() > matriz[j + 1][n].length()) {
+                menor = matriz[j + 1][n].length();
+            }
+        }
+
         return menor;
     }
-    private void exchange(int j){
+
+    private void exchange(int j) {
         String[] aux = new String[registre_employee[0].length];
 
         System.arraycopy(registre_employee[j], 0, aux, 0, registre_employee[0].length);
@@ -157,10 +173,10 @@ public class file_employee extends javax.swing.JFrame {
         for (int i = 0; i < registre_employee.length - 1; i++) {
             for (int j = 0; j < registre_employee.length - 1; j++) {
                 //obtiene el indice del nombre o apellido
-                indice = indice(registre_employee,j,0); 
+                indice = indice(registre_employee, j, 0);
                 //tamaño de la cadena menor
-                int menor = menor(registre_employee,j,indice);
-               
+                int menor = menor(registre_employee, j, indice);
+
                 boolean pin = true;
                 boolean order = false;
                 int k = 0;
@@ -292,11 +308,11 @@ public class file_employee extends javax.swing.JFrame {
         int indice = 0;
         for (int i = 0; i < registre_employee.length - 1; i++) {
             for (int j = 0; j < registre_employee.length - 1; j++) {
-            
-                indice = indice(registre_employee,j,0);
-                
-                int menor = menor(registre_employee,j,indice);
-               
+
+                indice = indice(registre_employee, j, 0);
+
+                int menor = menor(registre_employee, j, indice);
+
                 boolean pin = true;
                 boolean order = false;
                 int k = 0;
@@ -344,10 +360,15 @@ public class file_employee extends javax.swing.JFrame {
             model.addRow(new Object[]{matriz[i][0], matriz[i][1], matriz[i][2], matriz[i][3], matriz[i][4], matriz[i][5], matriz[i][6], matriz[i][7]});
 
         }
+        table.getTableHeader().setOpaque(false);
+
+        table.getTableHeader().setForeground(new Color(255, 255, 255));
+
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(new Color(0, 0, 0));
 
         table.setModel(model);
     }
- 
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

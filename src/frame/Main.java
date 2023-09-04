@@ -52,15 +52,16 @@ public class Main extends javax.swing.JFrame {
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         bar.setPreferredSize(new java.awt.Dimension(500, 10));
-        background.add(bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 400, 10));
+        jPanel2.add(bar);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.jpg"))); // NOI18N
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 400, 10));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -20, 470, 240));
+        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -20, 460, 240));
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 230));
 

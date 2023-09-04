@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Cursor;
+import java.awt.Font;
 import javax.swing.JFrame;
 
 public class Options extends javax.swing.JFrame {
@@ -59,6 +60,7 @@ public class Options extends javax.swing.JFrame {
         panel_add_file_sale = new javax.swing.JPanel();
         button_add_file_sale = new javax.swing.JButton();
         content = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
         line = new javax.swing.JPanel();
         panel_employee = new javax.swing.JPanel();
@@ -83,10 +85,10 @@ public class Options extends javax.swing.JFrame {
         sub_panel.setBackground(new java.awt.Color(23, 93, 163));
         sub_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sub_tittle.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        sub_tittle.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         sub_tittle.setForeground(new java.awt.Color(255, 255, 255));
-        sub_tittle.setText("Bienvenido.");
-        sub_panel.add(sub_tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 670, 30));
+        sub_tittle.setText("Automoviles Del Caribe SA");
+        sub_panel.add(sub_tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 670, 90));
 
         menu_employee.setBackground(new java.awt.Color(33, 122, 204));
         menu_employee.setLayout(new java.awt.GridLayout(1, 0));
@@ -296,15 +298,23 @@ public class Options extends javax.swing.JFrame {
 
         content.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cpu (1).png"))); // NOI18N
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                .addContainerGap(237, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(204, 204, 204))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         backgound.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 750, 450));
@@ -446,6 +456,7 @@ public class Options extends javax.swing.JFrame {
         menu_file.setVisible(false);
         menu_sale.setVisible(false);
         //
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
         sub_tittle.setText("/Administración de Empleados.");
     }//GEN-LAST:event_button_employeeActionPerformed
 
@@ -462,7 +473,7 @@ public class Options extends javax.swing.JFrame {
         menu_graph.setVisible(false);
         menu_file.setVisible(false);
         menu_sale.setVisible(true);
-
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
         sub_tittle.setText("/Administración de ventas");
     }//GEN-LAST:event_button_saleActionPerformed
 
@@ -478,7 +489,8 @@ public class Options extends javax.swing.JFrame {
         menu_sale.setVisible(false);
         menu_file.setVisible(false);
         menu_graph.setVisible(true);
-        sub_tittle.setText("/Relación entre los tipos de autos, la cantidad vendida y el valor total. ");
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
+        sub_tittle.setText("/Relación entre los tipos de autos, la cantidad vendida \n y el valor total. ");
     }//GEN-LAST:event_button_graphiqueActionPerformed
 
     private void button_seeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_seeActionPerformed
@@ -494,6 +506,7 @@ public class Options extends javax.swing.JFrame {
         menu_employee.setVisible(false);
         menu_sale.setVisible(false);
         menu_graph.setVisible(false);
+        sub_tittle.setFont(new Font ("SansSerif", Font.BOLD, 18));
         sub_tittle.setText("/Visualizar archivo de empleados y de ventas");
         
         //vizualizar archivo empleado en tabla
@@ -604,6 +617,7 @@ public class Options extends javax.swing.JFrame {
     public javax.swing.JButton button_see;
     public static javax.swing.JPanel content;
     private javax.swing.JPanel content_menu;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel line;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel menu_employee;
